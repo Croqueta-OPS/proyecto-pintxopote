@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
-
 	<head>
-
 		<meta charset="utf-8"/>
 		<title>Mi página web</title>
 		<link rel="stylesheet" href="main.css" />
+		<!-- JavaScripts-->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script type="text/javascript" src="s3Slider.js"></script>
+		<script type="text/javascript">
+		    $(document).ready(function() {
+		        $('#slider1').s3Slider({
+		            timeOut: 4000 
+		        });
+		    });
+		</script>
 
 	</head>
-
 	<body>
-
 		<div id="articulos">
 			<header id="top_header">
-				<h1>Croqueta OPS</h1>				
+				<h1>Pintxopo Donosti</h1>				
 			</header>
 
 			<nav id="top_menu">
@@ -28,7 +34,20 @@
 
 			<section id="main_section">
 			
-
+		    <div id="slider1">
+		        <ul id="slider1Content">
+		            <li class="slider1Image">
+		                <a href=""><img src="images/1.jpg" alt="1" /></a>
+		                <span class="left"><strong>Title text 1</strong><br />Content text...</span></li>
+		            <li class="slider1Image">
+		                <a href=""><img src="images/2.jpg" alt="2" /></a>
+		                <span class="right"><strong>Title text 2</strong><br />Content text...Content text...Content text...Content text...Content text...Content text...Content text...Content text...Content text...Content text...Content text...</span></li>
+		            <li class="slider1Image">
+		                <a href=""><img src="images/3.jpg" alt="3" /></a>
+		                <span class="right"><strong>Title text 2</strong><br />Content text...</span></li>
+		            <div class="clear slider1Image"></div>
+		        </ul>
+		    </div>
 			</section>
 
 			<section id="fotos_section">

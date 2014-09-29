@@ -3,23 +3,16 @@
 	padding: 0px;
 }
 
-h1 {
-	font: bold 20px Tahoma;
-}
-
-h2 {
-	font: bold 14px Tahoma;
-}
-
-header, section, footer, aside, nav, hgroup {
+section, footer, aside, nav, hgroup {
 	display: block;
 }
 
 body {
 	text-align: center;
+	background-color: #F5FFFA;
 }
 
-article figure {
+article img{
 	width: 30%;
 	height: 185px;
 	background: green;
@@ -32,27 +25,32 @@ article figure {
 
 
 #top_header {
-	padding: 20px;
-	margin-left: 2%;
+	margin-left: -1%;
+	margin-top: 2.5%;
+	font-family: Arial;
+	font-size: 10px;
+	width:30%;
 }
 
 #top_menu {
-	padding-left: 15px;
+	width: 50%;
+	float: right;
+	margin-right: 10%;
+	margin-top: -3%;
 }
 
 #top_menu li {
 	display: inline-block;
-	padding: 15px;
-	padding-top: 5px;
+	padding: 15px;	
 	padding-bottom: 5px;
-	font: bold 14px Tahoma;
+	font: bold 14px sans-serif;
 }
 
 #main_section {
 	height: 350px;
 	width: 95%;
 	margin-left: 2.5%;
-	margin-top: 2%;
+	margin-top: 3%;
 
 	/*margin: 30px; /*660 + 30 + 30 = 720px ocupados, 280px libres */
 }
@@ -73,8 +71,8 @@ article figure {
 }
 
 #slider1 {
-    width: 1221px; /* important to be same as image width */
-    height: 350px; /* important to be same as image height */
+    width: 95%; /* important to be same as image width */
+    height: 50%; /* important to be same as image height */
     position: absolute; /* important */
 	overflow: hidden; /* important */
 }

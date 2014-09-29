@@ -49,9 +49,11 @@ article figure {
 
 #main_section {
 	height: 350px;
-	width: 97%;
+	width: 95%;
 	background: blue;
-	margin: 10px;
+	margin-left: 2.5%;
+	margin-top: 2%;
+
 	/*margin: 30px; /*660 + 30 + 30 = 720px ocupados, 280px libres */
 }
 

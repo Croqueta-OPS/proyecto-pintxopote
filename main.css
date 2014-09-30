@@ -10,6 +10,7 @@ section, footer, aside, nav, hgroup {
 body {
 	text-align: center;
 	background-color: #F5FFFA;
+	font-family: Arial,Helvetica,sans-serif;
 }
 
 article img{
@@ -27,7 +28,6 @@ article img{
 #top_header {
 	margin-left: -1%;
 	margin-top: 2.5%;
-	font-family: Arial;
 	font-size: 10px;
 	width:30%;
 }
@@ -43,7 +43,7 @@ article img{
 	display: inline-block;
 	padding: 15px;	
 	padding-bottom: 5px;
-	font: bold 14px sans-serif;
+	font: bold 14px;
 }
 
 #main_section {
@@ -72,18 +72,14 @@ article img{
 
 #slider1 {
     width: 95%; /* important to be same as image width */
-<<<<<<< HEAD
-    height: 350px; /* important to be same as image height */
-=======
     height: 50%; /* important to be same as image height */
->>>>>>> cedc854f5e84adc115e3384fc4854d591141c5ee
     position: absolute; /* important */
 	overflow: hidden; /* important */
 }
 
 #slider1Content {
     width: 100%; /* important to be same as image width or wider */
-    /*position: absolute;*/
+    position: absolute;
 	top: 0;
 	margin-left: 0;
 }

@@ -73,7 +73,7 @@ article figure {
 }
 
 #slider1 {
-    width: 1221px; /* important to be same as image width */
+    width: 95%; /* important to be same as image width */
     height: 350px; /* important to be same as image height */
     position: absolute; /* important */
 	overflow: hidden; /* important */
@@ -81,7 +81,7 @@ article figure {
 
 #slider1Content {
     width: 100%; /* important to be same as image width or wider */
-    position: absolute;
+    /*position: absolute;*/
 	top: 0;
 	margin-left: 0;
 }

@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 
 app.get('/', function (req, res) {
-	res.send('index.html');
+	res.send('public/index.html');
 });
 
 app.get('/pintxokk', function(req, res){

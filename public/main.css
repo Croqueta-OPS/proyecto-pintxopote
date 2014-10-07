@@ -2,18 +2,21 @@ body {
 	font-family: Arial, 'Lucida Sans Unicode';
 	background-image: url('img/pintxos.jpg'); 
 	background-size: 100%;
+	background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 header {
-	width: 100%;
+	width: 98.75%;
 	height: 8%;
-	margin-top: 1%;
+	position: fixed;
+	top: 2%;
+	height: auto;
 }
 
 .logo {
 	width: 7%;
-	border: 0px solid blue;
-	display:block;
+	display: block;
 	margin: 0 auto;
 }
 
@@ -22,25 +25,20 @@ header {
 	height: auto;
 }
 
+.mainHeader nav {	
+	height: 40px;	
+	margin-top: 2%;
+	font-weight: bold;
+}
+
 .menu {
 	float: left;
 	margin-left: 5%;
 }
 
-.menu ul li {
-	
-}
-
 .menu2 {
 	float: right;
 	margin-right: 5%;
-	padding-left: 5%;
-}
-
-.mainHeader nav {	
-	height: 40px;
-	margin-top: 2%;
-	font-weight: bold;
 }
 
 .mainHeader nav ul {
@@ -61,7 +59,7 @@ header {
 .mainHeader nav a:link, .mainHeader nav a:visited {
 	display: inline-block;
 	color: #FFF;
-	padding: 10px 25px;
+	padding: 10px 40px;
 	height: 20px;
 }
 
@@ -71,12 +69,12 @@ header {
 }
 
 .mainSection {
-
+	margin-top: 10%;
 }
 
 .bienvenida {
 	width: 50%;
-	margin: 10% 0 0 25%;
+	margin: 18% 0 0 25%;
 	color: #FFF;
 	text-align: center;
 	font-size: 160%;
@@ -86,4 +84,34 @@ header {
 .bienvenida p {
 	font-style: italic;
 	font-family: 'Old Standard TT', serif;
+	margin-top: 5%;
+}
+
+.btnDescubre {
+	margin: 4% 0 0 41%;
+	width: 18%;
+	height: 60px;
+	background-color: #FFF;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	text-align: center;
+}
+
+.navRedes {
+	width: 30%;
+	margin: 8% 0 0 35%;
+}
+
+.navRedes ul {
+	list-style: none;
+	margin: 0 auto;
+}
+
+.navRedes ul li {
+	display: inline;
+}
+
+.navRedes ul li a {
+	padding: 0 4.5%;
 }

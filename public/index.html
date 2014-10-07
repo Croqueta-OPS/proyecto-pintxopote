@@ -1,84 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<meta charset="utf-8"/>
+
 		<title>Mi página web</title>
-		<link rel="stylesheet" href="main.css" />
-		<!-- JavaScripts-->
+
+		<meta charset="utf-8"/>
+
+		<link rel="stylesheet" href="main.css" />		
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-		<script type="text/javascript" src="s3Slider.js"></script>
-		<script type="text/javascript">
-		    $(document).ready(function() {
-		        $('#slider1').s3Slider({
-		            timeOut: 4000 
-		        });
-		    });
-		</script>
 
 	</head>
+
 	<body>
-		<div id="articulos">
+
+		<header class="mainHeader">
+
 			
-			<header id="top_header">
-				<div id="logo">
-				<img src="images/logo_pintxopo_malo.png" width="150px" height="150px" alt="The Pintxopo">
-				</div>
-				<h1>PINTXOPOTE DONOSTI</h1>				
-			</header>
-			<nav id="top_menu">
+
+			<!--<nav class="redes">
 				<ul>
-					<li>RUTAS</li>
-					<li>BARES</li>
-					<li><a href="/pintxokk">PINTXOS</a></li>
+					<li><a href="#"><img src="img/facebook.png" /></a></li>
+					<li><a href="#"><img src="img/google_plus.png" /></a></li>
+					<li><a href="#"><img src="img/twitter.png" /></a></li>
+					<li><a href="#"><img src="img/reddit.png" /></a></li>
 				</ul>
-			</nav>
-			<nav id="top_menu2">
-				<ul>	
-					<li><a href="/pintxokek">CALENDARIO</a></li>
-					<li>KAKAFUTI</li>
-					<li>ABOUT US</li>
-				</ul>
-			</nav>
-			<section id="main_section">
+			</nav>-->
 			
-		    <div id="slider1">
-		        <ul id="slider1Content">
-		            <li class="slider1Image">
-		                <a href=""><img src="images/1.jpg" alt="1" /></a>
-		                <span class="left"><strong>Title text 1</strong><br />Content text...</span></li>
-		            <li class="slider1Image">
-		                <a href=""><img src="images/2.jpg" alt="2" /></a>
-		                <span class="right"><strong>Title text 2</strong><br />Content text...Content text...Content text...Content text...Content text...Content text...Content text...Content text...Content text...Content text...Content text...</span></li>
-		            <li class="slider1Image">
-		                <a href=""><img src="images/3.jpg" alt="3" /></a>
-		                <span class="right"><strong>Title text 2</strong><br />Content text...</span></li>
-		            <div class="clear slider1Image"></div>
-		        </ul>
-		    </div>
-			</section>
+			<nav class="menu">
+				<ul>
+					<li class="active"><a href="#">HOME</a></li>
+					<li><a href="#">RUTAS</a></li>
+					<li><a href="#">PINTXOS</a></li>
+					
+				</ul>				
+			</nav>
 
-			<section id="fotos_section">
-				<article>
-					<header>
-						<img src="images/food1.png"/>
-					</header>
-				</article>
-				<article>
-					<header>
-						<img src="images/Selection_001.png"/>
-					</header>
-				</article>
-				<article>
-					<header>
-						<img src="images/bar.jpg"/>
-					</header>
-				</article>
-			</section>
+			<nav class="menu2">
+				<ul>
+					<li><a href="#">BARES</a></li>
+					<li><a href="#">CALENDARIO</a></li>
+					<li><a href="#">ABOUT</a></li>
+				</ul>				
+			</nav>
+
+			<div class="logo">
+				<a href="#"><img src="img/logo_pintxopo_malo.png" /></a>
+			</div>
+
+		</header>
+
+		<div class="mainSection">
+			<div class="bienvenida">
+				<h2>KAKOTA</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>
+			
+			<div class="btnDescubre">
 			
 
-			<footer id="the_footer">
-				Copyleft kakota 2014
-			</footer>
+			</div>
+
+			<div class="navegadorSecundario">
+				<nav class="menu">
+					<ul>						
+						<li><a href="#rutas"><img src="" /></a></li>
+						<li><a href="#pintxos"><img src="" /></a></li>
+						<li><a href="#bares"><img src="" /></a></li>
+						<li><a href="#calendario"><img src="" /></a></li>					
+					</ul>				
+				</nav>
+			</div>
+
 
 		</div>
 

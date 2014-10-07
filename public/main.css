@@ -74,6 +74,11 @@ header {
 	margin: 10% 0 0 25%;
 	color: #FFF;
 	text-align: center;
-	font-family: "Baskerville Old Face", serif;
 	font-size: 160%;
+	font-family: 'Lora', serif;
+}
+
+.bienvenida p {
+	font-style: italic;
+	font-family: 'Old Standard TT', serif;
 }

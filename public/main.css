@@ -27,9 +27,14 @@ header {
 	margin-left: 5%;
 }
 
+.menu ul li {
+	
+}
+
 .menu2 {
 	float: right;
 	margin-right: 5%;
+	padding-left: 5%;
 }
 
 .mainHeader nav {	

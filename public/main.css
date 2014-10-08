@@ -1,3 +1,7 @@
+* {
+	margin: 0;
+}
+
 body {
 	font-family: Arial, 'Lucida Sans Unicode';
 	background-image: url('img/pintxos.jpg'); 
@@ -7,16 +11,16 @@ body {
 }
 
 header {
-	width: 98.75%;
-	height: 8%;
+	width: 100%;
+	height: 1%;
 	position: fixed;
-	top: 2%;
 	height: auto;
+	top: 0;
 	background-color: #FFF;
 }
 
 .logo {
-	width: 7%;
+	width: 5%;
 	display: block;
 	margin: 0 auto;
 }
@@ -27,8 +31,8 @@ header {
 }
 
 .mainHeader nav {	
-	height: 40px;	
-	margin-top: 2%;
+	height: 2%;	
+	margin-top: 1.4%;
 	font-weight: bold;
 }
 
@@ -91,7 +95,7 @@ header {
 .btnDescubre {
 	margin: 3% 0 0 41%;
 	width: 18%;
-	height: 6%;
+	height: 50px;
 	background-color: #FFF;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -100,8 +104,8 @@ header {
 }
 
 .navRedes {
-	width: 40%;
-	margin: 5% 0 0 30%;
+	width: 36%;
+	margin: 4% 0 0 32%;
 }
 
 .navRedes ul {
@@ -114,12 +118,18 @@ header {
 }
 
 .navRedes ul li a {
-	padding: 4%;
+	padding: 6%;
 }
 
-#pintxos {
-	background-color: #FFF;
+.secciones {	
 	margin-left: 5%;
 	width: 90%;
-	height:200px;
+	margin-top: 3%;	
+}
+
+.secciones div {
+	margin-bottom: 3%;
+	width: 100%;
+	height: 20%;
+	background-color: #FFF;	
 }

@@ -12,6 +12,7 @@ header {
 	position: fixed;
 	top: 2%;
 	height: auto;
+	background-color: #FFF;
 }
 
 .logo {
@@ -58,7 +59,7 @@ header {
 
 .mainHeader nav a:link, .mainHeader nav a:visited {
 	display: inline-block;
-	color: #FFF;
+	color: #303030;
 	padding: 10px 40px;
 	height: 20px;
 }
@@ -88,9 +89,9 @@ header {
 }
 
 .btnDescubre {
-	margin: 4% 0 0 41%;
+	margin: 3% 0 0 41%;
 	width: 18%;
-	height: 60px;
+	height: 6%;
 	background-color: #FFF;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -99,8 +100,8 @@ header {
 }
 
 .navRedes {
-	width: 30%;
-	margin: 8% 0 0 35%;
+	width: 40%;
+	margin: 5% 0 0 30%;
 }
 
 .navRedes ul {
@@ -113,5 +114,12 @@ header {
 }
 
 .navRedes ul li a {
-	padding: 0 4.5%;
+	padding: 4%;
+}
+
+#pintxos {
+	background-color: #FFF;
+	margin-left: 5%;
+	width: 90%;
+	height:200px;
 }

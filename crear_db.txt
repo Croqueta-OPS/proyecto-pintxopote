@@ -1,0 +1,26 @@
+
+
+
+// CREAR BASE DE DATOS MONGODB
+
+
+var conection = require('mongodb').MongoClient;
+
+conection.connect("mongodb://localhost:27017/pintxopote", function(err, db) {
+	if(!err) {
+		console.log("We are connected");
+
+		// CREAR UNA COLLECTION
+		db.createCollection('pintxos', function(err, collection) {
+			// whatever
+		});
+
+		// INSERTAR UN OBJETO
+		var collection = db.collection('pintxos');
+		var pintxo = {'nombre':'croqueta', 'apellido':'van der jamon'};
+
+		collection.insert(pintxo, function (err, inserted) {
+		    // whatever
+		});
+	}
+});

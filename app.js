@@ -19,8 +19,17 @@ app.get('/pintxokek', function(req, res){
 	res.send('Hello World 2');
 });
 
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+var conection = require('mongodb').MongoClient;
+
+conection.connect("mongodb://localhost:27017/pintxopote", function(err, db) {
+	if(!err) {
+		console.log("We are connected");
+
+
+
+		
+	}
+});
 
 var server = app.listen(process.env.PORT || 3000, function(){
     console.log('Listening in port %d', server.address().port);

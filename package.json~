@@ -1,6 +1,6 @@
 {
-	"name": "proyecto-pintxopote",
-	"description": "kakota",
+	"name": "hello-wordl",
+	"description": "hello world test app",
 	"version":"0.0.1",
 	"private": true,
 	"dependencies":{

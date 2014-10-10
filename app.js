@@ -3,9 +3,6 @@ var app = express();
 
 app.use(express.static(__dirname + '/public'));
 
-
-// var routes = require('./routes/index');
-
 app.get('/', function (require, response) {
 	response.send('routes/index.html');
 });
@@ -16,8 +13,6 @@ app.get('/request', function(require, response){
 
 var conection = require('mongodb').MongoClient;
 
-var cursor2;
-
 conection.connect("mongodb://localhost:27017/pintxopote", function(err, db) {
 	if(!err) {
 		console.log("We are connected");
@@ -25,26 +20,13 @@ conection.connect("mongodb://localhost:27017/pintxopote", function(err, db) {
 		var assert = require('assert');
 		var collection = db.collection('pintxos');
 
-		/*var cursor = collection.findOne(function(err, document) {
-			console.log(document.apellido);
-		});*/
-
-		cursor2 = collection.find().toArray(function(err, document){
-			document.forEach(function(err,document){
-                console.log (document.apellido);
-            });
+		collection.find().toArray(function(err, document){
+			document.forEach(function(element, index, array){
+				console.log (element.nombre+" "+element.apellido);
+			});
 		});
-
-		
-
 	}
-	
-	
 });
-
-
-
-
 
 var server = app.listen(process.env.PORT || 3000, function(){
     console.log('Listening in port %d', server.address().port);

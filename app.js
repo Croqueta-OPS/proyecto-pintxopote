@@ -16,16 +16,34 @@ app.get('/request', function(require, response){
 
 var conection = require('mongodb').MongoClient;
 
-	var pintxo2 = conection.connect("mongodb://localhost:27017/pintxopote", function(err, db) {
-		if(!err) {
-			console.log("We are connected");
+var cursor2;
 
+conection.connect("mongodb://localhost:27017/pintxopote", function(err, db) {
+	if(!err) {
+		console.log("We are connected");
+
+		var assert = require('assert');
+		var collection = db.collection('pintxos');
+
+		/*var cursor = collection.findOne(function(err, document) {
+			console.log(document.apellido);
+		});*/
+
+		cursor2 = collection.find().toArray(function(err, document){
+			document.forEach(function(err,document){
+                console.log (document.apellido);
+            });
+		});
+
+		
+
+	}
 	
+	
+});
 
-			
-		}
-		return 0;
-	});
+
+
 
 
 var server = app.listen(process.env.PORT || 3000, function(){

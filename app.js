@@ -18,7 +18,6 @@ conection.connect("mongodb://localhost:27017/pintxopote", function(err, db) {
 	if(!err) {
 		console.log("We are connected");
 
-		var assert = require('assert');
 		var collection = db.collection('pintxos');
 
 		collection.find().toArray(function(err, document) {

@@ -140,5 +140,23 @@ header {
 }
 
 .secciones div p {
-	padding: 5%;
+	/*padding: 5%;*/
+}
+
+#pintxos article {
+	margin-left: 4%;
+	display: inline-block;
+	width: 20%;
+	margin-top: 5%;
+	border: 2px solid blue;
+}
+
+#pintxos article img {
+	width: 90%;
+	margin-left: 5%;
+
+}
+
+#pintxos article p, h3 {	
+	text-align: center;
 }

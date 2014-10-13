@@ -9,23 +9,21 @@ app.get('/', function (require, response) {
 
 });
 
-var pintxo = [];
+var pintxos = [];
 
 var conection = require('mongodb').MongoClient;
 
-conection.connect("mongodb://localhost:27017/pintxopote", function(err, db) {
+conection.connect("mongodb://croquetaOPS:Ladronmamon1@ds063879.mongolab.com:63879/croquetaops", function(err, db) {
 
 	if(!err) {
-		console.log("We are connected");
 
 		var collection = db.collection('pintxos');
 
 		collection.find().toArray(function(err, document) {
 
 			document.forEach(function(element, index, array) {
-
-				console.log (element.nombre+" "+element.apellido);
-				pintxo[pintxo.length] = element;	
+				
+				pintxos[pintxos.length] = element;
 							
 			});
 
@@ -34,9 +32,9 @@ conection.connect("mongodb://localhost:27017/pintxopote", function(err, db) {
 
 });
 
-app.get('/pintxos', function(require, response){
+app.get('/pintxos', function(require, response) {
 
-	response.json(pintxo[0]);
+		response.json(pintxos);
 
 });
 

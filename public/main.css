@@ -129,34 +129,62 @@ header {
 .secciones {	
 	margin-left: 5%;
 	width: 90%;
-	margin-top: 3%;	
+	margin-top: 7%;	
 }
 
 .secciones div {
 	margin-bottom: 3%;
 	width: 100%;
 	height: 20%;
-	background-color: #FFF;	
+	background-color: #FFF;
 }
 
-.secciones div p {
-	/*padding: 5%;*/
+.secciones h1 {
+	padding: 8% 0 0 0;
+	font-family: 'Old Standard TT', serif;
+	color: #303030;
+	text-align: center;
+	font-size: 250%;
+	font-weight: 400;
 }
 
+.secciones h2 {
+	padding: 0 0 2% 0;
+	font-family: 'Tangerine', cursive;
+	color: #303030;
+	text-align: center;
+	font-size: 200%;
+	font-weight: 400;	
+}
+
+#pintxos{
+	height: 600px;
+}
 #pintxos article {
-	margin-left: 4%;
+	margin: 1% 0 0 3.8%;
 	display: inline-block;
 	width: 20%;
-	margin-top: 5%;
-	border: 2px solid blue;
+	/*padding: 2% 1%; */
+	/*border: 1px solid #999;*/
+	text-align: center;
+	float:left;
+	border-right: solid 1px #999;
 }
 
 #pintxos article img {
-	width: 90%;
-	margin-left: 5%;
-
+	width: 100%;
 }
 
-#pintxos article p, h3 {	
-	text-align: center;
+
+#pintxos h3 {
+	margin: 5% 0 3% 0; 	
+	font-family: 'Lora', serif;
+	color: #303030;
+}
+
+#pintxos p {
+	padding: 2%;	
+	font-size: 85%;
+	font-family: 'Courgette', cursive;
+	color: #797070;
 }

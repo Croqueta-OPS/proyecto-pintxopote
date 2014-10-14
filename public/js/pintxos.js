@@ -9,7 +9,7 @@ $(document).ready(function() {
 			dataType: "json",
 			success: function(data){
 
-				var pintxos = "";
+				var pintxos = "<h1>Pintxos</h1><h2>Degusta la variedad</h2>";
 
 				data.forEach(function(element, index, array) {
 					

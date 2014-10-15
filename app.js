@@ -19,9 +19,9 @@ conection.connect("mongodb://croquetaOPS:Ladronmamon1@ds063879.mongolab.com:6387
 
 		var collection = db.collection('pintxos');
 
-		collection.find().toArray(function(err, document) {
+		collection.find().toArray(function(err, arrayPintxos) {
 
-			document.forEach(function(element, index, array) {
+			arrayPintxos.forEach(function(element, index, array) {
 				
 				pintxos[pintxos.length] = element;
 							

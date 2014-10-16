@@ -3,11 +3,7 @@ var app = express();
 
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', function (require, response) {
 
-	response.send('routes/index.html');
-
-});
 
 var pintxos = [];
 
@@ -32,11 +28,20 @@ conection.connect("mongodb://croquetaOPS:Ladronmamon1@ds063879.mongolab.com:6387
 
 });
 
-app.get('/pintxos', function(require, response) {
+app.get('/', function (require, response) {
 
-		response.json(pintxos);
+	response.send('routes/index.html');
+	
 
 });
+
+app.get('/pintxos', function (require, response) {
+
+	response.json(pintxos);
+
+});
+
+
 
 var server = app.listen(process.env.PORT || 3000, function() {
 

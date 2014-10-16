@@ -129,7 +129,7 @@ header {
 .secciones {	
 	margin-left: 5%;
 	width: 90%;
-	margin-top: 7%;	
+	margin-top: 7%;			
 }
 
 .secciones div {
@@ -157,9 +157,14 @@ header {
 	font-weight: 400;	
 }
 
+.secciones p {
+	padding: 5%;
+}
+
 #pintxos{
 	height: 600px;
 }
+
 #pintxos article {
 	margin: 1% 0 0 3.8%;
 	display: inline-block;

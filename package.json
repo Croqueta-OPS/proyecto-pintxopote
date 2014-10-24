@@ -4,6 +4,20 @@
 	"version":"0.0.1",
 	"private": true,
 	"dependencies":{
-		"express": "4.9.5"
+		"express": "4.9.5",
+    		"ejs" : "~0.8.5", 				
+    		"mongoose" : "~3.8.1", 			
+    		"passport" : "~0.1.17", 		
+    		"passport-local" : "~0.1.6", 	
+    		"passport-facebook" : "~1.0.2", 
+    		"passport-twitter" : "~1.0.2", 	
+    		"passport-google-oauth" : "~0.1.5",
+    		"connect-flash" : "~0.1.1", 	
+    		"bcrypt-nodejs" : "latest",
+
+		    "morgan": "~1.0.0",
+		    "body-parser": "~1.0.0",
+		    "cookie-parser": "~1.0.0",
+	            "express-session": "~1.0.0"
 	}
 }

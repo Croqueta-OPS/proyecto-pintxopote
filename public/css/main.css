@@ -4,7 +4,7 @@
 
 body {
 	font-family: Arial, 'Lucida Sans Unicode';
-	background-image: url('img/pintxos.jpg'); 
+	background-image: url('/img/pintxos.jpg'); 
 	background-size: 100%;
 	background-repeat: no-repeat;
     background-attachment: fixed;

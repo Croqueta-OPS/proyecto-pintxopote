@@ -5,8 +5,10 @@
 
 		<meta charset="utf-8"/>
 
-		<link rel="stylesheet" href="main.css" />	
+		<link rel="stylesheet" type="text/css" href="css/main.css" ><!--Estilos principales-->	
 		<link href='http://fonts.googleapis.com/css?family=Lora|PT+Sans+Narrow|Old+Standard+TT:400italic,400|Tangerine|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
 
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 		<script type="text/javascript" src="../app.js"></script>
@@ -47,9 +49,13 @@
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 			</div>
 			
-			<div class="btnDescubre">
-				<p>Imaginate un boton bonito</p>
-			</div>
+			<div class="container">
+				<div class="jumbotron text-center">
+					<p>Login or Register with:</p>
+					<a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
+					<a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
+				</div>
+			</div>	
 
 			<div>
 				<nav class="navRedes">

@@ -1,16 +1,16 @@
 // config/passport.js
 
-// load all the things we need
+// Declaramos la estragia que vamos a seguir. En este caso logeamos desde local.
 var LocalStrategy   = require('passport-local').Strategy;
 
-// load up the user model
+// Declaramos el tipo de modelo que vamos a usar
 var User       		= require('../app/models/user');
 
-// expose this function to our app using module.exports
+// Exponemos esta función a nuestra aplicación con module.exports
 module.exports = function(passport) {
 
     // =========================================================================
-    // passport session setup ==================================================
+    // Configuración de passport session ==================================================
     // =========================================================================
     // required for persistent login sessions
     // passport needs ability to serialize and unserialize users out of session

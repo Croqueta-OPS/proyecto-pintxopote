@@ -80,10 +80,13 @@ header {
 
 .bienvenida {
 	width: 50%;
-	margin: 18% 0 0 25%;
+	margin: 16% 0 6% 25%;
 	color: #FFF;
 	text-align: center;
 	font-size: 160%;
+}
+
+.bienvenida h2 {
 	font-family: 'Lora', serif;
 }
 
@@ -103,7 +106,8 @@ header {
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	text-align: center;
-	background-color: rgba(245, 255, 250, 0.8)
+	background-color: rgba(245, 255, 250, 0.35);
+	color: #101010;
 }
 .content a{
 	color:#303030;
@@ -122,27 +126,26 @@ header {
 	background-color: rgba(255, 255, 255, 0.8)
 }
 
-.boton span{
+.boton-log span{
 	margin-right: 3%; 
 }
 
 .navRedes {
 	width: 36%;
-	margin: 0 auto;
-	border: 1px solid blue;
+	margin: 3% 0 0 32%;
 }
 
 .navRedes img {
-	width: 9%;
+	width: 8.5%;
 }
 
 .navRedes ul {
 	list-style: none;
-	/*margin: 0 auto;*/
 }
 
 .navRedes ul li {
 	display: inline;
+	margin-left: 10.5%;
 }
 
 .secciones {	

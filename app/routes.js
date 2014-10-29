@@ -1,10 +1,7 @@
-// app/routes.js
-// var mongoose = require('mongoose');
-// var configDB = require('../config/database.js');
 
 module.exports = function(app, passport) {
 
-
+	var Pintxo   = require('../app/models/pintxo');
 	// =====================================
 	// HOME PAGE (with login links) ========
 	// =====================================
@@ -12,35 +9,15 @@ module.exports = function(app, passport) {
 		res.render('index.ejs'); // load the index.ejs file
 	});
 
-	// app.get('/pintxos', function (require, response) {
+	 app.get('/pintxos', function (require, response) {
 
-	// 	mongoose.connect(configDB.url, function(err, res){
-				
-	// 			if(!err){
-	// 				console.log('Conectado a bbdd');
-				
+	 	Pintxo.find(function(err, pintxos) {
+ 			 if (err) return console.error(err);
+  			console.dir(pintxos);
+  			response.send(pintxos);
+		});
 
-	// 	 		// 	var pintxos = [];
-
-	// 	 		// 	var collection = db.collection('pintxos');
-
-	// 	 		// 	collection.find().toArray(function(err, arrayPintxos) {
-
-	// 				// 	arrayPintxos.forEach(function(element, index, array) {
-						
-	// 				// 		pintxos[pintxos.length] = element;
-									
-	// 	 		// 		});
-
-	// 				// });
-	// 	 		}	
-		
-	// 	});
-	// 			//}); // connect to our database
-
-		//response.json(pintxos);
-
-	//});
+	});
 	
 	// =====================================
 	// LOGIN ===============================

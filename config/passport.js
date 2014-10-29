@@ -3,7 +3,7 @@
 // Declaramos la estragia que vamos a seguir. En este caso logeamos desde local.
 var LocalStrategy   = require('passport-local').Strategy;
 
-// Declaramos el tipo de modelo que vamos a usar
+// Requerimos el tipo de modelo que vamos a usar
 var User       		= require('../app/models/user');
 
 // Exponemos esta función a nuestra aplicación con module.exports

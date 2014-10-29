@@ -190,11 +190,11 @@ header {
 	margin: 1% 0 0 3.8%;
 	display: inline-block;
 	width: 20%;
-	/*padding: 2% 1%; */
-	/*border: 1px solid #999;*/
+	height: 300px;
 	text-align: center;
 	float:left;
-	border-right: solid 1px #999;
+	box-shadow: 1px 1px 6px 0px rgba(50, 50, 50, 0.75);
+	overflow: hidden;
 }
 
 #pintxos article img {

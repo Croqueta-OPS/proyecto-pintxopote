@@ -12,7 +12,7 @@ body {
 
 header {
 	width: 100%;
-	height: 1%;
+	/*height: 1%;*/
 	position: fixed;
 	height: auto;
 	top: 0;
@@ -157,12 +157,11 @@ header {
 .secciones div {
 	margin-bottom: 3%;
 	width: 100%;
-	height: 20%;
-	background-color: #FFF;
+	background-color: #FFF;	
 }
 
 .secciones h1 {
-	padding: 8% 0 0 0;
+	padding: 3% 0 0 0;
 	font-family: 'Old Standard TT', serif;
 	color: #303030;
 	text-align: center;
@@ -180,20 +179,16 @@ header {
 }
 
 .secciones p {
-	padding: 5%;
-}
-
-#pintxos{
-	height: 600px;
+	padding: 5% 5% 1% 5%;
 }
 
 #pintxos article {
-	margin: 1% 0 0 3.8%;
+	margin: 1% 0 4% 3.8%;
 	display: inline-block;
 	width: 20%;
 	height: 300px;
 	text-align: center;
-	float:left;
+	/*float:left;*/
 	box-shadow: 1px 1px 6px 0px rgba(50, 50, 50, 0.75);
 	overflow: hidden;
 }

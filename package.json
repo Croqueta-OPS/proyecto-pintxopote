@@ -20,5 +20,10 @@
 		    "cookie-parser": "~1.0.0",
 	        "method-override": "~1.0.0",
 	        "express-session": "~1.0.0"
-	}
+	},
+
+	"scripts": {
+	  "start": "node server.js"
+	},
+	"main": "server.js"
 }

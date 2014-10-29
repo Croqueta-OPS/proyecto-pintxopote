@@ -21,4 +21,7 @@
 	        "method-override": "~1.0.0",
 	        "express-session": "~1.0.0"
 	}
+	"scripts": {
+	    "start": "node app.js --websocket-port=$OPENSHIFT_NODEJS_PORT --log-level=1"
+	}
 }

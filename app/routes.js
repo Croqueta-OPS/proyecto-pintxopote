@@ -1,7 +1,7 @@
 
 module.exports = function(app, passport) {
 
-	var Pintxo   = require('../app/models/pintxo');
+	var Pintxo = require('../app/models/pintxo');
 	// =====================================
 	// HOME PAGE (with login links) ========
 	// =====================================

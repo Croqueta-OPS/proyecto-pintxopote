@@ -45,8 +45,12 @@ var pintxos = [];
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
 //Servidor ======================================================================
-var server = app.listen(process.env.PORT || 3000, function() {
+/*var server = app.listen(process.env.PORT || 3000, function() {
 
     console.log('Listening in port %d', server.address().port);
 
-});
+});*/
+
+var port = process.env.PORT || 8080  
+, ip = process.env.IP || "127.0.0.1";
+app.listen(port, ip);

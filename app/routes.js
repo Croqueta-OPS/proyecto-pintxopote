@@ -1,4 +1,3 @@
-
 module.exports = function(app, passport) {
 
 	var Pintxo = require('../app/models/pintxo');//modelo

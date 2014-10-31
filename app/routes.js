@@ -1,21 +1,25 @@
 
 module.exports = function(app, passport) {
 
-	var Pintxo = require('../app/models/pintxo');
+	var Pintxo = require('../app/models/pintxo');//modelo
 	// =====================================
 	// HOME PAGE (with login links) ========
 	// =====================================
 	app.get('/', function(req, res) {
 		res.render('index.ejs'); // load the index.ejs file
+		
 	});
 
 	 app.get('/pintxos', function (require, response) {
 
 	 	Pintxo.find(function(err, pintxos) {
- 			 if (err) return console.error(err);
-  			console.dir(pintxos);
+ 			if (err) return console.error(err);
   			response.send(pintxos);
+  			if(pintxos[0].nombre!==""){
+  				console.log(pintxos[0].nombre);
+  			}
 		});
+		
 
 	});
 	

@@ -53,9 +53,4 @@ require('./app/routes.js')(app, passport); // load our routes and pass in our ap
 //Servidor cloud9
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080 || 3000, ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
 
-
-//Servidor OpenShift
-//var port = process.env.OPENSHIFT_NODEJS_PORT || 8080, ip = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
-
-
 app.listen(port, ip);

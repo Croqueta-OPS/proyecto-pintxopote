@@ -7,7 +7,7 @@ $(document).ready(function() {
 		dataType: "json",
 		success: function(data){
 
-			var pintxos = "<h1>Pintxos</h1><h2>Degusta la variedad</h2><div class='articulos'>";
+			var pintxos = "<div class='pintxos_class'><a name='pintxoskk' id='pintxos'/><h1>Pintxos</h1><h2>Degusta la variedad</h2><div class='articulos'>";
 
 			data.forEach(function(element, index, array) {				
 				
@@ -15,7 +15,7 @@ $(document).ready(function() {
 
 			});		
 			
-			pintxos += "</div>";
+			pintxos += "</div></div>";
 
 			$("#pintxos").html(pintxos);
 			

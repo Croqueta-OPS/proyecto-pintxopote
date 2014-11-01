@@ -6,9 +6,11 @@ El proyecto consiste en una web que dará información sobre el pintxopote de Do
 Tendrá diferentes secciones como mapa con rutas, de pintxos y bares, votaciones, calendario
 
 
-Enlace OpenShift:
+Enlace OpenShift: (actualizado todos los dias)
 http://pintxopoproject-pintxopoproject.rhcloud.com/
 
+Enlace Heroku: (actualizado cada semana)
+https://pintxopoproject.herokuapp.com/
 
 Para editar schema:
 - app/models/

@@ -17,27 +17,58 @@
 		<script type="text/javascript">
 		
 			$(function() {
+			
+				$('.ancla').click(function() {
 				
-				$('a[href*=#]:not([href=#])').click(function() {
-					
-					//if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')) {
+					if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')) {
 						var target = $(this.hash);
 						target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
 						if (target.length) {
 							$('html,body').animate({
-								
+							
 								scrollTop: target.offset().top
-								
+							
 							}, 500);
-						return false;
+							return false;
 						}
-				//	}
-				
+						
+					}
+						
 				});
-				
+			
+			});
+
+		</script>
+		
+		<script type="text/javascript">
+			
+			$(document).ready(function () {
+			    $('.navegador a').click(function(e) {
+			
+			        $('.active').removeClass('active');
+			
+			        var $parent = $(this).parent();
+			        if (!$parent.hasClass('active')) {
+			            $parent.addClass('active');
+			        }
+			        //e.preventDefault();
+			    });
 			});
 			
 		</script>
+		
+		<script type="text/javascript">
+			
+			$(document).ready(function () {
+			    $('.homeButton').click(function(e) {
+			
+			        window.scrollTo(0, 0);
+			        
+			    });
+			});
+			
+		</script>
+		
 	</head>
 
 	<body>
@@ -45,18 +76,18 @@
 		<header class="mainHeader">	
 			
 			<nav class="menu">
-				<ul>
-					<li class="active"><a href="">HOME</a></li>
-					<li><a href="#rutas">RUTAS</a></li>
-					<li><a id="apintxos" href="#pintxos">PINTXOS</a></li>
+				<ul class="navegador">
+					<li class="active"><a class="homebutton" href="">HOME</a></li>
+					<li><a class="ancla" href="#rutas">RUTAS</a></li>
+					<li><a class="ancla" href="#pintxos">PINTXOS</a></li>
 				</ul>				
 			</nav>
 
 			<nav class="menu2">
-				<ul>
-					<li><a href="#bares">BARES</a></li>
-					<li><a href="#calendario">CALENDARIO</a></li>
-					<li><a href="">ABOUT</a></li>
+				<ul class="navegador">
+					<li><a class="ancla" href="#bares">BARES</a></li>
+					<li><a class="ancla" href="#calendario">CALENDARIO</a></li>
+					<li><a href="#">ABOUT</a></li>
 				</ul>				
 			</nav>
 

@@ -12,25 +12,24 @@ body {
 
 header {
 	width: 100%;
-	/*height: 1%;*/
 	position: fixed;
-	height: auto;
+	height: 90px;
 	top: 0;
 	background-color: #FFF;
 	box-shadow: 1px 1px 6px 0px rgba(50, 50, 50, 0.75);
 }
 
 .logo {
-	width: 11%;
+	max-width: 10%;
 	display: block;
 	margin: 0 auto;
-	margin-top: 1%;
+	margin-top: 0.5%;
 	margin-bottom: 1%;
 }
 
 .logo img {
 	width: 100%;
-	height: auto;
+	max-height: 80px;
 }
 
 .mainHeader nav {	
@@ -62,6 +61,8 @@ header {
 .mainHeader nav ul li a {
 	text-decoration: none;
 	font-size: 90%;
+	line-height: 0.1;
+	outline: none;
 }
 
 .mainHeader nav a:link, .mainHeader nav a:visited {
@@ -69,6 +70,7 @@ header {
 	color: #303030;
 	padding: 10px 40px;
 	height: 20px;
+	outline: none;
 }
 
 .mainHeader nav a:hover, .mainHeader nav a:active, .mainHeader nav .active a:link, .mainHeader nav .active a:visited {

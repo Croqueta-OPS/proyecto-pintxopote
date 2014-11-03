@@ -9,10 +9,10 @@ module.exports = function(app, passport) {
 	app.get('/', function(req, res) {
 		res.render('index.ejs'); // load the index.ejs file
 		
-			User.find(function(err, user){
-				if (err) return console.error(err);
-				console.log(user);
-			});
+			//User.find(function(err, user){
+				//if (err) return console.error(err);
+				//console.log(user[0].local.email);
+			//});
 
 	
 	});
@@ -53,9 +53,21 @@ module.exports = function(app, passport) {
 	// we will want this protected so you have to be logged in to visit
 	// we will use route middleware to verify this (the isLoggedIn function)
 	app.get('/profile', isLoggedIn, function(req, res) {
+		
+		//User.find(function(err, user){
+		//	if (err) return console.error(err);
+		
+	//	});
+		console.log(req.user.local.administrador);
+		if (req.user.local.administrador != "undefined"){
+			console.log("Es administrador");
+		};
+		
 		res.render('profile.ejs', {
 			user : req.user // get the user out of session and pass to template
 		});
+		
+
 	});
 
 	// =====================================

@@ -188,9 +188,40 @@ header {
 }
 
 #rutas {
-	padding-top: 90px;
-    margin-top: -90px;
-    background-color: transparent;
+    background:none;
+	border:none;
+	bottom:auto;
+	clear:none;
+	cursor:default;
+	/* didn't really know what the default for display should be*/
+	/*display:inline;*/
+	float:none;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:medium;
+	font-style:normal;
+	font-weight:normal;
+	height:auto;
+	left:auto;
+	letter-spacing:normal;
+	line-height:normal;
+	max-height:none;
+	max-width:none;
+	min-height:0;
+	min-width:0;
+	overflow:visible;
+	position:static;
+	right:auto;
+	text-align:left;
+	text-decoration:none;
+	text-indent:0;
+	text-transform:none;
+	top:auto;
+	visibility:visible;
+	white-space:normal;
+	width:auto;
+	z-index:auto;
+    
+    height: 600px;
 }
 
 #pintxos {
@@ -245,23 +276,20 @@ header {
 
 .navRedesLateral {
 	position: fixed;
-	top: 100px;
-	
+	top: 45%;
 	width: 7%;
-	border: 2px solid blue;
+	opacity: 0;
 }
 
 .navRedesLateral ul {
 	list-style: none;
-	border: 2px solid blue;
 }
 
 .navRedesLateral img {
-	width: 100%;
-		display:block;
-    margin:auto;
+	width: 40%;
 }
 
 .navRedesLateral ul li {
-	text-align: center;
+	margin-top: 10px;
+	margin-left: -10px;
 }

@@ -154,7 +154,7 @@ header {
 .secciones {	
 	margin-left: 7%;
 	width: 86%;
-	margin-top: 7%;		
+	margin-top: 7%;	
 }
 
 .secciones div {
@@ -187,10 +187,14 @@ header {
 }
 
 #rutas {
-	position: relative;
-	padding-top: 90px;
+  	padding-top: 90px;
     margin-top: -90px;
-    height: 500px;
+	height: 500px;
+	clear: both;
+}
+
+#rutas img {
+	max-width: none;
 }
 
 #pintxos {
@@ -221,10 +225,6 @@ header {
 
 #calendario div {
 	background-color: #FFF;
-}
-
-.pintxos_class {
-	/*background-color: #FFF;*/
 }
 
 #pintxos article {

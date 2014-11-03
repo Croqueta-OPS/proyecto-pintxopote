@@ -13,7 +13,7 @@ body {
 header {
 	width: 100%;
 	position: fixed;
-	height: 90px;
+	height: auto;
 	top: 0;
 	background-color: #FFF;
 	box-shadow: 1px 1px 6px 0px rgba(50, 50, 50, 0.75);
@@ -70,7 +70,6 @@ header {
 	color: #303030;
 	padding: 10px 40px;
 	height: 20px;
-	outline: none;
 }
 
 .mainHeader nav a:hover, .mainHeader nav a:active, .mainHeader nav .active a:link, .mainHeader nav .active a:visited {
@@ -154,9 +153,9 @@ header {
 }
 
 .secciones {	
-	margin-left: 5%;
-	width: 90%;
-	margin-top: 7%;			
+	margin-left: 7%;
+	width: 86%;
+	margin-top: 7%;		
 }
 
 .secciones div {
@@ -188,9 +187,27 @@ header {
 	padding: 5% 5% 1% 5%;
 }
 
+#rutas {
+	padding-top: 90px;
+    margin-top: -90px;
+    background-color: transparent;
+}
+
 #pintxos {
-	padding-top: 100px;
-    margin-top: -100px;
+	padding-top: 90px;
+    margin-top: -90px;
+    background-color: transparent;
+}
+
+#bares {
+	padding-top: 90px;
+    margin-top: -90px;
+    background-color: transparent;
+}
+
+#calendario {
+	padding-top: 90px;
+    margin-top: -90px;
     background-color: transparent;
 }
 
@@ -224,4 +241,27 @@ header {
 	font-size: 90%;
 	font-family: 'Courgette', cursive;
 	color: #797070;
+}
+
+.navRedesLateral {
+	position: fixed;
+	top: 100px;
+	
+	width: 7%;
+	border: 2px solid blue;
+}
+
+.navRedesLateral ul {
+	list-style: none;
+	border: 2px solid blue;
+}
+
+.navRedesLateral img {
+	width: 100%;
+		display:block;
+    margin:auto;
+}
+
+.navRedesLateral ul li {
+	text-align: center;
 }

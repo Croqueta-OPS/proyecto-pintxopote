@@ -122,7 +122,6 @@ header {
 	padding: 1% ;
 	width: 40%;
 	float: left;
-	/*background-color: #FFF;*/
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -136,7 +135,7 @@ header {
 
 .navRedes {
 	width: 36%;
-	margin: 4% 0 0 32%;
+	margin: 4% 0 13% 32%;
 }
 
 .navRedes img {
@@ -161,7 +160,7 @@ header {
 .secciones div {
 	margin-bottom: 3%;
 	width: 100%;
-	background-color: #FFF;	
+	/*background-color: #FFF;*/	
 }
 
 .secciones h1 {
@@ -171,7 +170,7 @@ header {
 	text-align: center;
 	font-size: 250%;
 	font-weight: 400;
-	background-color: #FFF;
+	/*background-color: #FFF;*/
 }
 
 .secciones h2 {
@@ -188,40 +187,10 @@ header {
 }
 
 #rutas {
-    background:none;
-	border:none;
-	bottom:auto;
-	clear:none;
-	cursor:default;
-	/* didn't really know what the default for display should be*/
-	/*display:inline;*/
-	float:none;
-	font-family:Arial, Helvetica, sans-serif;
-	font-size:medium;
-	font-style:normal;
-	font-weight:normal;
-	height:auto;
-	left:auto;
-	letter-spacing:normal;
-	line-height:normal;
-	max-height:none;
-	max-width:none;
-	min-height:0;
-	min-width:0;
-	overflow:visible;
-	position:static;
-	right:auto;
-	text-align:left;
-	text-decoration:none;
-	text-indent:0;
-	text-transform:none;
-	top:auto;
-	visibility:visible;
-	white-space:normal;
-	width:auto;
-	z-index:auto;
-    
-    height: 600px;
+	position: relative;
+	padding-top: 90px;
+    margin-top: -90px;
+    height: 500px;
 }
 
 #pintxos {
@@ -230,10 +199,18 @@ header {
     background-color: transparent;
 }
 
+#pintxos div {
+	background-color: #FFF;
+}
+
 #bares {
 	padding-top: 90px;
     margin-top: -90px;
     background-color: transparent;
+}
+
+#bares div {
+	background-color: #FFF;
 }
 
 #calendario {
@@ -242,8 +219,12 @@ header {
     background-color: transparent;
 }
 
-.pintxos_class {
+#calendario div {
 	background-color: #FFF;
+}
+
+.pintxos_class {
+	/*background-color: #FFF;*/
 }
 
 #pintxos article {

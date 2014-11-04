@@ -80,7 +80,6 @@ header {
 
 .mainSection {
 	margin-top: 10%;
-	border: 2px solid blue;
 }
 
 .bienvenida {
@@ -153,23 +152,16 @@ header {
 	margin-left: 10.5%;
 }
 
-#hueco {
-	border: 2px solid blue;
-}
-
 #googleMap {
 	width: 86%;
-	padding: 90px 0 0 0;
-	margin: -90px 0 3% 7%;
-	height: 500px;
-	border: 2px solid blue;
+	margin: 0 0 3% 7%;
+	height: 540px;
 }
 
 .secciones {	
 	margin-left: 7%;
 	width: 86%;
 	margin-top: 2%;	
-	border: 2px solid blue;
 }
 
 .secciones div {
@@ -202,8 +194,6 @@ header {
 }
 
 #pintxos {
-	padding-top: 90px;
-    margin-top: -90px;
     background-color: transparent;
 }
 
@@ -212,8 +202,6 @@ header {
 }
 
 #bares {
-	padding-top: 90px;
-    margin-top: -90px;
     background-color: transparent;
 }
 
@@ -222,8 +210,6 @@ header {
 }
 
 #calendario {
-	padding-top: 90px;
-    margin-top: -90px;
     background-color: transparent;
 }
 
@@ -232,7 +218,7 @@ header {
 }
 
 #pintxos article {
-	margin: 1% 0 4% 3.8%;
+	margin: 3% 0 4% 3.8%;
 	display: inline-block;
 	width: 20%;
 	height: 300px;

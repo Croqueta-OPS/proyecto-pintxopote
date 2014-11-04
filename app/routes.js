@@ -59,9 +59,13 @@ module.exports = function(app, passport) {
 		
 	//	});
 		console.log(req.user.local.administrador);
-		if (req.user.local.administrador != "undefined"){
+	
+		if (req.user.local.administrador.localeCompare('1')){
 			console.log("Es administrador");
-		};
+		}
+		else{
+			console.log("No es administrador");
+		}
 		
 		res.render('profile.ejs', {
 			user : req.user // get the user out of session and pass to template

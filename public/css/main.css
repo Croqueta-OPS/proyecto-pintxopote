@@ -136,7 +136,7 @@ header {
 
 .navRedes {
 	width: 36%;
-	margin: 4% 0 13% 32%;
+	margin: 4% 0 7% 32%;
 }
 
 .navRedes img {
@@ -249,7 +249,6 @@ header {
 	position: fixed;
 	top: 45%;
 	width: 7%;
-	opacity: 0;
 }
 
 .navRedesLateral ul {

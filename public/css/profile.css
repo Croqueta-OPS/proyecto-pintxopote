@@ -1,6 +1,52 @@
+* {
+	margin: 0;
+}
+
 body{
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     width: 70%;
-    background-color: #b0e0e6;
+	background-image: url('/img/profile-back.jpg'); 
+	background-size: 100%;
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+}
+
+.header{
+    text-align: center;
+    padding: 2%;
+    background-color:rgba(254,237,196,0.6);
+    border: 1px solid #3D4C3D;
+    border-radius: 5px;
+    margin-bottom: 3%;
+}
+
+.header h1 {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+    background-image: -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+    background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+    background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+}
+
+.info{
+    border: 1px solid #3D4C3D;
+    border-radius: 5px;
+    margin: 3% 0 5% 0;
+    padding: 2%;
+    background: #E0FFE0;
+    width: 40%;
 }

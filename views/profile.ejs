@@ -12,22 +12,20 @@
 <body>
 <div class="container">
 
-	<div class="page-header text-center">
-		<h1><span class="fa fa-anchor"></span> Perfil</h1>
-		<a href="/logout" class="btn btn-default btn-sm">Desconectar</a>
+	<div class="header">
+		<h1><span class="nom-perfil"></span> Perfil</h1>
+		<a href="/logout" class="btn-desconectar">Desconectar</a>
 	</div>
 
-	<div class="row">
+	<div class="info">
 
 		<!-- LOCAL INFORMATION -->
 		<div class="col-sm-6">
 			<div class="well">
-				<h3><span class="fa fa-user"></span> <%= user.local.email %></h3>
+				<h3><span class="nom-user"></span> <%= user.local.nomUsuario %></h3>
 
 					<p>
-						<strong>id</strong>: <%= user._id %><br>
 						<strong>email</strong>: <%= user.local.email %><br>
-						<strong>password</strong>: <%= user.local.password %>
 					</p>
 
 			</div>

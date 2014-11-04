@@ -154,7 +154,6 @@ header {
 }
 
 #hueco {
-	height: 200px;
 	border: 2px solid blue;
 }
 
@@ -163,7 +162,6 @@ header {
 	padding: 90px 0 0 0;
 	margin: -90px 0 3% 7%;
 	height: 500px;
-	clear: both;
 	border: 2px solid blue;
 }
 
@@ -171,6 +169,7 @@ header {
 	margin-left: 7%;
 	width: 86%;
 	margin-top: 2%;	
+	border: 2px solid blue;
 }
 
 .secciones div {

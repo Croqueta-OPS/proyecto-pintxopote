@@ -2,6 +2,7 @@ module.exports = function(app, passport) {
 
 	var Pintxo = require('../app/models/pintxo');//modelo
 	var User = require('../app/models/user');//modelo
+	var Bar = require('../app/models/bar');//modelo
 
 	// =====================================
 	// HOME PAGE (with login links) ========
@@ -13,19 +14,24 @@ module.exports = function(app, passport) {
 				//if (err) return console.error(err);
 				//console.log(user[0].local.email);
 			//});
-
-	
 	});
 
-	 app.get('/pintxos', function (require, response) {
+	app.get('/pintxos', function (require, response) {
 
 	 	Pintxo.find(function(err, pintxos) {
  			if (err) return console.error(err);
   			response.send(pintxos);
-  			if(pintxos[0].nombre!==""){
-  				console.log(pintxos[0].nombre);
-  			}
 		});
+		
+	});
+	
+	app.get('/bares', function (require, response) {
+
+	 	Bar.find(function(err, bares) {
+ 			if (err) return console.error(err);
+  			response.send(bares);
+		});
+		
 	});
 	
 	// =====================================

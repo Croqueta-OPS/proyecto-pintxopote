@@ -26,10 +26,11 @@
 					center:new google.maps.LatLng(43.3133505, -1.9782344),
 					zoom:14,
 					mapTypeControl: false,
+					scrollwheel: false,
 					mapTypeId:google.maps.MapTypeId.ROADMAP
 				};
 				
-				var map=new google.maps.Map(document.getElementById("rutas"), mapProp);
+				var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
 			
 			}
 			
@@ -125,7 +126,7 @@
 			<nav class="menu">
 				<ul class="navegador">
 					<li class="active"><a class="homebutton" href="">HOME</a></li>
-					<li><a class="ancla" href="#rutas">RUTAS</a></li>
+					<li><a class="ancla" href="#googleMap">RUTAS</a></li>
 					<li><a class="ancla" href="#pintxos">PINTXOS</a></li>
 				</ul>				
 			</nav>
@@ -169,11 +170,15 @@
 				</nav>
 			</div>
 
-			<div class="secciones">
+			<div id="hueco">
 				
-				<div id="rutas">
+			</div>
+
+			<div id="googleMap">
 					
-				</div>
+			</div>
+			
+			<div class="secciones">
 				
 				<div id="pintxos">
 					

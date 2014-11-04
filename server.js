@@ -3,22 +3,22 @@ var app = express();
 
 //var conection = require('mongodb').MongoClient;
 var passport = require('passport');
-var flash 	 = require('connect-flash');
+var flash 	 = require('connect-flash');//muestra mensajes flash
 var mongoose = require('mongoose');
 
-var morgan       = require('morgan');
+var morgan       = require('morgan');//muestra las peticiones y respuestas por consola
 var cookieParser = require('cookie-parser');
-var bodyParser   = require('body-parser');
+var bodyParser   = require('body-parser');//necesario para recibir datos desde html
 var session      = require('express-session');
 
-var configDB = require('./config/database.js');
+var configDB = require('./config/database.js');//con esta línea cargamos la url de la base de datos a la variable configDB
 
 // Conexión con BBDD ===============================================================
 mongoose.connect(configDB.url, function(err, res){
 	if(!err){
 		console.log('Conectado a bbdd');
 	}	
-}); // connect to our database
+}); // conectar a la bbdd
 
 require('./config/passport')(passport); // pass passport for configuration
 

@@ -17,6 +17,7 @@ header {
 	top: 0;
 	background-color: #FFF;
 	box-shadow: 1px 1px 6px 0px rgba(50, 50, 50, 0.75);
+	z-index: 10;
 }
 
 .logo {
@@ -79,6 +80,7 @@ header {
 
 .mainSection {
 	margin-top: 10%;
+	border: 2px solid blue;
 }
 
 .bienvenida {
@@ -151,10 +153,24 @@ header {
 	margin-left: 10.5%;
 }
 
+#hueco {
+	height: 200px;
+	border: 2px solid blue;
+}
+
+#googleMap {
+	width: 86%;
+	padding: 90px 0 0 0;
+	margin: -90px 0 3% 7%;
+	height: 500px;
+	clear: both;
+	border: 2px solid blue;
+}
+
 .secciones {	
 	margin-left: 7%;
 	width: 86%;
-	margin-top: 7%;	
+	margin-top: 2%;	
 }
 
 .secciones div {
@@ -184,17 +200,6 @@ header {
 
 .secciones p {
 	padding: 5% 5% 1% 5%;
-}
-
-#rutas {
-  	padding-top: 90px;
-    margin-top: -90px;
-	height: 500px;
-	clear: both;
-}
-
-#rutas img {
-	max-width: none;
 }
 
 #pintxos {

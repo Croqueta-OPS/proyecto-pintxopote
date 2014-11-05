@@ -20,15 +20,19 @@ module.exports = function(app, passport) {
 
 	 	Pintxo.find(function(err, pintxos) {
  			if (err) return console.error(err);
+ 			console.log(pintxos);
   			response.send(pintxos);
 		});
 		
 	});
 	
 	app.get('/bares', function (require, response) {
-
+		console.log("kk");
 	 	Bar.find(function(err, bares) {
+	 				console.log(bares);
+console.log("kkasad");
  			if (err) return console.error(err);
+ 			
   			response.send(bares);
 		});
 		

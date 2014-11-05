@@ -7,17 +7,15 @@ $(document).ready(function() {
 		dataType: "json",
 		success: function(data){
 
+			var bares = "<div><h1>Bares</h1><h2>¡Qué lugares!</h2></div>"
+			console.log(data);
+			data.forEach(function(element, index, array) {
 		
-
-			data.forEach(function(element, index, array) {				
+				bares += "<p>"+element.nombre+"</p>";
 				
-                alert(element.nombre);
+			});
 
-			});		
-			
-			
-
-			//$("#pintxos").html(pintxos);
+			$("#bares").html(bares);
 			
 		}
 

@@ -3,7 +3,9 @@ var mongoose = require('mongoose');
  	var bares = new mongoose.Schema({
 		  coordX: String,
 		  coordY: String,
-		  nombre:String
+		  nombre: String
+	}, {
+		collection: 'bares'
 	});
 
 // create the model for users and expose it to our app

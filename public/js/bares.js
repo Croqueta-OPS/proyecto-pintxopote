@@ -7,18 +7,38 @@ $(document).ready(function() {
 		dataType: "json",
 		success: function(data){
 
-			var bares = "<div><h1>Bares</h1><h2>¡Qué lugares!</h2></div>"
-			console.log(data);
-			data.forEach(function(element, index, array) {
-		
-				bares += "<p>"+element.nombre+"</p>";
+		function initialize() {
 				
-			});
-
-			$("#bares").html(bares);
-			
+				var mapOptions = {
+					center:new google.maps.LatLng(43.3133505, -1.9782344),
+			        zoom:14,
+			        mapTypeControl: false,
+			        scrollwheel: false,
+			        mapTypeId:google.maps.MapTypeId.ROADMAP
+				}
+				
+				var map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
+				
+				var myLatlng;
+				
+				data.forEach(function(element, index, array) {
+				
+					myLatlng = new google.maps.LatLng(element.coordX, element.coordY);
+					
+					var marker = new google.maps.Marker({
+						position: myLatlng,
+						map: map,
+						title: element.nombre
+					});
+				
+				});
+				
+			}
+				
+			google.maps.event.addDomListener(window, 'load', initialize);
+				
 		}
-
+				
 	});         	
-
+				
 });

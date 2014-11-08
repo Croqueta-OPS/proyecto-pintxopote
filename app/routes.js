@@ -83,7 +83,7 @@ module.exports = function(app, passport) {
 	
 	});
 	
-	app.get('/lista-pintxo', isLoggedIn, function(req, res){
+	app.get('/edita-pintxos', isLoggedIn, function(req, res){
 				
 		Pintxo.find({},function(err, pintxo){
 			//Si existe un error

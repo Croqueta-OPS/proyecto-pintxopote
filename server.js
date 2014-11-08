@@ -41,7 +41,6 @@ app.use(flash()); // muestra los mensajes flash en caso de error en el login
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
 
-
 //Servidor local ======================================================================
 /*var server = app.listen(process.env.PORT || 3000, function() {
 

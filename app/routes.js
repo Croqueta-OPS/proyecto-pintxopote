@@ -45,7 +45,8 @@ module.exports = function(app, passport) {
 	app.get('/login', function(req, res) {
 
 		// carga la página de inicio de sesión y muestra un mensaje en caso de error al registrarse
-		res.render('login.ejs', { message: req.flash('loginMessage')}); 
+		res.render('login.ejs', { message: req.flash('loginMessage')});
+		
 	});
 
 	// =====================================
@@ -64,24 +65,42 @@ module.exports = function(app, passport) {
 	// we will use route middleware to verify this (the isLoggedIn function)
 	app.get('/profile', isLoggedIn, function(req, res) {
 		
-		//User.find(function(err, user){
-		//	if (err) return console.error(err);
-		
-	//	});
-		console.log(req.user.local.administrador);
-	
-		if (req.user.local.administrador.localeCompare('1')){
-			console.log("Es administrador");
-		}
-		else{
-			console.log("No es administrador");
-		}
+		//Pintxo.find(function(err, pintxos) {
+	 		
+ 			//if (err) return console.error(err);
+  			//res.send(pintxos);
+  			//console.log(pintxos);
+  			
+		//});
 		
 		res.render('profile.ejs', {
 			user : req.user // get the user out of session and pass to template
 		});
 		
-
+		
+		console.log(req.user.local.administrador);
+	
+	
+	});
+	
+	app.get('/lista-pintxo', isLoggedIn, function(req, res){
+				
+		Pintxo.find({},function(err, pintxo){
+			//Si existe un error
+			if(err){
+				//Muestra por consola
+				console.log(err);
+				res.render('error');
+			}
+			else{
+				//Muestra el objeto recetas en la plantilla recetas.ejs
+				res.render('lista-pintxos.ejs', {
+					pintxos: pintxo
+				})
+			//Cierre de else
+			}
+			//Cierre del find
+			});
 	});
 
 	// =====================================

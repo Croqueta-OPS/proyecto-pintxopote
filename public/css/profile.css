@@ -40,11 +40,18 @@ body{
 
 }
 
-.info{
+.contenedor-editar{
     padding: 2%;
     background: #F5F5F0;
-    width: 100%;
+    width: 45%;
+    float: left;
+}
+
+#contenido{
+    width: 50%;
     height: 350px;
+    background-color: transparent;
+    float:left;
 }
 
 .btn-desconectar{
@@ -80,13 +87,17 @@ body{
     color: #F5F5F0;
 }
 
+.btn-editar{
+        margin: 5%;
+}
+
 .btn-editar a {
-    width: 10%;
+    width: 15%;
     -webkit-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
     -moz-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
     box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
-    color:#253737;
-    background-color:#F5F5F0;
+    color:#F5F5F0;
+    background-color:#00B88A;
     border-radius:5px;
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
@@ -108,3 +119,4 @@ body{
     background-color:#B5B7B6;
     color: #F5F5F0;
 }
+

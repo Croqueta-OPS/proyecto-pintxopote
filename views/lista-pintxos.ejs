@@ -16,22 +16,15 @@
 <body>
 	<div class="container">
 	
-		<div class="header">
-			<h1><span class="nom-perfil"></span> <%= user.local.nomUsuario%></h1>
-			<p><strong>email</strong>: <%= user.local.email %><br></p>
-			<div class="btn-desconectar"><a href="/logout">Desconectar</a></div>
-		</div>
 		
-		<div class="contenedor-editar">
-		
-			<div class="btn-editar"><a href="/lista-pintxo">Ver Pintxos</a></div>
-			
-			<div class="btn-editar"><a href="#">Ver Bares </a></div>
-	
-			<div class="btn-editar"><a href="#">Ver Usuarios</a></div>
-	
-		</div>
-		<div id="contenido"><p>Lista de elementos</p></div>
+		<div id="contenido"><!-- Mostrar una lista de recetas, sólo el campo nombre -->
+            <ul>
+                <% for(var i = 0; i<pintxos.length; i++){ %>
+                    <li><%= pintxos[i].nombre %></li>
+                <% } %>
+            </ul>
+        
+    </div>
 	
 	</div>
 </body>

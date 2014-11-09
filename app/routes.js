@@ -94,7 +94,7 @@ module.exports = function(app, passport) {
 			}
 			else{
 				//Muestra el objeto recetas en la plantilla recetas.ejs
-				res.render('lista-pintxos.ejs', {
+				res.render('edita-pintxos.ejs', {
 					pintxos: pintxo
 				})
 			//Cierre de else

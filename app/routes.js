@@ -102,6 +102,40 @@ module.exports = function(app, passport) {
 			//Cierre del find
 			});
 	});
+	
+	//Añadir un documento a la colección de pintxos
+	app.post('/edita-pintxos',  isLoggedIn,function(req, res) {
+
+		//Creamos una variable para crear un objeto de tipo Recetas
+		var pintxo = new Pintxo ({
+
+			nombre: req.body.nombre,
+			descripcion: req.body.descripcion,
+			img: "default"//hasta que aprendamos a subir archivos se mantiene imagen por defecto
+
+		});
+
+
+		//Para guardar dicha instancia en la base de datos
+		pintxo.save(function (err, obj) {
+
+		  	//Si existe un error
+			if(err){
+				
+				//Muestra por consola el error
+		    	console.log('ERROR: ' + err);
+		    	
+			}
+			else{
+				//Muestra el mensaje por consola
+  				console.log(obj.nombre + ' ha sido guardada.');
+			}
+
+		//Cierre del método save
+		});		
+		
+	//Cierre de la función
+	});
 
 	// =====================================
 	// LOGOUT ==============================

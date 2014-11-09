@@ -8,15 +8,19 @@
 	    .escondido{
 	        display:none;
 	    }
+	    a{
+	        text-decoration: none;
+	    }
 	</style>
 	<script src="js/mostrarForm.js" type="text/javascript"></script>
 </head>
 <body>
 	<div class="container">
 		<a id="mostrarForm" href="#" onclick="mostrarFormulario()">Añadir Pintxo</a>
-		<form action="#">
-		    <label id="hide" class="escondido">Nombre:</label> <input type="text" name="nombre" class="escondido"><br>
-            <label id="hide" class="escondido">Descripción:</label> <input type="text" name="descripcion" class="escondido">
+		<form action="/edita-pintxos" method="post">
+		    <label class="escondido">Nombre:</label> <input type="text" name="nombre" class="escondido"><br>
+            <label class="escondido">Descripción:</label> <input type="text" name="descripcion" class="escondido">
+		   	<button class= "escondido" type="submit"> Añadir </button>
 		</form>
 		
 		<div id="contenido"><!-- Mostrar una lista de pintxos -->
@@ -24,8 +28,8 @@
                 <% for(var i = 0; i<pintxos.length; i++){ %>
                     <li>
                         <%= pintxos[i].nombre %>
-                        <a id="mostrarForm" href="#" onclick="mostrarFormulario()">[Eliminar]</a>
-                    	<a id="mostrarForm" href="#" onclick="mostrarFormulario()">[Editar]</a>
+                        <a id="mostrarForm" href="#" onclick="">[Eliminar]</a>
+                    	<a id="mostrarForm" href="#" onclick="">[Editar]</a>
                     </li>
                 <% } %>
             </ul>

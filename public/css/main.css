@@ -155,13 +155,22 @@ header {
 #rutas {
 	width: 86%;
 	margin: 0 0 3% 7%;
-	height: 600px;
+	height: 540px;
 	background-color: #FFF;
+}
+
+#rutas ul {
+	list-style: none;
+}
+
+#rutas li {
+	display: inline;
+	margin-right: 20px;
 }
 
 #googleMap {
 	width: 100%;
-	height: 540px;
+	height: 500px;
 }
 
 .secciones {	

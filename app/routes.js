@@ -61,25 +61,15 @@ module.exports = function(app, passport) {
 	// =====================================
 	// PROFILE SECTION =====================
 	// =====================================
-	// we will want this protected so you have to be logged in to visit
+	// Para entrar en la sección de profile, hacemos que sea obligatorio estar logeado usando la función 'isLoggedIn'
 	// we will use route middleware to verify this (the isLoggedIn function)
 	app.get('/profile', isLoggedIn, function(req, res) {
-		
-		//Pintxo.find(function(err, pintxos) {
-	 		
- 			//if (err) return console.error(err);
-  			//res.send(pintxos);
-  			//console.log(pintxos);
-  			
-		//});
 		
 		res.render('profile.ejs', {
 			user : req.user // get the user out of session and pass to template
 		});
 		
-		
 		console.log(req.user.local.administrador);
-	
 	
 	});
 	
@@ -96,7 +86,7 @@ module.exports = function(app, passport) {
 				//Muestra el objeto recetas en la plantilla recetas.ejs
 				res.render('edita-pintxos.ejs', {
 					pintxos: pintxo
-				})
+				});
 			//Cierre de else
 			}
 			//Cierre del find
@@ -117,7 +107,7 @@ module.exports = function(app, passport) {
 
 
 		//Para guardar dicha instancia en la base de datos
-		pintxo.save(function (err, obj) {
+		pintxo.save(function (err, pintxo) {
 
 		  	//Si existe un error
 			if(err){
@@ -128,13 +118,32 @@ module.exports = function(app, passport) {
 			}
 			else{
 				//Muestra el mensaje por consola
-  				console.log(obj.nombre + ' ha sido guardada.');
+  				console.log(pintxo.nombre + ' ha sido guardado.');
+  				res.redirect('/edita-pintxos');
 			}
-
-		//Cierre del método save
-		});		
+		});
 		
-	//Cierre de la función
+	});
+	
+	app.post('/borra-pintxos',  isLoggedIn,function(req, res){
+		
+		Pintxo.findByIdAndRemove(req.body.id, function (err, users) {
+ 
+    			//Si existe un error
+			if(err){
+				
+				//Muestra por consola el error
+		    	console.log('ERROR: ' + err);
+		    	
+			}
+			else{
+				//Muestra el mensaje por consola
+  				res.redirect('/edita-pintxos');
+			}
+ 
+  		});
+		
+
 	});
 
 	// =====================================
@@ -160,13 +169,13 @@ module.exports = function(app, passport) {
 	}));
 };
 
-// route middleware to make sure a user is logged in
+// esta es la función utilizada para verificar que un usuario está autentificado
 function isLoggedIn(req, res, next) {
 
-	// if user is authenticated in the session, carry on 
+	// Si el usuario está autentificado, sigue adelante 
 	if (req.isAuthenticated())
 		return next();
 
-	// if they aren't redirect them to the home page
+	// si no ha accedido, redirecciona al inicio
 	res.redirect('/');
 }

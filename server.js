@@ -50,12 +50,12 @@ require('./app/routes.js')(app, passport); // load our routes and pass in our ap
 
 
 //Servidor Cloud9/OpenShift/local
-/*var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080 || 3000, ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080 || 3000, ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
 
-app.listen(port, ip);*/
+app.listen(port, ip);
 
 
 //servidor heroku
-var port = process.env.PORT || 5000; // Use the port that Heroku provides or default to 5000
+/*var port = process.env.PORT || 5000; // Use the port that Heroku provides or default to 5000
 
-app.listen(port);
+app.listen(port);*/

@@ -1,4 +1,5 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose');//ya que vamos a usar mongoose, hacemos el llamamiento a su modulo
+
 //Creo el schema que quiero que muestre
  	var pintxos = new mongoose.Schema({
 		  nombre: String,
@@ -6,6 +7,6 @@ var mongoose = require('mongoose');
 		  img:String
 	});
 
-// create the model for users and expose it to our app
+// con export habilitamos el poder usar la colección desde cualquier parte de la aplicación
 
 module.exports = mongoose.model('Pintxo', pintxos);

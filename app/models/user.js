@@ -1,6 +1,7 @@
 // app/models/user.js
 // Llama a los requerimientos, en este caso mongoose y bcrypt
 var mongoose = require('mongoose');
+//Usamos el módulo bcrypt para almacenar de forma segura una contraseña
 var bcrypt   = require('bcrypt-nodejs');
 
 // Definimos el esquema para el modelo de usuario
@@ -35,6 +36,7 @@ var userSchema = mongoose.Schema({
 
 // metodos ======================
 // Generar hash
+// Con el Hash creamos un rango de salida finito del password que nos pasan
 userSchema.methods.generateHash = function(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };

@@ -5,22 +5,19 @@ module.exports = function(app, passport) {
 	var Bar = require('../app/models/bar');//modelo
 
 	// =====================================
-	// HOME PAGE (with login links) ========
+	// INDEX ========
 	// =====================================
 	app.get('/', function(req, res) {
 		res.render('index.ejs'); // load the index.ejs file
 		
-			//User.find(function(err, user){
-				//if (err) return console.error(err);
-				//console.log(user[0].local.email);
-			//});
 	});
 
 	app.get('/pintxos', function (require, response) {
-
+		//Hacemos un find en la base de datos de la collección Pintxos
 	 	Pintxo.find(function(err, pintxos) {
 	 		
  			if (err) return console.error(err);
+ 			//Obtenemos un array de pintxos (objetos json)
   			response.send(pintxos);
   			
 		});
@@ -93,7 +90,7 @@ module.exports = function(app, passport) {
 			});
 	});
 	
-	//Añadir un documento a la colección de pintxos
+	//Añadir un pintxo a la colección de pintxos
 	app.post('/edita-pintxos',  isLoggedIn,function(req, res) {
 
 		//Creamos una variable para crear un objeto de tipo Recetas
@@ -142,7 +139,6 @@ module.exports = function(app, passport) {
 			}
  
   		});
-		
 
 	});
 

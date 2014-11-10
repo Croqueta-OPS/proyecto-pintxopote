@@ -150,11 +150,17 @@ header {
 .navRedes ul li {
 	display: inline;
 	margin-left: 10.5%;
+}  
+
+#rutas {
+	width: 86%;
+	margin: 0 0 3% 7%;
+	height: 600px;
+	background-color: #FFF;
 }
 
 #googleMap {
-	width: 86%;
-	margin: 0 0 3% 7%;
+	width: 100%;
 	height: 540px;
 }
 

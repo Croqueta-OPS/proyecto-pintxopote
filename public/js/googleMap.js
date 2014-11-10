@@ -11,6 +11,7 @@ function initialize() {
 		minZoom: 14,
 		scrollwheel: false,
 		mapTypeControl: false,
+		streetViewControl: false,
 		center: new google.maps.LatLng(43.3133505, -1.9782344)
 	};
 	

@@ -3,7 +3,9 @@ var mongoose = require('mongoose');
  	var bares = new mongoose.Schema({
 		  coordX: String,
 		  coordY: String,
-		  nombre: String
+		  nombre: String,
+		  rutas: [],
+		  orden: []
 	}, {
 		collection: 'bares'
 	});

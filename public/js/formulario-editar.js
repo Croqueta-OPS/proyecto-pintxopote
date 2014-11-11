@@ -30,6 +30,7 @@ $(document).ready(function() {
 			
 			//Enviamos la variable pintxos, un String simple con instrucciones html, y le indicamos que lo cargue en el div "pintxos"
 			$(".formulario-editar").html(formulario);
+			
 		}
 	});
 	

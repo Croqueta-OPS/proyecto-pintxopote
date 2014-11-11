@@ -87,7 +87,7 @@ module.exports = function(app, passport) {
 			//Cierre de else
 			}
 			//Cierre del find
-			});
+		});
 	});
 	
 	//Añadir un pintxo a la colección de pintxos

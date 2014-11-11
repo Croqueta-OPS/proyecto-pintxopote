@@ -15,6 +15,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
 	<script src="js/mostrarForm.js" type="text/javascript"></script>
 	<script src="js/borrarPintxo.js" type="text/javascript"></script>
+	<script src="js/formulario-editar.js" type="text/javascript"></script>
 
 </head>
 <body>
@@ -32,13 +33,12 @@
                     <li>
                         <%= pintxos[i].nombre %>
                         <a class="btnBorrar" id = <%= pintxos[i].id %> href="#">[Eliminar]</a>
-                    	<a id = <%= pintxos[i].id %> href="#">[Editar]</a>
+                    	<a class="btnEditar" id = <%= pintxos[i].id %> href="#">[Editar]</a>
                     </li>
                 <% } %>
             </ul>
-        
-    </div>
-	
+    	</div>
+    	<div class="formulario-editar"></div>
 	</div>
 </body>
 </html>

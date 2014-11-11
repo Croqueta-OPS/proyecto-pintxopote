@@ -8,7 +8,9 @@ $(document).ready(function() {
                 
         //Realizamos una peticion POST al servidor, accediendo a '/borra-pintxos' y pasandole la id específica del boton pulsado,
         //que ha sido anteriormente nombrada con la misma id que tiene su pintxo asociado en la BBDD
-        $.post( "/borra-pintxos", {id: this.id });
+        $.post( "/borra-pintxos", {
+            id: this.id
+        });
             
     });
     

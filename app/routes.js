@@ -116,11 +116,36 @@ module.exports = function(app, passport) {
 			else{
 				//Muestra el mensaje por consola
   				console.log(pintxo.nombre + ' ha sido guardado.');
-  				res.redirect('/edita-pintxos');
+				res.redirect('/edita-pintxos');
 			}
 		});
 		
 	});
+	
+		//Añadir un pintxo a la colección de pintxos
+	app.post('/actualiza-pintxos',  isLoggedIn,function(req, res) {
+		
+		console.log(req.body.nombre);
+		console.log(req.body.descripcion);
+		
+		Pintxo.update({_id: req.body._id}, {nombre: req.body.nombre, descripcion: req.body.descripcion}, null, function (err) {
+
+			//Si hay error
+			if (err){
+		      	//Muestra por consola el error
+		    	console.log('ERROR: ' + err);
+		    }else{
+		    	//Muestra el mensaje y los datos de la receta en la página recetaModificada.ejs
+				res.redirect('/edita-pintxos')
+		    }
+
+		//Cierre del método update
+		});
+		
+	//Cierre de la función
+	});
+		
+
 	
 	app.post('/borra-pintxos',  isLoggedIn,function(req, res){
 		

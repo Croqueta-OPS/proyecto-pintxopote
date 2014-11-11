@@ -5,7 +5,7 @@ $(document).ready(function() {
 		type: "GET",
 		url: "/profile",
 		dataType: "json",
-		success: function(data){
+		success: function(data) {
 
 			var pintxos = "<div class='pintxos_class'><h1>Pintxos</h1><h2>Degusta la variedad</h2><div class='articulos'>";
 

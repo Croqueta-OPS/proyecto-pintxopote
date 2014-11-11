@@ -22,6 +22,7 @@ $(document).ready(function () {
             
             //Se la ponemos, y el css se encarga de cambiarle el color por ser el que está activo
             $parent.addClass('active');
+            
         }
         
     });

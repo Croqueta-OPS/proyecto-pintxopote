@@ -9,6 +9,7 @@ $(window).bind("scroll", function() {
         
         //Pedimos que nos muestre el <div> con clase "navRedesLateral"
         $(".navRedesLateral").fadeIn();
+        
     }
     
     //Si estamos por encima de la marca establecida
@@ -16,6 +17,7 @@ $(window).bind("scroll", function() {
         
         //Pedimos que nos esconda el navegador
         $(".navRedesLateral").fadeOut();
+        
     }
     
 });

@@ -28,7 +28,7 @@ $(document).ready(function() {
         	dataType: "json",   	//El tipo objeto que se espera recibir, en este caso json, un array de bares
         	
         	//Si la petición es correcta, se ejecutará el script de carga de ruta
-        	success: function(data){
+        	success: function(data) {
         		
         		//Le damos un pequeño timeOut, que solo es necesario si queremos cargar una ruta directamente al cargar la página
         	    setTimeout(function() {
@@ -128,7 +128,9 @@ $(document).ready(function() {
                             if (status == google.maps.DirectionsStatus.OK) {
                                 
                                 //Le indicamos que no queremos que mueva el mapa al imprimir la ruta (si no, hace zoom y descoloca el mapa)
-                                directionsDisplay.setOptions({ preserveViewport: true });
+                                directionsDisplay.setOptions({ 
+                                    preserveViewport: true 
+                                });
                                 
                                 //Imprimimos la ruta en el mapa
                                 directionsDisplay.setDirections(response);

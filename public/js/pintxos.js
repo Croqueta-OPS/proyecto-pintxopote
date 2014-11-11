@@ -11,7 +11,7 @@ $(document).ready(function() {
 		dataType: "json",	//El tipo objeto que se espera recibir, en este caso json, un array de pintxos
 		
 		//Si la petición es correcta, se ejecutará el script de carga de datos
-		success: function(data){
+		success: function(data) {
 
 
 			//Creamos una variable String para meter instrucciones html, que será la que pasaremos despues al html

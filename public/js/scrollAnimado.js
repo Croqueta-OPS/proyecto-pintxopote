@@ -24,7 +24,9 @@ $(function() {
                 }, 500);
                 
                 return false;
+                
             }
+            
         }
     
     });

@@ -8,7 +8,7 @@ module.exports = function(app, passport) {
 	// INDEX ========
 	// =====================================
 	app.get('/', function(req, res) {
-		res.render('index.ejs'); // load the index.ejs file
+		res.render('index.ejs'); // Carga el index.ejs
 		
 	});
 
@@ -80,7 +80,7 @@ module.exports = function(app, passport) {
 				res.render('error');
 			}
 			else{
-				//Muestra el objeto recetas en la plantilla recetas.ejs
+				//Pasamos a la variable pintxos el pintxo
 				res.render('edita-pintxos.ejs', {
 					pintxos: pintxo
 				});
@@ -91,9 +91,9 @@ module.exports = function(app, passport) {
 	});
 	
 	//Añadir un pintxo a la colección de pintxos
-	app.post('/edita-pintxos',  isLoggedIn,function(req, res) {
+	app.post('/edita-pintxos',  isLoggedIn, function(req, res) {
 
-		//Creamos una variable para crear un objeto de tipo Recetas
+		//Creamos una variable para crear un objeto de tipo Pintxo
 		var pintxo = new Pintxo ({
 
 			nombre: req.body.nombre,
@@ -135,7 +135,7 @@ module.exports = function(app, passport) {
 		      	//Muestra por consola el error
 		    	console.log('ERROR: ' + err);
 		    }else{
-		    	//Muestra el mensaje y los datos de la receta en la página recetaModificada.ejs
+		    	//redireccionamos a la página /edita-pintxos
 				res.redirect('/edita-pintxos')
 		    }
 

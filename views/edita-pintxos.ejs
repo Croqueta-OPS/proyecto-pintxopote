@@ -4,14 +4,10 @@
 <head>
 	<title>The Pintxopo</title>
 	<meta charset="utf-8"/>
-	<style>
-	    .escondido{
-	        display:none;
-	    }
-	    a{
-	        text-decoration: none;
-	    }
-	</style>
+
+	<link rel="stylesheet" type="text/css" href="css/editaPintxos.css" >
+	<link href='https://fonts.googleapis.com/css?family=Lora|PT+Sans+Narrow|Old+Standard+TT:400italic,400|Tangerine|Open+Sans+Condensed:300|Courgette' rel='stylesheet' type='text/css'>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
 	<script src="js/mostrarForm.js" type="text/javascript"></script>
 	<script src="js/borrarPintxo.js" type="text/javascript"></script>
@@ -20,25 +16,34 @@
 </head>
 <body>
 	<div class="container">
-		<a id="mostrarForm" href="#" onclick="mostrarFormulario()">Añadir Pintxo</a>
-		<form action="/edita-pintxos" method="post">
-		    <label class="escondido">Nombre:</label> <input type="text" name="nombre" class="escondido"><br>
-            <label class="escondido">Descripción:</label> <input type="text" name="descripcion" class="escondido">
-		   	<button class= "escondido" type="submit"> Añadir </button>
-		</form>
-		
-		<div id="contenido"><!-- Mostrar una lista de pintxos -->
+		<h1>Bienvenido a la edición de pintxos</h1>
+		<h2>Aquí es donde se cocina...</h2>
+		<div class="homeBtn"><a href="/">Ir a home</a></div>
+
+		<h3>1. Añade un nuevo pintxo</h3>
+		<!--<div class="btn-aniadir"><a id="mostrarForm" href="#" onclick="mostrarFormulario()">Añadir Pintxo</a></div>-->
+		<div class="form-style-5">
+			<form action="/edita-pintxos" method="post">
+				<legend><span class="number">i</span> Introduce los datos</legend>
+			    <label>Nombre:</label> <input type="text" name="nombre"><br>
+	            <label>Descripción:</label> <input type="text" name="descripcion">
+			   	<button type="submit"> Añadir </button>
+			</form>
+		</div>
+		<h3>2. Edita o elimina un pintxos</h3>
+		<div class="contenido"><!-- Mostrar una lista de pintxos -->
             <ul>
                 <% for(var i = 0; i<pintxos.length; i++){ %>
                     <li>
                         <%= pintxos[i].nombre %>
-                        <a class="btnBorrar" id = <%= pintxos[i].id %> href="">[Eliminar]</a>
-                    	<a class="btnEditar" id = <%= pintxos[i].id %> href="#">[Editar]</a>
+                        <a class="btnBorrar" id = <%= pintxos[i].id %> href=""><img src="../img/delete.png"></a>
+                    	<a class="btnEditar" id = <%= pintxos[i].id %> href="#"><img src="../img/edit.png"></a>
                     </li>
                 <% } %>
             </ul>
     	</div>
     	<div class="formulario-editar"></div>
+
 	</div>
 </body>
 </html>

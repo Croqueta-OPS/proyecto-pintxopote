@@ -7,5 +7,5 @@ function mostrarFormulario() {
 		escondidos[i].style.display = 'block';
 		
 	}
-
+	
 }

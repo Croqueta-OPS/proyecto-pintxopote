@@ -4,10 +4,17 @@
 <head>
 	<title>The Pintxopo</title>
 	<meta charset="utf-8"/>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+	<!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+	<!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">--> <!-- load bootstrap css -->
+	<link rel="stylesheet" href="css/bootstrap.css"/>
+	<link rel="stylesheet" href="css/bootstrapValidator.min.css"/>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrapValidator.js"></script>
+	<script type="text/javascript" src="js/language/es_ES.js"></script>
+	<!-- jQuery and Bootstrap JS -->
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<style>
-		body 		{ padding-top:80px; }
+		body { padding-top:80px; }
 	</style>
 </head>
 <body>
@@ -23,17 +30,23 @@
 	<% } %>
 
 	<!-- LOGIN FORM -->
-	<form action="/login" method="post">
+	<form name="login" action="/login" method="post">
 		<div class="form-group">
-			<label>Email</label>
-			<input type="text" class="form-control" name="email">
-		</div>
-		<div class="form-group">
-			<label>Password</label>
-			<input type="password" class="form-control" name="password">
-		</div>
-
-		<button type="submit" class="btn btn-warning btn-lg">Login</button>
+            <label class="col-sm-3 control-label">Email address</label>
+                <div class="col-sm-5">
+                     <input type="text" class="form-control" name="email" />
+                </div>
+        </div>
+		<br>
+		<br>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Password</label>
+                <div class="col-sm-5">
+                   		<input type="password" class="form-control" name="password" />
+                </div>
+        </div>
+		<br>
+		<button type="submit" class="btn btn-default">Login</button>
 	</form>
 
 	<hr>
@@ -44,5 +57,83 @@
 </div>
 
 </div>
+<script>
+$(document).ready(function() {
+    $('#login').bootstrapValidator({
+        // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            username: {
+                message: 'The username is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'The username is required and cannot be empty'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: 'The username must be more than 6 and less than 30 characters long'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9]+$/,
+                        message: 'The username can only consist of alphabetical and number'
+                    },
+                    different: {
+                        field: 'password',
+                        message: 'The username and password cannot be the same as each other'
+                    }
+                }
+            },
+            email: {
+                validators: {
+                    notEmpty: {
+                        message: 'The email address is required and cannot be empty'
+                    },
+                    emailAddress: {
+                        message: 'The email address is not a valid'
+                    }
+                }
+            },
+            password: {
+                validators: {
+                    notEmpty: {
+                        message: 'The password is required and cannot be empty'
+                    },
+                    different: {
+                        field: 'username',
+                        message: 'The password cannot be the same as username'
+                    },
+                    stringLength: {
+                        min: 8,
+                        message: 'The password must have at least 8 characters'
+                    }
+                }
+            },
+            birthday: {
+                validators: {
+                    notEmpty: {
+                        message: 'The date of birth is required'
+                    },
+                    date: {
+                        format: 'YYYY/MM/DD',
+                        message: 'The date of birth is not valid'
+                    }
+                }
+            },
+            gender: {
+                validators: {
+                    notEmpty: {
+                        message: 'The gender is required'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
 </body>
 </html>

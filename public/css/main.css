@@ -4,7 +4,7 @@
 
 body {
 	font-family: Arial, 'Lucida Sans Unicode';
-	background-image: url('/img/pintxos.jpg'); 
+	background-image: url('/img/beer2.gif'); 
 	background-size: 100%;
 	background-repeat: no-repeat;
     background-attachment: fixed;
@@ -294,4 +294,14 @@ header {
 .navRedesLateral ul li {
 	margin-top: 10px;
 	margin-left: -10px;
+}
+
+#panelLogin {
+	display: none;
+	height: 220px;
+	width: 40%;
+	background-color: #00FF00;
+	position: absolute;
+	margin-top: -185%;
+	margin-left: 30%;
 }

@@ -10,7 +10,7 @@ var User       		= require('../app/models/user');
 module.exports = function(passport) {
 
     // =========================================================================
-    // Configuración de passport session ==================================================
+    // Configuración de passport session =======================================
     // =========================================================================
     // required for persistent login sessions
     // passport necesita habilitar el serializar o deserializar usuarios por sesión
@@ -27,7 +27,7 @@ module.exports = function(passport) {
         });
     });
     //-------------------------
-     // =========================================================================
+     // ========================================================================
     // LOCAL LOGIN =============================================================
     // =========================================================================
     // we are using named strategies since we have one for login and one for signup

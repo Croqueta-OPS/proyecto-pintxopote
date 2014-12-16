@@ -30,7 +30,6 @@ header {
 
 .logo img {
 	width: 100%;
-	max-height: 80px;
 }
 
 .mainHeader nav {	
@@ -40,37 +39,41 @@ header {
 }
 
 .menu {
+	width: 35%;
 	float: left;
-	margin-left: 5%;
+	margin-left: 10%;
+}
+
+.menu li {
+	float: left;
+	margin-left: 15%;
 }
 
 .menu2 {
+	width: 35%;
 	float: right;
-	margin-right: 5%;
+	margin-right: 10%;
+}
+
+.menu2 li {
+	float: right;
+	margin-right: 15%;
 }
 
 .mainHeader nav ul {
 	list-style: none;
-	margin: 0 auto;
 }
 
 .mainHeader nav ul li {
-	float: left;
-	display: inline;
 }
 
 .mainHeader nav ul li a {
 	text-decoration: none;
 	font-size: 90%;
-	line-height: 0.1;
-	outline: none;
 }
 
 .mainHeader nav a:link, .mainHeader nav a:visited {
-	display: inline-block;
 	color: #303030;
-	padding: 10px 40px;
-	height: 20px;
 }
 
 .mainHeader nav a:hover, .mainHeader nav a:active, .mainHeader nav .active a:link, .mainHeader nav .active a:visited {
@@ -294,14 +297,4 @@ header {
 .navRedesLateral ul li {
 	margin-top: 10px;
 	margin-left: -10px;
-}
-
-#panelLogin {
-	display: none;
-	height: 220px;
-	width: 40%;
-	background-color: #00FF00;
-	position: absolute;
-	margin-top: -185%;
-	margin-left: 30%;
 }

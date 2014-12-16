@@ -27,4 +27,14 @@ $(document).ready(function () {
         
     });
     
+    //Al hacer clic en cualquiera de los botones del menú
+    $('.homeButton').click(function(r) {
+        
+        //Quitamos la class "active" al elemento que la tenga en el momento
+        $('.active').removeClass('active');
+       
+        $('#homeButton').addClass('active');
+        
+    });
+    
 });

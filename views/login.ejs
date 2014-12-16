@@ -4,25 +4,33 @@
 <head>
 	<title>The Pintxopo</title>
 	<meta charset="utf-8"/>
-	<!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
-	<!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">--> <!-- load bootstrap css -->
+	
+	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="css/bootstrap.css"/>
+
+	<!-- BootstrapValidator CSS -->
 	<link rel="stylesheet" href="css/bootstrapValidator.min.css"/>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/bootstrapValidator.js"></script>
-	<script type="text/javascript" src="js/language/es_ES.js"></script>
+
+	
 	<!-- jQuery and Bootstrap JS -->
-	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	
+	<!-- BootstrapValidator JS -->
+	<script type="text/javascript" src="js/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="js/language/es_ES.js"></script>
+	
 	<style>
 		body { padding-top:80px; }
 	</style>
 </head>
 <body>
 <div class="container">
-
-<div class="col-sm-6 col-sm-offset-3">
-
-	<h1><span class="fa fa-sign-in"></span> Login</h1>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="page-header">
+                 <h2>Login</h2>
+            </div>
 
 	<!-- show any messages that come back with authentication -->
 	<% if (message.length > 0) { %>
@@ -30,24 +38,27 @@
 	<% } %>
 
 	<!-- LOGIN FORM -->
-	<form name="login" action="/login" method="post">
+	<form name="registrationForm" id="registrationForm" action="/login" method="post" class="form-horizontal">
 		<div class="form-group">
-            <label class="col-sm-3 control-label">Email address</label>
+            <label class="col-sm-3 control-label">Email</label>
                 <div class="col-sm-5">
                      <input type="text" class="form-control" name="email" />
                 </div>
         </div>
-		<br>
-		<br>
         <div class="form-group">
             <label class="col-sm-3 control-label">Password</label>
                 <div class="col-sm-5">
                    		<input type="password" class="form-control" name="password" />
                 </div>
         </div>
-		<br>
-		<button type="submit" class="btn btn-default">Login</button>
-	</form>
+		<div class="form-group">
+            <div class="col-sm-9 col-sm-offset-3">
+                <!-- Do NOT use name="submit" or id="submit" for the Submit button -->
+                <button type="submit" class="btn btn-default">Login
+                </button>
+             </div>
+            </div>
+        </form>
 
 	<hr>
 
@@ -59,75 +70,36 @@
 </div>
 <script>
 $(document).ready(function() {
-    $('#login').bootstrapValidator({
+    $('#registrationForm').bootstrapValidator({
         // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
-        feedbackIcons: {
+        /*feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',
             invalid: 'glyphicon glyphicon-remove',
             validating: 'glyphicon glyphicon-refresh'
-        },
+        },*/ //Nota Borja: mirar porque no funcionan los glyphicon con bootstrap
         fields: {
-            username: {
-                message: 'The username is not valid',
-                validators: {
-                    notEmpty: {
-                        message: 'The username is required and cannot be empty'
-                    },
-                    stringLength: {
-                        min: 6,
-                        max: 30,
-                        message: 'The username must be more than 6 and less than 30 characters long'
-                    },
-                    regexp: {
-                        regexp: /^[a-zA-Z0-9]+$/,
-                        message: 'The username can only consist of alphabetical and number'
-                    },
-                    different: {
-                        field: 'password',
-                        message: 'The username and password cannot be the same as each other'
-                    }
-                }
-            },
             email: {
                 validators: {
                     notEmpty: {
-                        message: 'The email address is required and cannot be empty'
+                        message: 'No puedes dejar el email vacío'
                     },
                     emailAddress: {
-                        message: 'The email address is not a valid'
+                        message: 'No es un formato de email válido'
                     }
                 }
             },
             password: {
                 validators: {
                     notEmpty: {
-                        message: 'The password is required and cannot be empty'
+                        message: 'No puedes dejar el password vacío'
                     },
                     different: {
                         field: 'username',
-                        message: 'The password cannot be the same as username'
+                        message: 'El password no puede ser el mismo que el nombre de usuario'
                     },
                     stringLength: {
-                        min: 8,
-                        message: 'The password must have at least 8 characters'
-                    }
-                }
-            },
-            birthday: {
-                validators: {
-                    notEmpty: {
-                        message: 'The date of birth is required'
-                    },
-                    date: {
-                        format: 'YYYY/MM/DD',
-                        message: 'The date of birth is not valid'
-                    }
-                }
-            },
-            gender: {
-                validators: {
-                    notEmpty: {
-                        message: 'The gender is required'
+                        min: 4,
+                        message: 'El password debe tener como mínimo 4 caracteres'
                     }
                 }
             }

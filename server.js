@@ -59,3 +59,5 @@ app.listen(port, ip);
 /*var port = process.env.PORT || 5000; // Use the port that Heroku provides or default to 5000
 
 app.listen(port);*/
+
+console.log('Listening in port ' + port);

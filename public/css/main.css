@@ -2,12 +2,20 @@
 	margin: 0;
 }
 
-body {
-	font-family: Arial, 'Lucida Sans Unicode';
+html, body {
 	background-image: url('/img/beer2.gif'); 
 	background-size: 100%;
 	background-repeat: no-repeat;
     background-attachment: fixed;
+    background-position: 0% 30%;
+    height: 100%;
+}
+
+.imgNegro {
+	position: absolute;
+	z-index: 999;
+	opacity: 0.2;
+	display: none;
 }
 
 header {
@@ -64,9 +72,6 @@ header {
 	list-style: none;
 }
 
-.mainHeader nav ul li {
-}
-
 .mainHeader nav ul li a {
 	text-decoration: none;
 	font-size: 90%;
@@ -87,22 +92,27 @@ header {
 
 .bienvenida {
 	width: 50%;
-	margin: 16% 0 4% 25%;
+	margin: 17% 0 4% 25%;
 	color: #FFF;
 	text-align: center;
 	font-size: 200%;
 }
 
 .bienvenida h2 {
-	font-family: 'Lora', serif;
-	font-size: 150%;
+	font-family: 'Old Standard TT', serif;
+	font-size: 170%;
 }
 
 .bienvenida p {
 	font-style: italic;
 	font-family: 'Old Standard TT', serif;
 	margin-top: 5%;
-	margin-bottom: 5%;
+}
+
+#cita{
+	font-family: 'Old Standard TT', serif;
+	font-size: 65%;
+	margin: -0.5% 0 0 60%;
 }
 
 .container-login {
@@ -116,9 +126,11 @@ header {
 	text-align: center;
 	background-color: rgba(245, 255, 250, 0.35);
 	color: #101010;
+	display: none;
 }
 .content a{
 	color:#303030;
+	display: none;
 }
 
 .boton-log{
@@ -130,16 +142,33 @@ header {
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	text-align: center;
-	background-color: rgba(255, 255, 255, 0.8)
+	background-color: rgba(255, 255, 255, 0.8);
+	display: none;
 }
 
 .boton-log span{
 	margin-right: 3%; 
+	display: none;
 }
 
+
+
+.btnUnete {
+	margin-top: 8.5%;
+	width: 20%;
+	margin-left: 40%;
+}
+
+.imgBoton {
+	width: 60%;
+	margin-left: 20%;
+	/*background-color: rgba(255, 255, 255, 0.4);*/
+}
+
+
 .navRedes {
-	width: 36%;
-	margin: 4% 0 7% 32%;
+	width: 24%;
+	margin: 2% 0 7% 36.5%;
 }
 
 .navRedes img {
@@ -152,12 +181,12 @@ header {
 
 .navRedes ul li {
 	display: inline;
-	margin-left: 10.5%;
+	margin-left: 12.5%;
 }  
 
 #rutas {
 	width: 86%;
-	margin: 0 0 3% 7%;
+	margin: 50% 0 3% 7%;
 	height: 540px;
 	background-color: #FFF;
 }
@@ -197,6 +226,7 @@ header {
 	margin-left: 7%;
 	width: 86%;
 	margin-top: 2%;	
+	
 }
 
 .secciones div {
@@ -228,6 +258,8 @@ header {
 	padding: 5% 5% 1% 5%;
 }
 
+
+
 #pintxos {
     background-color: transparent;
 }
@@ -238,6 +270,7 @@ header {
 
 #bares {
     background-color: transparent;
+    border: 1px solid blue;
 }
 
 #bares div {

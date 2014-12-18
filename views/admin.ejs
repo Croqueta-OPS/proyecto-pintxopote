@@ -18,7 +18,7 @@
 	
 	<!-- BootstrapValidator JS -->
 	<script type="text/javascript" src="js/bootstrapValidator.min.js"></script>
-	<script type="text/javascript" src="js/validadorLoginAdmin.js"></script>
+	<script type="text/javascript" src="js/validadorAdmin.js"></script>
 
 
 	<style>
@@ -30,7 +30,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="page-header">
-                 <h2>Login</h2>
+                 <h2>Administración</h2>
             </div>
 
 	<!-- show any messages that come back with authentication -->
@@ -39,32 +39,26 @@
 	<% } %>
 
 	<!-- LOGIN FORM -->
-	<form name="registrationForm" id="registrationForm" action="/login" method="post" class="form-horizontal">
+	<form name="registrationForm" id="registrationForm" action="/admin" method="post" class="form-horizontal">
 		<div class="form-group">
-            <label class="col-sm-3 control-label">Email</label>
-                <div class="col-sm-5">
-                     <input type="text" class="form-control" name="email" />
+            <label class="col-sm-3 control-label">Nombre de usuario</label>
+               <div class="col-sm-5">
+        	             <input type="text" class="form-control" name="username" />
                 </div>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">Password</label>
                 <div class="col-sm-5">
-                   		<input type="password" class="form-control" name="password" />
+                   		<input type="password" class="form-control" name="passwordAdmin" />
                 </div>
         </div>
 		<div class="form-group">
             <div class="col-sm-9 col-sm-offset-3">
                 <!-- Do NOT use name="submit" or id="submit" for the Submit button -->
-                <button type="submit" class="btn btn-default">Login
-                </button>
+                <button type="submit" class="btn btn-default">Acceder</button>
              </div>
             </div>
         </form>
-
-	<hr>
-
-	<p>¿Aún no tienes una cuenta? <a href="/signup">Signup</a></p>
-	<p>O vete a <a href="/">inicio</a>.</p>
 
 </div>
 

@@ -54,7 +54,17 @@ module.exports = function(app, passport) {
 		// carga la página de registro y muestra un mensaje en caso de error al registrarse
 		res.render('signup.ejs', { message: req.flash('signupMessage')});
 	});
+	
+	// Muestra el formulario del login
+	app.get('/admin', function(req, res) {
 
+		// carga la página de inicio de sesión y muestra un mensaje en caso de error al registrarse
+		res.render('admin.ejs', { message: req.flash('loginMessage')});
+		
+	});
+	
+	
+	
 	// =====================================
 	// PROFILE SECTION =====================
 	// =====================================
@@ -68,6 +78,10 @@ module.exports = function(app, passport) {
 		
 		console.log(req.user.local.administrador);
 	
+	});
+	
+	app.get('/administracion', function(req, res) {
+		res.render('administracion.ejs');
 	});
 	
 	app.get('/edita-pintxos', isLoggedIn, function(req, res){
@@ -188,6 +202,15 @@ module.exports = function(app, passport) {
 		failureRedirect : '/login', // redirect back to the signup page if there is an error
 		failureFlash : true // allow flash messages
 	}));
+	
+	//////////BORRAR SI NO FUNCIONA PARA NADA////////////////////////
+	// procesamos el formulario login
+	app.post('/admin', passport.authenticate('local-admin', {
+		successRedirect : '/administracion', // redirect to the secure profile section
+		failureRedirect : '/admin', // redirect back to the signup page if there is an error
+		failureFlash : true // allow flash messages
+	}));
+	////////////////////////////////////////////////////////////////
 };
 
 // esta es la función utilizada para verificar que un usuario está autentificado

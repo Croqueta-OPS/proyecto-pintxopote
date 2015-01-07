@@ -26,24 +26,19 @@ module.exports = function(passport) {
 
     // utilizado para deserializar
     passport.deserializeUser(function(id, done) {
-        User.findById(id, function(err, user) {
-            done(err, user);
+        
+        Admin.findById(id, function(err, user) {
+            if (!user) {
+                User.findById(id, function(err, user) {
+                    done(err, user);
+                });
+            }
+            else {
+                done(err, user);
+            }
         });
+        
     });
-    
-    //-------------------------
-    // ========================================================================
-    // Borrar si no funciona =============================================================
-    passport.serializeUser(function(admin, done) {
-        done(null, admin.id);
-    });
-    
-    passport.deserializeUser(function(id, done) {
-        Admin.findById(id, function(err, admin) {
-            done(err, admin);
-        });
-    });
-    //-------------------------
 
     //-------------------------
      // ========================================================================

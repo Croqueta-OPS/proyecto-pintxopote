@@ -75,12 +75,10 @@ module.exports = function(app, passport) {
 		res.render('profile.ejs', {
 			user : req.user // get the user out of session and pass to template
 		});
-		
-		console.log(req.user.local.administrador);
-	
+
 	});
 	
-	app.get('/administracion', function(req, res) {
+	app.get('/administracion', isLoggedIn, function(req, res) {
 		res.render('administracion.ejs');
 	});
 	

@@ -5,58 +5,113 @@
 body{
     margin: 0 auto;
     width: 70%;
-	background-size: 100%;
-	background-repeat: no-repeat;
-    background-attachment: fixed;
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
-	font-weight: 400;
+	padding: 3%;
 }
 
 .header{
     text-align: center;
-    padding: 2%;
-    background-color:#00B88A;
     width: 100%;
 }
 
-.header h1 {
+#avatar{
+	width: 100%;
+	height: 125px;
+}
+
+#nom-usuario{
+    width: 100%;
+    margin-top: 5%;
+    height: 75px;
+}
+
+#nom-usuario h1 {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-size: 50px;
+	font-size: 35px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: bold;
-	color: #F5F5F0;
-}
-.header p{
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-size: 25px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: bold;
-	color: #F5F5F0;
-
+	color: #999;
+	margin-left: 5%;
+	text-align: left;
 }
 
+.flex-container {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	justify-content: space-around;
+}
+
+.flex-item {
+  margin-top: 5px;
+  margin-bottom: 3%;
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 1%;
+}
+.flex-item img{
+	width: 125px;
+	height: 125px;
+	float:left;
+}
+.flex-item p{
+    color: #999;
+    font-weight: bold;
+    font-size: 1em;
+    text-align: center;
+}
+#datos p{
+	text-align: left;
+	line-height: 20px;
+}
 .contenedor-editar{
-    padding: 2%;
-    background: #F5F5F0;
     width: 100%;
     float: left;
 }
 
-#contenido{
-    width: 50%;
-    height: 350px;
-    background-color: transparent;
-    float:left;
+.logo {
+	max-width: 15%;
+	display: block;
+	margin: 0 auto;
 }
 
-.btn-desconectar{
-    margin-top: 2%;
+.logo img {
+	width: 100%;
 }
+
+hr{
+    margin-top:20px;
+}
+
+.valoraciones{
+    float: left;
+    width: 68%;
+    height: 250px;
+}
+
+
+.valoracion h1{
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 55px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	color: black;
+	text-align: center;
+}
+
 
 .btn-desconectar a {
     width: 10%;
@@ -78,7 +133,6 @@ body{
 .btn-desconectar nav a:link, .btn-desconectar nav a:visited {
 	display: inline-block;
 	color: #303030;
-	padding: 10px 40px;
 	height: 20px;
 }
 
@@ -87,36 +141,4 @@ body{
     color: #F5F5F0;
 }
 
-.btn-editar{
-        margin: 5%;
-}
-
-.btn-editar a {
-    width: 15%;
-    -webkit-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
-    -moz-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
-    box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
-    color:#F5F5F0;
-    background-color:#00B88A;
-    border-radius:5px;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-    border:none;
-    font-size:20px;
-    font-weight:700;
-    padding:4px 16px;
-    text-decoration: none;
-}
-
-.btn-editar nav a:link, .btn-editar nav a:visited {
-	display: inline-block;
-	color: #303030;
-	padding: 10px 40px;
-	height: 20px;
-}
-
-.btn-editar a:hover{
-    background-color:#B5B7B6;
-    color: #F5F5F0;
-}
 

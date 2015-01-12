@@ -1,7 +1,7 @@
 // config/database.js
 
-var user = process.env.USER;
-var password = process.env.PASS;
+var user = process.env.USER1;
+var password = process.env.PASS1;
 
 module.exports = {
 

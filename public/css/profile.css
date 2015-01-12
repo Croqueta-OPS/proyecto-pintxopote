@@ -34,7 +34,7 @@ body{
 	font-style: normal;
 	font-variant: normal;
 	font-weight: bold;
-	color: #999;
+	color: black;
 	margin-left: 5%;
 	text-align: left;
 }
@@ -55,7 +55,7 @@ body{
 
 .flex-item {
   margin-top: 5px;
-  margin-bottom: 3%;
+  margin-bottom: 1%;
   color: black;
   font-weight: bold;
   font-size: 16px;
@@ -73,6 +73,7 @@ body{
     text-align: center;
 }
 #datos p{
+	font-family: 'Roboto Condensed', sans-serif;
 	text-align: left;
 	line-height: 20px;
 }
@@ -141,4 +142,24 @@ hr{
     color: #F5F5F0;
 }
 
+.btnEditarAvatar img{
+	width: 24px;
+	height: auto;
+}
 
+.btnEditar img{
+	width: 24px;
+	height: auto;
+}
+#editar a{
+	font-family: 'Roboto Condensed', sans-serif;
+	text-decoration:none;
+	color:black;
+}
+#editar{
+	margin-bottom:1%;
+}
+
+.radio{
+	float: left;
+}

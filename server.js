@@ -17,6 +17,8 @@ var configDB = require('./config/database.js');//con esta línea cargamos la url
 mongoose.connect(configDB.url, function(err, res){
 	if(!err){
 		console.log('Conectado a bbdd');
+	}else{
+		console.log('ERROR EN LA BBDD');
 	}	
 }); // conectar a la bbdd
 

@@ -5,6 +5,7 @@
 
 -->
 
+<label>CARGAR IMAGEN</label><br/>
 <input type="file" id="imageLoader" name="imageLoader"/>
 <br/>
 <canvas id="imageCanvas"></canvas>
@@ -26,19 +27,32 @@
 
 	        var img = new Image();
 
+
+
 	        img.onload = function(){
+
+	        	if(img.width > 125 || img.height > 125){
 	        	
-	            canvas.width = img.width;
+	        		alert("La imagen debe ser de 125x125px. La imagen no se cargará.");
+
+	       		}else{
+
+	        	canvas.width = img.width;
 	            canvas.height = img.height;
 	            ctx.drawImage(img,0,0);
 
+	        	}
+	        	
+
 	        }
 
-	        img.src = event.target.result;
+	       img.src = event.target.result;
 	    }
 
 	    reader.readAsDataURL(e.target.files[0]);     
 	}
+
+	var dataURL = canvas.toDataURL();
 
 
 </script>

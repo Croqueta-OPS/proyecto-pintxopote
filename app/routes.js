@@ -140,7 +140,7 @@ module.exports = function(app, passport) {
 		console.log(req.body.nombre);
 		console.log(req.body.descripcion);
 		
-		Pintxo.update({_id: req.body._id}, {nombre: req.body.nombre, descripcion: req.body.descripcion}, null, function (err) {
+		Pintxo.update({_id: req.body.id}, {nombre: req.body.nombre, descripcion: req.body.descripcion}, null, function (err) {
 
 			//Si hay error
 			if (err){
@@ -155,6 +155,65 @@ module.exports = function(app, passport) {
 		});
 		
 	//Cierre de la función
+	});
+	
+	//BORRAR SI NO FUNCSIONA//////////////////////////
+	app.post('/actualiza-usuarios',  isLoggedIn,function(req, res) {
+		
+		console.log("prueba"+" "+req.body.id);
+		console.log(req.body.username);
+		
+		
+		User.update({_id: req.body.id},{$set:{nomUsuario: req.body.username, email: req.body.email, sexo:req.body.gender, fechaNac:req.body.birthday}}, function (err) {
+			//Si hay error
+			if (err){
+		      	//Muestra por consola el error
+		    	console.log('ERROR: ' + err);
+		    }else{
+		    	//redireccionamos a la página /edita-pintxos
+				 res.redirect('/profile')
+				 console.log('entra');
+				 console.log(req.body.id);
+				console.log(req.body.username+" 2");
+
+		    }
+
+		//Cierre del método update
+		});
+		
+	//Cierre de la función
+	});
+	///////////////////////////////////////////////////////////////////
+	
+	
+	
+	
+	
+	app.post('/insertImg', isLoggedIn, function(req, res) {
+		
+		User.update({_id : req.body.id}, {$set: {avatar:"scvsdgsgfrsf"}}, { w: 1 }, function(){});
+		
+		
+		
+		
+		/*console.log(req.body.id);
+	
+		User.findOne({_id: req.body.id}, function(err, user){
+
+			console.log(user);
+
+		
+			User.update({_id : req.body.id}, { $set: { avatar: 'sdfsghetds' }}, { multi: true }, function() {
+				console.log("user encontrado2");
+			});
+			
+			
+				
+			User.save(function (err, pintxo) {});
+			
+			
+		});*/
+		
 	});
 		
 

@@ -4,7 +4,6 @@
 
 body{
     margin: 0 auto;
-    width: 70%;
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 14px;
 	font-style: normal;
@@ -113,35 +112,6 @@ hr{
 	text-align: center;
 }
 
-
-.btn-desconectar a {
-    width: 10%;
-    -webkit-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
-    -moz-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
-    box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
-    color:#253737;
-    background-color:#F5F5F0;
-    border-radius:5px;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-    border:none;
-    font-size:12px;
-    font-weight:700;
-    padding:4px 16px;
-    text-decoration: none;
-}
-
-.btn-desconectar nav a:link, .btn-desconectar nav a:visited {
-	display: inline-block;
-	color: #303030;
-	height: 20px;
-}
-
-.btn-desconectar a:hover{
-    background-color:#B5B7B6;
-    color: #F5F5F0;
-}
-
 .btnEditarAvatar img{
 	width: 24px;
 	height: auto;
@@ -157,9 +127,30 @@ hr{
 	color:black;
 }
 #editar{
-	margin-bottom:1%;
+	margin: 0 auto;
+	width: 8%;
+	text-align: center;
+}
+#editar img{
+	margin: 0 auto;
 }
 
 .radio{
 	float: left;
+}
+
+.btn-desconectar{
+	margin: 0 auto;
+	text-align: center;
+}
+
+.form-horizontal{
+	margin: 0 auto;
+	padding: 0;
+}
+
+
+
+.editar{
+	display:inline-block;
 }

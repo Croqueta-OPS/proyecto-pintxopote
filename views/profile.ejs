@@ -26,9 +26,15 @@
 		<!-- BootstrapValidator JS -->
 		<script type="text/javascript" src="js/bootstrapValidator.min.js"></script>
 		<script type="text/javascript" src="js/validarRegistroUser.js"></script>
+		
+		<script type="text/javascript" src="js/canvasImg.js"></script>
+		<script type="text/javascript" src="js/insertarImg.js"></script>
+			<script src="js/editarUsuario.js" type="text/javascript"></script>
+
 
 		
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
 
 </head>
 <body>
@@ -43,12 +49,17 @@
         		<div class="flex-item" id="datos">
         			<div id="avatar">
         				<img src="img/default-avatar.png">
+        				<input type="file" id="imageLoader" name="imageLoader"/>
+        				<br/>
         				<a class="btnEditarAvatar" href="#"><img src="../img/edit.png"></a>
+        				<canvas id="imageCanvas"></canvas>
         			</div>
 					<div id="nom-usuario"><h1><%= user.local.nomUsuario%></h1>
 					</div>
+					<div id="id-usuario"><%= user.id%></div>
 					<div id="datos-usuario">
-						<p>Email: <%= user.local.email %></p>
+						<p>Email: </p>
+						<p id="email"><%= user.local.email %></p>
 						<p>Sexo: <%= user.local.sexo %></p>
 						<p>Fecha de nacimiento: <%= user.local.fechaNac %></p>
 					</div>
@@ -66,83 +77,87 @@
         	<!--FIN del contenedor flexible-->
         	<hr>
         	<div class="modal fade" id="contact" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-						<div class="modal-header">
-							<h4>Edita tu perfil</h4>
-						</div>
-						<div class="modal-body">
-							
-						<div class="container-form">
-
-									<!-- Inicio del formulario ////////////////////-->
-									<form id="registrationForm" method="post" class="form-horizontal">
-					                    <div class="form-group">
-					                        <label class="col-sm-3 control-label">Nombre de usuario</label>
-					                        <div class="col-sm-5">
-					                            <input type="text" class="form-control" name="username" />
-					                        </div>
-					                    </div>
-					
-					                    <div class="form-group">
-					                        <label class="col-sm-3 control-label">Email</label>
-					                        <div class="col-sm-5">
-					                            <input type="text" class="form-control" name="email" />
-					                        </div>
-					                    </div>
-					
-					                    <div class="form-group">
-					                        <label class="col-sm-3 control-label">Password</label>
-					                        <div class="col-sm-5">
-					                            <input type="password" class="form-control" name="password" />
-					                        </div>
-					                    </div>
-					
-					                    <div class="form-group">
-					                        <label class="col-sm-3 control-label">Sexo</label>
-					                        <div class="col-sm-5">
-					                            <div class="radio">
-					                                <label>
-					                                    <input type="radio" name="gender" value="Hombre" /> Hombre
-					                                </label>
-					                            </div>
-					                            <div class="radio">
-					                                <label>
-					                                    <input type="radio" name="gender" value="Mujer" /> Mujer
-					                                </label>
-					                            </div>
-					                        </div>
-					                    </div>
-					
-					                    <div class="form-group">
-					                        <label class="col-sm-3 control-label">Fecha de nac.</label>
-					                        <div class="col-sm-5">
-					                            <input type="text" class="form-control" name="birthday" placeholder="YYYY/MM/DD" />
-					                        </div>
-					                    </div>
-							         </form>
-							         </div>
-				    </div>
-					<!-- FIN del formulario ////////////////////-->
-
-					<div class="modal-footer">
-				        <button type="submit" class="btn btn-primary">Actualizar</button>
-
-						<a class="btn btn-default" data-dismiss="modal">
-							Cerrar
-						</a>
-					</div>
-					</div>
-				</div>
+											<div class="modal-dialog">
+												<div class="modal-content">
+														<div class="modal-header"><h4>Edita tu perfil</h4></div>
+														
+														<div class="modal-body">
+															<div class="container-form">
+																
+																	<!-- Inicio del formulario ////////////////////-->
+																	<form action="/actualiza-usuarios" id="registrationForm" method="post" class="form-horizontal">
+								                 
+								                 <div class="form-group">
+								                     <label class="col-sm-3 control-label">ID</label>
+								                     <div class="col-sm-5">
+								                         <input type="text" class="form-control" name="id" value="<%= user.id%>" readonly/>
+								                     </div>
+								                 </div>
+								                 
+								                 <div class="form-group">
+								                     <label class="col-sm-3 control-label">Nombre de usuario</label>
+								                     <div class="col-sm-5">
+								                         <input type="text" class="form-control" name="username" value="<%= user.local.nomUsuario%>"/>
+								                     </div>
+								                 </div>
+								
+								                 <div class="form-group">
+								                     <label class="col-sm-3 control-label">Email</label>
+								                     <div class="col-sm-5">
+								                         <input type="text" class="form-control" name="email" value="<%= user.local.email %>"/>
+								                     </div>
+								                 </div>
+								
+								                 <!--<div class="form-group">
+								                     <label class="col-sm-3 control-label">Password</label>
+								                     <div class="col-sm-5">
+								                         <input type="password" class="form-control" name="password" />
+								                     </div>
+								                 </div>-->
+								
+								                 <div class="form-group">
+								                     <label class="col-sm-3 control-label">Sexo</label>
+								                     <div class="col-sm-5">
+								                         <div class="radio">
+								                             <label>
+								                                 <input type="radio" name="gender" value="Hombre" /> Hombre
+								                             </label>
+								                         </div>
+								                         <div class="radio">
+								                             <label>
+								                                 <input type="radio" name="gender" value="Mujer" /> Mujer
+								                             </label>
+								                         </div>
+								                     </div>
+								                 </div>
+								
+								                 <div class="form-group">
+								                     <label class="col-sm-3 control-label">Fecha de nac.</label>
+								                     <div class="col-sm-5">
+								                         <input type="text" class="form-control" name="birthday" placeholder="YYYY/MM/DD" value="<%= user.local.fechaNac %>"/>
+								                     </div>
+								                 </div>
+								                 <button type="submit" class="btn btn-primary" id="btnActualizar" >Actualizar</button>
+															         </form>
+															      </div>
+												    </div>
+													<!-- FIN del formulario ////////////////////-->
+								
+													<div class="modal-footer">
+																				<a class="btn btn-default" data-dismiss="modal">	Cerrar</a>
+													</div>
+													
+													</div>
+												</div>
 			</div>
-		</div>
-		    <div id="editar">
-		    	<a class="btnEditar" href="#contact" data-toggle="modal">
-		    		<img src="../img/edit.png"><br>
-		    		Edita tu perfil
-		    	</a>
-		    </div>
-			<div class="btn-desconectar"><a href="/logout">Desconectar</a></div>
+		 </div>
+		 			<!-- BOTONES EDITAR Y DESCONECTAR ////////////////////-->
+			   <div id="editar">
+			    	<a class="btnEditar" href="#contact" data-toggle="modal">
+			    	<img src="../img/edit.png"><br>Edita tu perfil</a>
+			    	<a class="btn btn-default" href="/logout">Desconectar</a>
+			   </div>
+						<!-- FIN DE BOTONES EDITAR Y DESCONECTAR ////////////////////-->
 		</div>
 	</div>
 </body>

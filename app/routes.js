@@ -78,6 +78,7 @@ module.exports = function(app, passport) {
 
 	});
 	
+	
 	app.get('/administracion', isLoggedIn, function(req, res) {
 		res.render('administracion.ejs');
 	});
@@ -140,7 +141,7 @@ module.exports = function(app, passport) {
 		console.log(req.body.nombre);
 		console.log(req.body.descripcion);
 		
-		Pintxo.update({_id: req.body.id}, {nombre: req.body.nombre, descripcion: req.body.descripcion}, null, function (err) {
+		Pintxo.update({_id: req.body._id}, {nombre: req.body.nombre, descripcion: req.body.descripcion}, null, function (err) {
 
 			//Si hay error
 			if (err){
@@ -148,6 +149,7 @@ module.exports = function(app, passport) {
 		    	console.log('ERROR: ' + err);
 		    }else{
 		    	//redireccionamos a la página /edita-pintxos
+		    	console.log(req.body.id);
 				res.redirect('/edita-pintxos')
 		    }
 
@@ -157,36 +159,72 @@ module.exports = function(app, passport) {
 	//Cierre de la función
 	});
 	
-	//BORRAR SI NO FUNCSIONA//////////////////////////
-	app.post('/actualiza-usuarios',  isLoggedIn,function(req, res) {
-		
-		console.log("prueba"+" "+req.body.id);
-		console.log(req.body.username);
-		
-		
-		User.update({_id: req.body.id},{$set:{nomUsuario: req.body.username, email: req.body.email, sexo:req.body.gender, fechaNac:req.body.birthday}}, function (err) {
-			//Si hay error
-			if (err){
-		      	//Muestra por consola el error
-		    	console.log('ERROR: ' + err);
-		    }else{
-		    	//redireccionamos a la página /edita-pintxos
-				 res.redirect('/profile')
-				 console.log('entra');
-				 console.log(req.body.id);
-				console.log(req.body.username+" 2");
+//BORRAR SI NO FUNCSIONA//////////////////////////
+    app.post('/actualiza-usuarios',  isLoggedIn, function(req, res) {
+        
+        //console.log("prueba"+" "+req.body.id);
+        //console.log(req.body.username);
 
-		    }
 
-		//Cierre del método update
-		});
-		
-	//Cierre de la función
-	});
-	///////////////////////////////////////////////////////////////////
-	
-	
-	
+        User.findById(req.body.id, function(err, user){
+            if (!user)
+                return next(new Error('Could not load Document'));
+            else {
+                
+                user.local.nomUsuario = req.body.username;
+                user.local.email = req.body.email;
+                user.local.sexo = req.body.gender;
+                user.local.fechaNac = req.body.birthday;
+
+                user.save(function(err) {
+                    if (err)
+                        console.log('error');
+                    else
+                        console.log('success');
+                    res.redirect('/profile');
+                });
+            }
+        });
+        
+        /*
+        User.findById(req.body.id).lean().exec(function(err, p) {
+          if (!p)
+            return next(new Error('Could not load Document'));
+          else {
+            p = p.toJSON;
+            User.update({_id: req.body.id},{$set:{nomUsuario: req.body.username, email: req.body.email, sexo: req.body.gender, fechaNac: req.body.birthday}}, function (err) {
+            //Si hay error
+            if (err){
+                  //Muestra por consola el error
+                console.log('ERROR: ' + err);
+            }else{
+                //redireccionamos a la página /edita-pintxos
+                 res.redirect('/profile')
+                 console.log('entra');
+                 console.log(req.body.id);
+                 console.log(p);
+                console.log(req.body.username+" 2");
+
+            }
+
+        //Cierre del mtodo update
+        });
+    */
+            /*
+            p.save(function(err) {
+              if (err)
+                console.log('error')
+              else
+                console.log('success')
+            });
+          }
+        });*/
+        
+        
+        
+    //Cierre de la función
+    });
+    ///////////////////////////////////////////////////////////////////
 	
 	
 	app.post('/insertImg', isLoggedIn, function(req, res) {

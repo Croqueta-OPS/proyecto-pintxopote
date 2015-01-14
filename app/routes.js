@@ -7,8 +7,23 @@ module.exports = function(app, passport) {
 	// =====================================
 	// INDEX ========
 	// =====================================
+	
+	
 	app.get('/', function(req, res) {
-		res.render('index.ejs'); // Carga el index.ejs
+		
+		console.log(req.isAuthenticated());
+		
+		if(req.isAuthenticated()){
+		
+			res.render('index.ejs', { nombre: 'Bienvenido '+req.user.local.nomUsuario});
+			console.log(req.user.local.nomUsuario);
+			
+		}else{
+			
+			res.render('index.ejs', { nombre: " "}); // Carga el index.ejs
+			
+		}
+		
 		
 	});
 
@@ -136,7 +151,7 @@ module.exports = function(app, passport) {
 	});
 	
 		//Añadir un pintxo a la colección de pintxos
-	app.post('/actualiza-pintxos',  isLoggedIn,function(req, res) {
+	app.post('/actualiza-pintxos',  isLoggedIn, function(req, res) {
 		
 		console.log(req.body.nombre);
 		console.log(req.body.descripcion);
@@ -153,77 +168,107 @@ module.exports = function(app, passport) {
 				res.redirect('/edita-pintxos')
 		    }
 
-		//Cierre del método update
+		//Cierre del mtodo update
 		});
 		
 	//Cierre de la función
 	});
 	
-//BORRAR SI NO FUNCSIONA//////////////////////////
-    app.post('/actualiza-usuarios',  isLoggedIn, function(req, res) {
-        
-        //console.log("prueba"+" "+req.body.id);
-        //console.log(req.body.username);
-
-
-        User.findById(req.body.id, function(err, user){
-            if (!user)
-                return next(new Error('Could not load Document'));
-            else {
-                
-                user.local.nomUsuario = req.body.username;
-                user.local.email = req.body.email;
-                user.local.sexo = req.body.gender;
-                user.local.fechaNac = req.body.birthday;
-
-                user.save(function(err) {
-                    if (err)
-                        console.log('error');
-                    else
-                        console.log('success');
-                    res.redirect('/profile');
-                });
-            }
-        });
-        
-        /*
-        User.findById(req.body.id).lean().exec(function(err, p) {
-          if (!p)
-            return next(new Error('Could not load Document'));
-          else {
-            p = p.toJSON;
-            User.update({_id: req.body.id},{$set:{nomUsuario: req.body.username, email: req.body.email, sexo: req.body.gender, fechaNac: req.body.birthday}}, function (err) {
-            //Si hay error
-            if (err){
-                  //Muestra por consola el error
-                console.log('ERROR: ' + err);
-            }else{
-                //redireccionamos a la página /edita-pintxos
-                 res.redirect('/profile')
-                 console.log('entra');
-                 console.log(req.body.id);
-                 console.log(p);
-                console.log(req.body.username+" 2");
-
-            }
-
-        //Cierre del mtodo update
-        });
-    */
-            /*
-            p.save(function(err) {
-              if (err)
-                console.log('error')
-              else
-                console.log('success')
-            });
-          }
-        });*/
-        
-        
-        
-    //Cierre de la función
-    });
+	app.post('/actualiza-usuarios',  isLoggedIn, function(req, res) {
+		
+	
+		
+		User.findById(req.body.id, function(err, user) {
+							
+			if (!user){
+				return next(new Error('Could not load Document'));
+			}
+			else {
+				
+				console.log(user);
+				
+					//Buscar el nombre de usuario que se ha introducido en el formulario 
+					User.findOne({ 'local.nomUsuario' :  req.body.username }), function(err, user){
+						
+						//si hay un usuario con ese nombre tendremos que mirar si es el mismo o un usuario diferente
+						if(user){
+							
+							//si el ID no es el mismo es que ya existe un usuario con ese nombre
+							if(user.local._id != req.body.id){
+								
+								//Aquí sacaríamos los mensajes de error
+								//return done(null, false, req.flash('signupMessage', 'Ese usuario ya existe.'));
+								
+							}else{
+								
+								user.local.nomUsuario = req.body.username;
+								
+							}
+							
+						//Si no hay ningún usuario con ese email 
+						}else if(!user){
+							
+							user.local.nomUsuario = req.body.username;
+							
+						}else if(err){
+							
+							console.log(err);
+							
+						}
+						
+					};
+					
+					//Buscar el email del usuario que se ha introducido en el formulario 
+					User.findOne({ 'local.email' :  req.body.email }), function(err, user){
+						
+						//si hay un usuario con ese email tendremos que mirar si es el mismo o un usuario diferente
+						if(user){
+							
+							//si el ID no es el mismo es que ya existe un usuario con ese email
+							if(user.local._id != req.body.id){
+								
+								//Aquí sacaríamos los mensajes de error
+								//return done(null, false, req.flash('signupMessage', 'Ese email ya existe.'));
+								
+							}else{
+								
+								user.local.email = req.body.email;
+								
+							}
+							
+						//Si no hay ningún usuario con ese email 
+						}else if(!user){
+							
+							user.local.email = req.body.email;
+							
+						}else if(err){
+							
+							console.log(err);
+							
+						}
+						
+					};
+				
+				user.local.sexo = req.body.gender;
+				user.local.fechaNac = req.body.birthday;
+				
+				user.save(function(err) {
+				
+					if (err) {
+						console.log('error');
+					}
+					else {
+						console.log('success');
+						res.redirect('/profile'/*, { message: req.flash('signupMessage')}*/);
+					}
+					
+				});
+				
+			}
+			
+		});
+		
+	});
     ///////////////////////////////////////////////////////////////////
 	
 	
@@ -310,7 +355,6 @@ module.exports = function(app, passport) {
 
 // esta es la función utilizada para verificar que un usuario está autentificado
 function isLoggedIn(req, res, next) {
-
 	// Si el usuario está autentificado, sigue adelante 
 	if (req.isAuthenticated())
 		return next();

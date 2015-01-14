@@ -28,6 +28,7 @@
 		<script src="js/validarFormulario.js" type="text/javascript"></script>
 		<script src="js/cargarLogin.js" type="text/javascript"></script>
 		<script src="js/calendar.js" type="text/javascript"></script>
+		<script src="js/galeria.js" type="text/javascript"></script>
 		
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
@@ -36,7 +37,7 @@
 	<body>
 
 		<header class="mainHeader">	
-			
+			<div id="usuario"><p><%= nombre %></p></div>
 			<nav class="menu">
 				<ul class="navegador">
 					<li id="homeButton" class="active"><a class="homeButton" href="">HOME</a></li>
@@ -122,12 +123,36 @@
 				</div>
 				
 				<div id="bares">
-					<div>
+					
+					<div id="menu">
+		<img src='img/rojo.png' alt='1. India - Agra - El Taj Majal.' name='fotos1' onclick="mifoto(1)"/>
+		<img src='img/verde.png' alt='2. Albania - Region de Ballsh.' name='fotos2' onclick="mifoto(2)"/>
+		<img src='img/amarillo.png' alt='3. Atenas- Partenón.' name='fotos3' onclick="mifoto(3)"/>
+		<img src='img/gris.png' alt='4. Bélgica - Amberes.' name='fotos4' onclick="mifoto(4)"/>
+		</div>
+		<div id="principal">
+		<div id="visor">
+		   <img src='rojo.png' alt='1. India - Agra - El Taj Majal.' name='fotoVisor'/>
+		   <div id="titulo">1. India - Agra - El Taj Majal.</div>
+		   </div>
+		</div>
+					
+					
+					
+					
+					
+					<!--
+					<div class="imgBar">
+						<img src="img/imgBar.png"/>
+					</div>
+						
+					<div class="barTitle">
+						
 						<h1>Bares... ¡Qué lugares!</h1>
 						<h2>Encuentra los mejores sitios</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-						</p>
+				
 					</div>
+					-->
 				</div>
 				
 				<div id="calendario">

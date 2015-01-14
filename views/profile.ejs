@@ -25,7 +25,7 @@
 
 		<!-- BootstrapValidator JS -->
 		<script type="text/javascript" src="js/bootstrapValidator.min.js"></script>
-		<script type="text/javascript" src="js/validarRegistroUser.js"></script>
+		<script type="text/javascript" src="js/validadorEditarUser.js"></script>
 		
 		<script type="text/javascript" src="js/canvasImg.js"></script>
 		<script type="text/javascript" src="js/insertarImg.js"></script>
@@ -76,80 +76,91 @@
         	</div>
         	<!--FIN del contenedor flexible-->
         	<hr>
-        	<div class="modal fade" id="contact" role="dialog">
+        	<!-- show any messages that come back with authentication -->
+									
+									<!--<div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									        <h4 class="modal-title" id="exampleModalLabel">Edita tu perfil</h4>
+									      </div>
+									      <div class="modal-body">
+									        <form action="/actualiza-usuarios" id="registrationForm" method="post" >
+									          <div class="form-group">
+									            <label class="control-label">ID:</label>
+									            <input type="text" class="form-control" name="id" value="<%= user.id%>" readonly>
+									          </div>
+									          <div class="form-group">
+									            <label class="control-label">Nombre de usuario:</label>
+									            <input type="text" class="form-control" name="username" value="<%= user.local.nomUsuario%>"/>
+									          </div>
+									          <div class="form-group">
+									            <label class="control-label">Email:</label>
+									            <input type="text" class="form-control" name="email" value="<%= user.local.email%>"/>
+									          </div>
+									          <div class="form-group">
+									            <label class="control-label">Fecha nacimiento:</label>
+									            <input type="text" class="form-control" name="birthday" value="<%= user.local.fechaNac%>"/>
+									          </div>
+									          <button type="submit" class="btn btn-success">Editar</button>
+									        </form>
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									      </div>
+									    </div>
+									  </div>
+									</div>-->
+									
+									
+								<!-- Inicio de la ventana modal ////////////////////-->
+        	<div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 											<div class="modal-dialog">
 												<div class="modal-content">
-														<div class="modal-header"><h4>Edita tu perfil</h4></div>
-														
-														<div class="modal-body">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+															<h4>Edita tu perfil</h4></div>
+															<div class="modal-body">
+	
 															<div class="container-form">
 																
 																	<!-- Inicio del formulario ////////////////////-->
 																	<form action="/actualiza-usuarios" id="registrationForm" method="post" class="form-horizontal">
 								                 
 								                 <div class="form-group">
-								                     <label class="col-sm-3 control-label">ID</label>
-								                     <div class="col-sm-5">
-								                         <input type="text" class="form-control" name="id" value="<%= user.id%>" readonly/>
-								                     </div>
+								                     <label class="control-label">ID</label>
+								                     <input type="text" class="form-control" name="id" value="<%= user.id%>" readonly/>
 								                 </div>
 								                 
 								                 <div class="form-group">
-								                     <label class="col-sm-3 control-label">Nombre de usuario</label>
-								                     <div class="col-sm-5">
-								                         <input type="text" class="form-control" name="username" value="<%= user.local.nomUsuario%>"/>
-								                     </div>
+								                     <label class="control-label">Nombre de usuario</label>
+								                     <input type="text" class="form-control" name="username" value="<%= user.local.nomUsuario%>"/>
 								                 </div>
 								
 								                 <div class="form-group">
-								                     <label class="col-sm-3 control-label">Email</label>
-								                     <div class="col-sm-5">
-								                         <input type="text" class="form-control" name="email" value="<%= user.local.email %>"/>
-								                     </div>
+								                     <label class="control-label">Email</label>
+								                     <input type="text" class="form-control" name="email" value="<%= user.local.email %>"/>
 								                 </div>
-								
+
 								                 <div class="form-group">
-								                     <label class="col-sm-3 control-label">Password</label>
-								                     <div class="col-sm-5">
-								                         <input type="password" class="form-control" name="password" value="<%= user.local.password %>" readonly/>
-								                     </div>
+								                     <label class="control-label">Fecha de nac.</label>
+								                     <input type="text" class="form-control" name="birthday" placeholder="YYYY/MM/DD" value="<%= user.local.fechaNac %>"/>
 								                 </div>
-								
-								                 <div class="form-group">
-								                     <label class="col-sm-3 control-label">Sexo</label>
-								                     <div class="col-sm-5">
-								                         <div class="radio">
-								                             <label>
-								                                 <input type="radio" name="gender" value="Hombre" /> Hombre
-								                             </label>
-								                         </div>
-								                         <div class="radio">
-								                             <label>
-								                                 <input type="radio" name="gender" value="Mujer" /> Mujer
-								                             </label>
-								                         </div>
-								                     </div>
-								                 </div>
-								
-								                 <div class="form-group">
-								                     <label class="col-sm-3 control-label">Fecha de nac.</label>
-								                     <div class="col-sm-5">
-								                         <input type="text" class="form-control" name="birthday" placeholder="YYYY/MM/DD" value="<%= user.local.fechaNac %>"/>
-								                     </div>
-								                 </div>
-								                 <button type="submit" class="btn btn-primary" id="btnActualizar" >Actualizar</button>
+								                 <button type="submit" class="btn btn-success" id="btnActualizar" >Editar</button>
 															         </form>
 															      </div>
 												    </div>
 													<!-- FIN del formulario ////////////////////-->
-								
 													<div class="modal-footer">
-																				<a class="btn btn-default" data-dismiss="modal">	Cerrar</a>
+																	<a class="btn btn-default" data-dismiss="modal">	Cerrar</a>
 													</div>
 													
 													</div>
 												</div>
-			</div>
+								</div>
+							<!-- FIN de la ventana modal ////////////////////-->
+
 		 </div>
 		 			<!-- BOTONES EDITAR Y DESCONECTAR ////////////////////-->
 			   <div id="editar">

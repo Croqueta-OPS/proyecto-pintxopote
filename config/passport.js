@@ -135,7 +135,7 @@ module.exports = function(passport) {
                 return done(err);
             // check to see if theres already a user with that email
             if (user) {
-                return done(null, false, req.flash('signupMessage', 'Ese usuario está cogido.'));
+                return done(null, false, req.flash('signupMessage', 'Ese usuario ya existe.'));
             } else {
 
                 User.findOne({'local.email' : email}, function(err, user){
@@ -145,7 +145,7 @@ module.exports = function(passport) {
         
                     // check to see if theres already a user with that email
                     if (user) {
-                        return done(null, false, req.flash('signupMessage', 'Ese email está cogido.'));
+                        return done(null, false, req.flash('signupMessage', 'Ese email ya existe.'));
                     }else{
                         // if there is no user with that email
                         // create the user

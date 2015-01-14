@@ -190,6 +190,8 @@ module.exports = function(app, passport) {
 					//Buscar el nombre de usuario que se ha introducido en el formulario 
 					User.findOne({ 'local.nomUsuario' :  req.body.username }), function(err, user){
 						
+							console.log(user);
+						
 						//si hay un usuario con ese nombre tendremos que mirar si es el mismo o un usuario diferente
 						if(user){
 							

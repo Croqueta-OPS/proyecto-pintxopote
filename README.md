@@ -5,6 +5,8 @@ El proyecto consiste en una web que dará información sobre el pintxopote de Do
 
 Tendrá diferentes secciones como mapa con rutas, de pintxos y bares, votaciones, calendario
 
+Página Principal
+http://thepintxopo.com
 
 Enlace OpenShift: (actualizado todos los dias)
 http://pintxopoproject-pintxopoproject.rhcloud.com/

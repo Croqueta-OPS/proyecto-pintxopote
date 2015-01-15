@@ -274,12 +274,20 @@ header {
     height: 540px;
 }
 
-.imgBar {
+.visor {
 	float: left;
 }
 
+.imgBares img {
+	width: 20%;
+	max-height: 80px;
+	margin-left: 6%;
+	margin-top: 1.5%;
+	cursor:pointer;
+}
+
 .barTitle {
-	width: 58.5%;
+	width: 58%;
 	float: right;
 }
 
@@ -340,9 +348,14 @@ header {
 }
 
 #usuario{
-	margin: 3% 0 -3% 1%;
-	padding:0;
-	font-size: 90%;
+	font-size: 85%;
 	font-family: 'Courgette', cursive;
-	color: #797070;
+	margin: 3% 3% 0 0%;
+	font-weight: 400;
+	position: absolute;
+}
+
+#usuario a{
+	text-decoration: none;
+	color: #666;
 }

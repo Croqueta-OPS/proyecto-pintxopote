@@ -8,7 +8,7 @@ body{
 	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
-	padding: 3%;
+	padding: 1%;
 }
 
 .header{
@@ -88,7 +88,7 @@ body{
 }
 
 .logo img {
-	width: 100%;
+	width: 80%;
 }
 
 hr{

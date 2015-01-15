@@ -36,8 +36,8 @@
 
 	<body>
 
-		<header class="mainHeader">	
-			<div id="usuario"><p><%= nombre %></p></div>
+		<header class="mainHeader">
+			<div id="usuario"><p><a href="/profile"><%= nombre %></a></p></div>
 			<nav class="menu">
 				<ul class="navegador">
 					<li id="homeButton" class="active"><a class="homeButton" href="">HOME</a></li>
@@ -61,9 +61,6 @@
 		</header>
 
 		<div class="mainSection">
-			
-			<img class="imgNegro" src="img/negro.png"></img>
-			
 			<div class="bienvenida">
 				<h2>La cultura del ocio gastronómico</h2>
 				<!--<p>El sibaritismo gastronómico, unido a la inteligencia contribuye a hacer a los hombres amables.</p>-->
@@ -124,35 +121,28 @@
 				
 				<div id="bares">
 					
-					<div id="menu">
-		<img src='img/rojo.png' alt='1. India - Agra - El Taj Majal.' name='fotos1' onclick="mifoto(1)"/>
-		<img src='img/verde.png' alt='2. Albania - Region de Ballsh.' name='fotos2' onclick="mifoto(2)"/>
-		<img src='img/amarillo.png' alt='3. Atenas- Partenón.' name='fotos3' onclick="mifoto(3)"/>
-		<img src='img/gris.png' alt='4. Bélgica - Amberes.' name='fotos4' onclick="mifoto(4)"/>
-		</div>
-		<div id="principal">
-		<div id="visor">
-		   <img src='rojo.png' alt='1. India - Agra - El Taj Majal.' name='fotoVisor'/>
-		   <div id="titulo">1. India - Agra - El Taj Majal.</div>
-		   </div>
-		</div>
-					
-					
-					
-					
-					
-					<!--
-					<div class="imgBar">
-						<img src="img/imgBar.png"/>
+					<div class="principal">
+						<div class="visor">
+							<img src='img/foto1.png' alt='' name='fotoVisor'/>
+						</div>
 					</div>
-						
+					
 					<div class="barTitle">
 						
 						<h1>Bares... ¡Qué lugares!</h1>
 						<h2>Encuentra los mejores sitios</h2>
 				
 					</div>
-					-->
+					
+					<div class="imgBares">
+						<img src='img/foto1.png' alt='' name='fotos1' onclick="mifoto(1)"/>
+						<img src='img/foto2.png' alt='' name='fotos2' onclick="mifoto(2)"/>
+						<img src='img/foto3.png' alt='' name='fotos3' onclick="mifoto(3)"/>
+						<img src='img/foto4.png' alt='' name='fotos4' onclick="mifoto(4)"/>
+						<img src='img/foto3.png' alt='' name='fotos3' onclick="mifoto(3)"/>
+						<img src='img/foto4.png' alt='' name='fotos4' onclick="mifoto(4)"/>
+					</div>
+				
 				</div>
 				
 				<div id="calendario">

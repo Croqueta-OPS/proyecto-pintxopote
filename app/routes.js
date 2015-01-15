@@ -15,7 +15,7 @@ module.exports = function(app, passport) {
 		
 		if(req.isAuthenticated()){
 		
-			res.render('index.ejs', { nombre: 'Bienvenido '+req.user.local.nomUsuario});
+			res.render('index.ejs', { nombre: 'Hola '+req.user.local.nomUsuario});
 			console.log(req.user.local.nomUsuario);
 			
 		}else{
@@ -174,23 +174,16 @@ module.exports = function(app, passport) {
 	//Cierre de la función
 	});
 	
-	app.post('/actualiza-usuarios',  isLoggedIn, function(req, res) {
+	app.post('/actualiza-usuarios', isLoggedIn, function(req, res) {
 		
-	
+		console.log("SHEYLA->"+req.user.local.nomUsuario);
+		console.log("req.body.username ->"+req.body.username);
 		
-		User.findById(req.body.id, function(err, user) {
-							
-			if (!user){
-				return next(new Error('Could not load Document'));
-			}
-			else {
-				
-				console.log(user);
-				
-					//Buscar el nombre de usuario que se ha introducido en el formulario 
-					User.findOne({ 'local.nomUsuario' :  req.body.username }), function(err, user){
+			//Buscar el nombre de usuario que se ha introducido en el formulario 
+					User.findOne({ 'nomUsuario' :  req.body.username }), function(err, user){
 						
-							console.log(user);
+							//console.log("local.nomUsuario"+local.nomUsuario);
+							//console.log("req.body.username"+req.body.username);
 						
 						//si hay un usuario con ese nombre tendremos que mirar si es el mismo o un usuario diferente
 						if(user){
@@ -200,17 +193,23 @@ module.exports = function(app, passport) {
 								
 								//Aquí sacaríamos los mensajes de error
 								//return done(null, false, req.flash('signupMessage', 'Ese usuario ya existe.'));
+								console.log("Ese usuario ya existe");
+								res.redirect('/profile'/*, { message: req.flash('signupMessage')}*/);
 								
 							}else{
 								
 								user.local.nomUsuario = req.body.username;
+								console.log("Ese usuario esta libre");
+								res.redirect('/profile'/*, { message: req.flash('signupMessage')}*/);
 								
 							}
 							
-						//Si no hay ningún usuario con ese email 
+						//Si no hay ningún usuario con ese nombre 
 						}else if(!user){
 							
 							user.local.nomUsuario = req.body.username;
+							console.log("Ese usuario libre");
+							res.redirect('/profile'/*, { message: req.flash('signupMessage')}*/);
 							
 						}else if(err){
 							
@@ -219,59 +218,10 @@ module.exports = function(app, passport) {
 						}
 						
 					};
-					
-					//Buscar el email del usuario que se ha introducido en el formulario 
-					User.findOne({ 'local.email' :  req.body.email }), function(err, user){
-						
-						//si hay un usuario con ese email tendremos que mirar si es el mismo o un usuario diferente
-						if(user){
-							
-							//si el ID no es el mismo es que ya existe un usuario con ese email
-							if(user.local._id != req.body.id){
-								
-								//Aquí sacaríamos los mensajes de error
-								//return done(null, false, req.flash('signupMessage', 'Ese email ya existe.'));
-								
-							}else{
-								
-								user.local.email = req.body.email;
-								
-							}
-							
-						//Si no hay ningún usuario con ese email 
-						}else if(!user){
-							
-							user.local.email = req.body.email;
-							
-						}else if(err){
-							
-							console.log(err);
-							
-						}
-						
-					};
-				
-				user.local.sexo = req.body.gender;
-				user.local.fechaNac = req.body.birthday;
-				
-				user.save(function(err) {
-				
-					if (err) {
-						console.log('error');
-					}
-					else {
-						console.log('success');
-						res.redirect('/profile'/*, { message: req.flash('signupMessage')}*/);
-					}
-					
-				});
-				
-			}
-			
-		});
 		
 	});
-    ///////////////////////////////////////////////////////////////////
+		
+		
 	
 	
 	app.post('/insertImg', isLoggedIn, function(req, res) {

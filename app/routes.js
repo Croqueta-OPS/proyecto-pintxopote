@@ -11,19 +11,25 @@ module.exports = function(app, passport) {
 	
 	app.get('/', function(req, res) {
 		
-		console.log(req.isAuthenticated());
-		
 		if(req.isAuthenticated()){
 		
-			res.render('index.ejs', { nombre: req.user.local.nomUsuario, clase : 'visible'});
-			console.log(req.user.local.nomUsuario);
-			
+			res.render('index.ejs', { 
+				nombre: req.user.local.nomUsuario, 
+				clase : 'visible', 
+				clase2: 'escondido',
+				navRedes: 'navRedes2'
+			});
+
 		}else{
 			
-			res.render('index.ejs', { nombre: '', clase : 'escondido'}); // Carga el index.ejs
+			res.render('index.ejs', { 
+				nombre : '', 
+				clase  : 'escondido', 
+				clase2 : 'visible',
+				navRedes : 'navRedes'
+			}); // Carga el index.ejs
 			
 		}
-		
 		
 	});
 
@@ -174,57 +180,84 @@ module.exports = function(app, passport) {
 	//Cierre de la función
 	});
 	
-	app.post('/actualiza-usuarios', isLoggedIn, function(req, res) {
-		
-		console.log("SHEYLA->"+req.user.local.nomUsuario);
-		console.log("req.body.username ->"+req.body.username);
+app.post('/actualiza-usuarios', function(req, res) {
+	
+	var existeNombre = false;
+	var existeEmail = false;
 
-		
-			//Buscar el nombre de usuario que se ha introducido en el formulario 
-					User.find({ 'nomUsuario' :  req.body.username }, function(err, user){
+//	console.log("SHEYLA->"+req.user.local.nomUsuario);
+//console.log("req.body.username ->"+req.body.username);
+	User.findById(req.body.id, function(err, user){
+	
+		if (!user) { 
+			return next(new Error('Could not load Document'));
+		} 
+		else {
 
-						console.log(user);
-						
-							//console.log("local.nomUsuario"+local.nomUsuario);
-							//console.log("req.body.username"+req.body.username);
-						
-						//si hay un usuario con ese nombre tendremos que mirar si es el mismo o un usuario diferente
-						if(user){
-							
-							//si el ID no es el mismo es que ya existe un usuario con ese nombre
-							if(user.local._id != req.body.id){
-								
-								//Aquí sacaríamos los mensajes de error
-								//return done(null, false, req.flash('signupMessage', 'Ese usuario ya existe.'));
-								console.log("Ese usuario ya existe");
-								res.redirect('/profile'/*, { message: req.flash('signupMessage')}*/);
-								
-							}else{
-								
-								user.local.nomUsuario = req.body.username;
-								console.log("Ese usuario esta libre");
-								res.redirect('/profile'/*, { message: req.flash('signupMessage')}*/);
-								
-							}
-							
-						//Si no hay ningún usuario con ese nombre 
-						}else if(!user){
-							
-							user.local.nomUsuario = req.body.username;
-							console.log("Ese usuario libre");
-							res.redirect('/profile'/*, { message: req.flash('signupMessage')}*/);
-							
-						}else if(err){
-							
-							console.log(err);
-							
+			User.find({}, function(err, user) {
+				
+				user.forEach(function(element, index, array) {
+
+					if (element.local.nomUsuario == req.body.username && element.id != req.body.id) {
+						existeNombre = true;
+					}
+					
+					if (element.local.email == req.body.email && element.id != req.body.id) {
+						existeEmail = true;
+					}
+					
+					if (index == array.length - 1) {
+						actualizar(existeNombre, existeEmail);
+					}
+	
+				});	
+				
+			});
+			
+			function actualizar(existeNom, existeEm) {
+
+				if (!existeNom && !existeEm) {
+					
+					user.local.nomUsuario = req.body.username;
+					user.local.email = req.body.email;
+					user.local.fechaNac = req.body.birthday;
+					
+					user.save(function(err) {
+						if (err)
+							console.log('error');
+						else {
 						}
-						
+						res.redirect('/profile');
 					});
-
-					//res.redirect('/profile');
+					
+				}
+				else {
+					//DE AQUI SE ENVIA EL ERROR SI YA EXISTE EL USUARIO
+					if (existeNom) {
+						console.log("ya existe el nombre bitch");
+					}
+					if (existeEm) {
+						console.log("ya existe el email bitch");
+					}
+				}
+				
+			}
+			
+		}
 		
 	});
+	
+});
+
+
+
+
+
+
+
+
+	
+
 		
 		
 	

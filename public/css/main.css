@@ -128,6 +128,7 @@ header {
 	color: #101010;
 	display: none;
 }
+
 .content a{
 	color:#303030;
 	display: none;
@@ -151,9 +152,7 @@ header {
 	display: none;
 }
 
-
-
-.btnUnete {
+#btnUnete {
 	margin-top: 8.5%;
 	width: 20%;
 	margin-left: 40%;
@@ -165,12 +164,10 @@ header {
 	/*background-color: rgba(255, 255, 255, 0.4);*/
 }
 
-
 .navRedes {
 	width: 24%;
 	margin: 2% 0 7% 36.5%;
 }
-
 .navRedes img {
 	width: 8.5%;
 }
@@ -180,6 +177,24 @@ header {
 }
 
 .navRedes ul li {
+	display: inline;
+	margin-left: 12.5%;
+}  
+
+.navRedes2 {
+	width: 24%;
+	margin: 10% 10% 7% 36.5%;
+}
+
+.navRedes2 img {
+	width: 8.5%;
+}
+
+.navRedes2 ul {
+	list-style: none;
+}
+
+.navRedes2 ul li {
 	display: inline;
 	margin-left: 12.5%;
 }  
@@ -199,6 +214,7 @@ header {
 	display: inline;
 	margin-right: 20px;
 }
+
 #rutas h1{
 	padding: 1% 0 0 0;
 	font-family: 'Old Standard TT', serif;
@@ -257,8 +273,6 @@ header {
 .secciones p {
 	padding: 5% 5% 1% 5%;
 }
-
-
 
 #pintxos {
     background-color: transparent;
@@ -359,12 +373,14 @@ header {
 	text-decoration: none;
 	color: black;
 }
+
 #icono-user{
-	margin: 3% 0 0 1%;
-	width:18px;
-	height:18px;
+	margin: 3.3% 0 0 1.5%;
+	width:12px;
+	height:12px;
 	position: absolute;
 }
+
 .escondido{
 	display: none;
 }

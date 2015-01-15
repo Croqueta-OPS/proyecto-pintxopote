@@ -8,7 +8,7 @@
 		<!--Estilos principales-->
 		<link rel="stylesheet" type="text/css" href="css/main.css" >	
 		<link href='https://fonts.googleapis.com/css?family=Lora|PT+Sans+Narrow|Old+Standard+TT:400italic,400|Tangerine|Open+Sans+Condensed:300|Courgette' rel='stylesheet' type='text/css'>
-		
+
 		<!--Estilos bootstrap-->
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
@@ -35,9 +35,9 @@
 	</head>
 
 	<body>
-
 		<header class="mainHeader">
-			<div id="usuario"><p><a href="/profile"><%= nombre %></a></p></div>
+		<img class="<%= clase %>" id="icono-user" href="/profile" src="img/open-iconic/svg/person.svg" alt="perfil">
+		<div id="usuario"><p><a href="/profile"><%= nombre %></a></p></div>
 			<nav class="menu">
 				<ul class="navegador">
 					<li id="homeButton" class="active"><a class="homeButton" href="">HOME</a></li>

@@ -348,14 +348,27 @@ header {
 }
 
 #usuario{
-	font-size: 85%;
+	font-size: 95%;
 	font-family: 'Courgette', cursive;
-	margin: 3% 3% 0 0%;
+	margin: 3.3% 0 0 3%;
 	font-weight: 400;
 	position: absolute;
 }
 
 #usuario a{
 	text-decoration: none;
-	color: #666;
+	color: black;
+}
+#icono-user{
+	margin: 3% 0 0 1%;
+	width:18px;
+	height:18px;
+	position: absolute;
+}
+.escondido{
+	display: none;
+}
+
+.visible{
+	display: block;
 }

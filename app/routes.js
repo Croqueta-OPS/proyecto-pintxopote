@@ -15,12 +15,12 @@ module.exports = function(app, passport) {
 		
 		if(req.isAuthenticated()){
 		
-			res.render('index.ejs', { nombre: 'Hola '+req.user.local.nomUsuario});
+			res.render('index.ejs', { nombre: req.user.local.nomUsuario, clase : 'visible'});
 			console.log(req.user.local.nomUsuario);
 			
 		}else{
 			
-			res.render('index.ejs', { nombre: " "}); // Carga el index.ejs
+			res.render('index.ejs', { nombre: '', clase : 'escondido'}); // Carga el index.ejs
 			
 		}
 		
@@ -178,9 +178,12 @@ module.exports = function(app, passport) {
 		
 		console.log("SHEYLA->"+req.user.local.nomUsuario);
 		console.log("req.body.username ->"+req.body.username);
+
 		
 			//Buscar el nombre de usuario que se ha introducido en el formulario 
-					User.findOne({ 'nomUsuario' :  req.body.username }), function(err, user){
+					User.find({ 'nomUsuario' :  req.body.username }, function(err, user){
+
+						console.log(user);
 						
 							//console.log("local.nomUsuario"+local.nomUsuario);
 							//console.log("req.body.username"+req.body.username);
@@ -217,7 +220,9 @@ module.exports = function(app, passport) {
 							
 						}
 						
-					};
+					});
+
+					//res.redirect('/profile');
 		
 	});
 		

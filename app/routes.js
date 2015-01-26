@@ -3,6 +3,7 @@ module.exports = function(app, passport) {
 	var Pintxo = require('../app/models/pintxo');//modelo
 	var User = require('../app/models/user');//modelo
 	var Bar = require('../app/models/bar');//modelo
+	var validator = require('email-validator');
 
 	// =====================================
 	// INDEX ========
@@ -99,7 +100,6 @@ module.exports = function(app, passport) {
 
 	});
 	
-	
 	app.get('/administracion', isLoggedIn, function(req, res) {
 		res.render('administracion.ejs');
 	});
@@ -127,55 +127,84 @@ module.exports = function(app, passport) {
 	//Añadir un pintxo a la colección de pintxos
 	app.post('/edita-pintxos',  isLoggedIn, function(req, res) {
 
-		//Creamos una variable para crear un objeto de tipo Pintxo
-		var pintxo = new Pintxo ({
+		if (req.body.nombre.length > 20 || req.body.descripcion.length > 140) {
 
-			nombre: req.body.nombre,
-			descripcion: req.body.descripcion,
-			img: "default"//hasta que aprendamos a subir archivos se mantiene imagen por defecto
-
-		});
-
-
-		//Para guardar dicha instancia en la base de datos
-		pintxo.save(function (err, pintxo) {
-
-		  	//Si existe un error
-			if(err){
-				
-				//Muestra por consola el error
-		    	console.log('ERROR: ' + err);
-		    	
-			}
-			else{
-				//Muestra el mensaje por consola
-  				console.log(pintxo.nombre + ' ha sido guardado.');
+			if (req.body.nombre.length > 20) {
+				console.log("El nombre es demasiado largo. (max. 20)");
 				res.redirect('/edita-pintxos');
 			}
-		});
+			if (req.body.descripcion.length > 140) {
+				console.log("La descripcion es demasiado larga. (max. 140)");
+				res.redirect('/edita-pintxos');
+			}
+			
+		}
+		else {	
+
+			//Creamos una variable para crear un objeto de tipo Pintxo
+			var pintxo = new Pintxo ({
+	
+				nombre: req.body.nombre,
+				descripcion: req.body.descripcion,
+				img: "default"//hasta que aprendamos a subir archivos se mantiene imagen por defecto
+	
+			});
+	
+	
+			//Para guardar dicha instancia en la base de datos
+			pintxo.save(function (err, pintxo) {
+	
+			  	//Si existe un error
+				if(err){
+					
+					//Muestra por consola el error
+			    	console.log('ERROR: ' + err);
+			    	
+				}
+				else{
+					//Muestra el mensaje por consola
+	  				console.log(pintxo.nombre + ' ha sido guardado.');
+					res.redirect('/edita-pintxos');
+				}
+			});
+		
+		}
 		
 	});
 	
 		//Añadir un pintxo a la colección de pintxos
 	app.post('/actualiza-pintxos',  isLoggedIn, function(req, res) {
 		
-		console.log(req.body.nombre);
-		console.log(req.body.descripcion);
+		if (req.body.nombre.length > 20 || req.body.descripcion.length > 140) {
+
+			if (req.body.nombre.length > 20) {
+				console.log("El nombre es demasiado largo. (max. 20)");
+				res.redirect('/edita-pintxos');
+			}
+			if (req.body.descripcion.length > 140) {
+				console.log("La descripcion es demasiado larga. (max. 140)");
+				res.redirect('/edita-pintxos');
+			}
+			
+		}
+		else {	
 		
-		Pintxo.update({_id: req.body._id}, {nombre: req.body.nombre, descripcion: req.body.descripcion}, null, function (err) {
-
-			//Si hay error
-			if (err){
-		      	//Muestra por consola el error
-		    	console.log('ERROR: ' + err);
-		    }else{
-		    	//redireccionamos a la página /edita-pintxos
-		    	console.log(req.body.id);
-				res.redirect('/edita-pintxos')
-		    }
-
-		//Cierre del mtodo update
-		});
+			Pintxo.update({_id: req.body._id}, {nombre: req.body.nombre, descripcion: req.body.descripcion}, null, function (err) {
+	
+				//Si hay error
+				if (err){
+			      	//Muestra por consola el error
+			    	console.log('ERROR: ' + err);
+			    }else{
+			    	//redireccionamos a la página /edita-pintxos
+			    	console.log(req.body.id);
+					res.redirect('/edita-pintxos')
+			    }
+	
+			//Cierre del mtodo update
+			});
+		
+		}
 		
 	//Cierre de la función
 	});
@@ -184,63 +213,97 @@ app.post('/actualiza-usuarios', function(req, res) {
 	
 	var existeNombre = false;
 	var existeEmail = false;
-
-//	console.log("SHEYLA->"+req.user.local.nomUsuario);
-//console.log("req.body.username ->"+req.body.username);
-	User.findById(req.body.id, function(err, user){
-	
+	var formato = /^(\d{4})(\/|-)(\d{2})(\/|-)(\d{2})$/;
+	User.findById(req.user._id, function(err, user){
+		
 		if (!user) { 
 			return next(new Error('Could not load Document'));
 		} 
 		else {
 
-			User.find({}, function(err, user) {
-				
-				user.forEach(function(element, index, array) {
+			if (req.body.username.length > 10 || req.body.username.length < 3 || !validator.validate(req.body.email) || !formato.test(req.body.birthday) || req.body.email.length > 50) {
 
-					if (element.local.nomUsuario == req.body.username && element.id != req.body.id) {
-						existeNombre = true;
-					}
-					
-					if (element.local.email == req.body.email && element.id != req.body.id) {
-						existeEmail = true;
-					}
-					
-					if (index == array.length - 1) {
-						actualizar(existeNombre, existeEmail);
-					}
-	
-				});	
+				if (req.body.username.length > 10 || req.body.username.length < 3) {
+					console.log("El nombre debe tener entre 3 y 10 caracteres.");
+					res.redirect('/profile');
+				}
+				/*if (req.body.password.length > 8) {
+					console.log("La contraseña es demasiado larga. (max. 140)");
+					res.redirect('/profile');
+				}*/
+				if (!validator.validate(req.body.email)) {
+					console.log("El email no es válido.");
+					res.redirect('/profile');
+				}
+				if (!formato.test(req.body.birthday)) {
+					console.log("La fecha no es válida.");
+					res.redirect('/profile');
+				}
+				if (req.body.email.length > 50) {
+					console.log("El email es demasiado largo. (max. 50c)");
+					res.redirect('/profile');
+				}
 				
-			});
+			}	
+			else {
 			
-			function actualizar(existeNom, existeEm) {
-
-				if (!existeNom && !existeEm) {
-					
-					user.local.nomUsuario = req.body.username;
-					user.local.email = req.body.email;
-					user.local.fechaNac = req.body.birthday;
-					
-					user.save(function(err) {
-						if (err)
-							console.log('error');
-						else {
-						}
-						res.redirect('/profile');
-					});
-					
-				}
-				else {
-					//DE AQUI SE ENVIA EL ERROR SI YA EXISTE EL USUARIO
-					if (existeNom) {
-						console.log("ya existe el nombre bitch");
-					}
-					if (existeEm) {
-						console.log("ya existe el email bitch");
-					}
-				}
+			
+			
+			
+			
 				
+				
+				User.find({}, function(err, user) {
+					
+					user.forEach(function(element, index, array) {
+	
+						if (element.local.nomUsuario == req.body.username && element.id != req.body.idUsuario) {
+							existeNombre = true;
+						}
+						
+						if (element.local.email == req.body.email && element.id != req.body.idUsuario) {
+							existeEmail = true;
+						}
+						
+						if (index == array.length - 1) {
+							actualizar(existeNombre, existeEmail);
+						}
+		
+					});	
+					
+				});
+				
+				function actualizar(existeNom, existeEm) {
+	
+					if (!existeNom && !existeEm) {
+						
+						user.local.nomUsuario = req.body.username;
+						user.local.email = req.body.email;
+						user.local.fechaNac = req.body.birthday;
+						
+						user.save(function(err) {
+							if (err)
+								console.log('error');
+							else {
+							}
+							res.redirect('/profile');
+						});
+						
+					}
+					else {
+						//DE AQUI SE ENVIA EL ERROR SI YA EXISTE EL USUARIO
+						if (existeNom) {
+							console.log("ya existe el nombre bitch");
+						}
+						if (existeEm) {
+							console.log("ya existe el email bitch");
+						}
+						res.redirect("/profile")
+					}
+					
+				}
+			
+			
 			}
 			
 		}
@@ -249,44 +312,27 @@ app.post('/actualiza-usuarios', function(req, res) {
 	
 });
 
-
-
-
-
-
-
-
-	
-
 		
 		
 	
 	
 	app.post('/insertImg', isLoggedIn, function(req, res) {
-		
-		User.update({_id : req.body.id}, {$set: {avatar:"scvsdgsgfrsf"}}, { w: 1 }, function(){});
-		
-		
-		
-		
-		/*console.log(req.body.id);
-	
-		User.findOne({_id: req.body.id}, function(err, user){
 
-			console.log(user);
+		User.findById(req.user._id, function(err, user) {
 
-		
-			User.update({_id : req.body.id}, { $set: { avatar: 'sdfsghetds' }}, { multi: true }, function() {
-				console.log("user encontrado2");
-			});
+			user.local.avatar = req.body.img;
 			
-			
+			user.save(function(err) {
 				
-			User.save(function (err, pintxo) {});
-			
-			
-		});*/
+				if (err)
+					console.log('Error al guardar avatar');
+				else {
+					console.log('Avatar cambiado');
+				}
+				
+			});
 		
+		});
 	});
 		
 
@@ -341,6 +387,12 @@ app.post('/actualiza-usuarios', function(req, res) {
 		failureFlash : true // allow flash messages
 	}));
 	////////////////////////////////////////////////////////////////
+	
+	app.get('/about', function(req, res){
+		res.render('about.ejs');
+	});
+	
+	
 };
 
 // esta es la función utilizada para verificar que un usuario está autentificado

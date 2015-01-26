@@ -9,9 +9,9 @@ $(document).ready(function() {
                         message: 'El nombre de usuario es obligatorio'
                     },
                     stringLength: {
-                        min: 6,
-                        max: 30,
-                        message: 'El nombre de usuario debe tener al menos 6 caracteres y máximo 30'
+                        min: 3,
+                        max: 10,
+                        message: 'El nombre de usuario debe tener al menos 3 caracteres y máximo 10'
                     },
                     regexp: {
                         regexp: /^[a-zA-Z0-9]+$/,

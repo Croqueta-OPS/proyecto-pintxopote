@@ -117,6 +117,10 @@ hr{
 	height: auto;
 }
 
+.btnEditar{
+	margin: 3%;	
+}
+
 .btnEditar img{
 	width: 24px;
 	height: auto;
@@ -151,4 +155,28 @@ hr{
 
 .editar{
 	display:inline-block;
+}
+
+#avatarString {
+	display: none;
+}
+
+/* Para que el botón no se vea y solo se vea la imagen*/
+#falseinput{
+	background: transparent;
+    border: none !important;
+}
+
+/* Escondemos el botón de Examinar para poder poner el botón por encima y customizarlo*/
+#imageLoader {
+	display: none;
+}
+
+#btnEditarAvatar {
+	width: 30px;
+	height: 30px;
+}
+
+#idUsuario {
+	display: none;
 }

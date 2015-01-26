@@ -6,7 +6,8 @@ var mongoose = require('mongoose');//ya que vamos a usar mongoose, hacemos el ll
 		  coordY: String,
 		  nombre: String,
 		  rutas: [],
-		  orden: []
+		  orden: [],
+		  img: String
 	}, {
 		collection: 'bares' //asignamos la colección a la que tiene que acceder
 	});

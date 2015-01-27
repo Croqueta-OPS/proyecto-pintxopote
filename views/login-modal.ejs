@@ -1,0 +1,48 @@
+<!----- VENTANA MODAL LOGIN---
+		----------------------->
+		<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4>Inicia sesión</h4>
+					</div>
+					<div class="modal-body">
+					
+					<div class="container-form">
+					
+					<!-- Inicio del formulario ////////////////////-->
+					<form name="registrationForm" id="registrationForm" action="/login" method="post" class="form-horizontal">
+						<div class="form-group">
+				            <label class="col-sm-3 control-label">Email</label>
+				                <div class="col-sm-5">
+				                     <input type="text" class="form-control" name="email" />
+				                </div>
+				        </div>
+				        <div class="form-group">
+				            <label class="col-sm-3 control-label">Password</label>
+				                <div class="col-sm-5">
+				                   		<input type="password" class="form-control" name="password" />
+				                </div>
+				        </div>
+						<div class="form-group">
+				            <div class="col-sm-9 col-sm-offset-3">
+				                <!-- Do NOT use name="submit" or id="submit" for the Submit button -->
+				                <button type="submit" class="btn btn-default">Login
+				                </button>
+				             </div>
+				            </div>
+				    </form>
+					</div>
+					</div>
+					
+					<!-- FIN del formulario ////////////////////-->
+					<div class="modal-footer">
+						<p>¿Aún no tienes una cuenta? <a href="#signup" data-toggle="modal" data-dismiss="modal">Regístrate</a></p>
+						<a class="btn btn-default" data-dismiss="modal">	Cerrar</a>
+					</div>
+				
+				</div>
+			</div>
+		</div>
+		<!-- FIN de la ventana modal ////////////////////-->

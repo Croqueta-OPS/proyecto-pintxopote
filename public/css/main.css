@@ -1,21 +1,19 @@
 * {
 	margin: 0;
+	padding: 0;
 }
 
-html, body {
-	background-image: url('/img/beer2.gif'); 
-	background-size: 100%;
-	background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: 0% 30%;
+html {
     height: 100%;
 }
 
-.imgNegro {
-	position: absolute;
-	z-index: 999;
-	opacity: 0.2;
-	display: none;
+body {
+	background-image: url('/img/beer2.gif'); 
+	background-size: cover;
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    height: 100%;
 }
 
 header {
@@ -87,12 +85,14 @@ header {
 }
 
 .mainSection {
-	margin-top: 10%;
+	width: 100%;
+	height: 100%;
 }
 
 .bienvenida {
-	width: 50%;
-	margin: 17% 0 4% 25%;
+	width: 60%;
+	height: 40%;
+	margin: 15% 20% 0 20%;
 	color: #FFF;
 	text-align: center;
 	font-size: 200%;
@@ -129,75 +129,45 @@ header {
 	display: none;
 }
 
-.content a{
-	color:#303030;
-	display: none;
-}
-
-.boton-log{
-	margin: 0 5% 0 5%;
-	padding: 1% ;
-	width: 40%;
-	float: left;
-	border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	text-align: center;
-	background-color: rgba(255, 255, 255, 0.8);
-	display: none;
-}
-
-.boton-log span{
-	margin-right: 3%; 
-	display: none;
+#loginRedes{
+	margin-top: 3%;
+	height:30%;
 }
 
 #btnUnete {
-	margin-top: 8.5%;
+	margin: 0 auto;
 	width: 20%;
-	margin-left: 40%;
 }
 
-.imgBoton {
-	width: 60%;
-	margin-left: 20%;
-	/*background-color: rgba(255, 255, 255, 0.4);*/
+#btnUnete img{
+	width: 70%;
+	margin: 0 15% 0 15%;
 }
 
-.navRedes {
-	width: 24%;
-	margin: 2% 0 7% 36.5%;
-}
-.navRedes img {
-	width: 8.5%;
-}
-
-.navRedes ul {
-	list-style: none;
-}
-
-.navRedes ul li {
-	display: inline;
-	margin-left: 12.5%;
-}  
-
-.navRedes2 {
-	width: 24%;
-	margin: 10% 10% 7% 36.5%;
+/*BOTONES REDES SOCIALES*/
+.flex-container {
+	width: 20%;
+	margin: 0 auto;
+	padding: 1%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center; /* align vertical */
 }
 
-.navRedes2 img {
-	width: 8.5%;
+article{
+  	justify-content: center;
+  	width: 10%;
 }
 
-.navRedes2 ul {
-	list-style: none;
+article img{
+  	width: 100%;
+  	height: auto;
+  	margin: 0 auto;
 }
+/*FIN BOTONES REDES SOCIALES*/
 
-.navRedes2 ul li {
-	display: inline;
-	margin-left: 12.5%;
-}  
 
 #rutas {
 	width: 86%;

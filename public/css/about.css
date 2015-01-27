@@ -13,7 +13,6 @@ body{
 	font-style: normal;
 	font-variant: normal;
 	background-color: #FFFFFA;
-	border: 1px solid blue;
 	height: 100%;
 }
 
@@ -64,7 +63,6 @@ body{
   display: none;
   width: 100%;
   left: 0;
-  top: 0;
   }
 
 .rslides li:first-child {
@@ -78,8 +76,7 @@ body{
   height: auto;
   float: left;
   width: 100%;
-  border: 0;
-  }
+  border: 0;  }
   
   
 
@@ -97,6 +94,7 @@ body{
 .transparent-btns_nav:focus,
 .large-btns_nav:focus {
   outline: none;
+  width: 100%;
   }
 
 .centered-btns_tabs,
@@ -114,6 +112,7 @@ body{
   _float: left;
   *float: left;
   margin-right: 5px;
+  width: 100%;
   }
 
 .centered-btns_tabs a,
@@ -296,5 +295,3 @@ input[type="range"]::-webkit-slider-thumb{
     margin-top:5%;
 }
 /*FIN VIDEO*/
-
-

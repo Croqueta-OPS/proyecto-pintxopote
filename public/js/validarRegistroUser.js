@@ -1,26 +1,26 @@
 $(document).ready(function() {
-    $('#registrationForm').bootstrapValidator({
+    $('#formRegistro').bootstrapValidator({
         // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
-        feedbackIcons: {
+        /*feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',
             invalid: 'glyphicon glyphicon-remove',
             validating: 'glyphicon glyphicon-refresh'
-        },
+        },*/
         fields: {
             username: {
-                message: 'The username is not valid',
+                message: 'Nombre de usuario no válido',
                 validators: {
                     notEmpty: {
-                        message: 'The username is required and cannot be empty'
+                        message: 'Introduce un nombre de usuario'
                     },
                     stringLength: {
                         min: 3,
                         max: 10,
-                        message: 'The username must be more than 3 and less than 8 characters long'
+                        message: 'El usuario debe tener entre 3 o 8 caracteres'
                     },
                     regexp: {
                         regexp: /^[a-zA-Z0-9]+$/,
-                        message: 'The username can only consist of alphabetical and number'
+                        message: 'Usuario solo alfanuméricos'
                     },
                     different: {
                         field: 'password',
@@ -31,44 +31,44 @@ $(document).ready(function() {
             email: {
                 validators: {
                     notEmpty: {
-                        message: 'The email address is required and cannot be empty'
+                        message: 'El email no puede estar vacío'
                     },
                     emailAddress: {
-                        message: 'The email address is not a valid'
+                        message: 'Introduce un email válido'
                     }
                 }
             },
             password: {
                 validators: {
                     notEmpty: {
-                        message: 'The password is required and cannot be empty'
+                        message: 'El password no puede estar vacío'
                     },
                     different: {
                         field: 'username',
-                        message: 'The password cannot be the same as username'
+                        message: 'El password y el nombre de usuario no pueden ser iguales'
                     },
                     stringLength: {
                         min: 8,
                         max: 20,
-                        message: 'The password must have at least 8 characters'
+                        message: 'El password debe estar entre 8 y 20 caracteres'
                     }
                 }
             },
             birthday: {
                 validators: {
                     notEmpty: {
-                        message: 'The date of birth is required'
+                        message: 'La fecha de nacimiento no puede estar vacia'
                     },
                     date: {
                         format: 'YYYY/MM/DD',
-                        message: 'The date of birth is not valid'
+                        message: 'La fecha de nacimiento no es válida'
                     }
                 }
             },
             gender: {
                 validators: {
                     notEmpty: {
-                        message: 'The gender is required'
+                        message: 'El género no puede estar vacío'
                     }
                 }
             }

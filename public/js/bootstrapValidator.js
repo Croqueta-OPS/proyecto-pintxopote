@@ -3042,23 +3042,26 @@ if (typeof jQuery === 'undefined') {
 
             // Email address regular expression
             // http://stackoverflow.com/questions/46155/validate-email-address-in-javascript
-            var emailRegExp   = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
-                allowMultiple = options.multiple === true || options.multiple === 'true';
+            //var emailRegExp   = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+            var tester   = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+   
+               if(value.length>254)
+		return false;
 
-            if (allowMultiple) {
-                var separator = options.separator || /[,;]/,
-                    addresses = this._splitEmailAddresses(value, separator);
+	var valid = tester.test(value);
+	if(!valid)
+		return false;
 
-                for (var i = 0; i < addresses.length; i++) {
-                    if (!emailRegExp.test(addresses[i])) {
-                        return false;
-                    }
-                }
+	// Further checking of some things regex can't handle
+	var parts = value.split("@");
+	if(parts[0].length>64)
+		return false;
 
-                return true;
-            } else {
-                return emailRegExp.test(value);
-            }
+	var domainParts = parts[1].split(".");
+	if(domainParts.some(function(part) { return part.length>63; }))
+		return false;
+
+	return true;
         },
 
         _splitEmailAddresses: function(emailAddresses, separator) {

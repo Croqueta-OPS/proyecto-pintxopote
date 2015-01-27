@@ -27,7 +27,8 @@ $(document).ready(function() {
                         message: 'El password no puede ser el mismo que el nombre de usuario'
                     },
                     stringLength: {
-                        min: 4,
+                        min: 8,
+                        max: 20,
                         message: 'El password debe tener como mínimo 4 caracteres'
                     }
                 }

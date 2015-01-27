@@ -17,8 +17,7 @@ module.exports = function(app, passport) {
 			res.render('index.ejs', { 
 				nombre: req.user.local.nomUsuario, 
 				clase : 'visible', 
-				clase2: 'escondido',
-				navRedes: 'navRedes2'
+				clase2: 'escondido'
 			});
 
 		}else{
@@ -26,8 +25,7 @@ module.exports = function(app, passport) {
 			res.render('index.ejs', { 
 				nombre : '', 
 				clase  : 'escondido', 
-				clase2 : 'visible',
-				navRedes : 'navRedes'
+				clase2 : 'visible'
 			}); // Carga el index.ejs
 			
 		}
@@ -246,12 +244,6 @@ app.post('/actualiza-usuarios', function(req, res) {
 				
 			}	
 			else {
-			
-			
-			
-			
-			
-				
 				
 				User.find({}, function(err, user) {
 					
@@ -311,10 +303,6 @@ app.post('/actualiza-usuarios', function(req, res) {
 	});
 	
 });
-
-		
-		
-	
 	
 	app.post('/insertImg', isLoggedIn, function(req, res) {
 

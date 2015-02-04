@@ -8,7 +8,7 @@ TO-DO: Hacer que cambie elemento según movamos el scroll, no solo al clicar los
 $(document).ready(function () {
     
     //Al hacer clic en cualquiera de los botones del menú
-    $('.navegador a').click(function(e) {
+    $('.menuNavegador a').click(function(e) {
 
         //Quitamos la class "active" al elemento que la tenga en el momento
         $('.active').removeClass('active');

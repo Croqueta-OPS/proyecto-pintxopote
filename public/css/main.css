@@ -72,7 +72,7 @@ body {
 	color: #303030;
 }
 
-.menuNavegador a:hover, .menu a:active, .menu .active a:link, .menu .active a:visited {
+.menuNavegador a:hover, .menuNavegador a:active, .menuNavegador .active a:link, .menuNavegador .active a:visited {
 	text-decoration: none;
 	text-shadow: none;
 	color: #FF9933;

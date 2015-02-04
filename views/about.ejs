@@ -76,7 +76,7 @@
 		    <article>
 		    	<header>
 		    	<h1>Artzai San José</h1>
-		    	<canvas id="myCanvas" width="150" height="150"></canvas>
+		    	<canvas class="fotosRound" id="myCanvas" width="180" height="180"></canvas>
 		    	<!--<img src="img/white-round-md.png"></img>-->
 		    	</header>
 		    	<footer><p>Web developer, Musician</p></footer>
@@ -84,7 +84,7 @@
 		    <article>
 		    	<header>
 		    	<h1>Sheyla Pérez</h1>
-		    	<canvas id="myCanvas2" width="150" height="150"></canvas>
+		    	<canvas class="fotosRound" id="myCanvas2" width="180" height="180"></canvas>
 		    	<!--<img src="img/white-round-md.png"></img>-->
 		    	</header>
 		    	<footer><p>Web developer, IT</p></footer>
@@ -92,8 +92,7 @@
 		    <article>
 		    	<header>
 		    	<h1>Borja Muñoz</h1>
-		    	<canvas id="myCanvas3" width="150" height="150"></canvas>
-		    	<!--<img src="img/white-round-md.png"></img>-->
+		    	<canvas class="fotosRound" id="myCanvas3" width="180" height="180"></canvas>
 		    	</header>
 		    	<footer><p>Web developer, Graphic designer</p></footer>
 		    </article>
@@ -120,63 +119,57 @@
 	</div>
 </div>
     <script>
-      var canvas = document.getElementById('myCanvas');
-      var context = canvas.getContext('2d');
-      var centerX = canvas.width / 2;
-      var centerY = canvas.height / 2;
-      var radius = 70;
-
-      context.beginPath();
-      context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-      context.fillStyle = 'green';
-      context.fill();
-      context.lineWidth = 5;
-      context.strokeStyle = '#003300';
-      context.stroke();
-      
-      var canvas2 = document.getElementById('myCanvas2');
-      var context2 = canvas2.getContext('2d');
-      var centerX2 = canvas2.width / 2;
-      var centerY2 = canvas2.height / 2;
-      var radius2 = 70;
-
-      context2.beginPath();
-      context2.arc(centerX2, centerY2, radius2, 0, 2 * Math.PI, false);
-      context2.fillStyle = 'green';
-      context2.fill();
-      context2.lineWidth = 5;
-      context2.strokeStyle = '#003300';
-      context2.stroke();
-      
-      /*var canvas3 = document.getElementById('myCanvas3');
-      var context3 = canvas3.getContext('2d');
-      var centerX3 = canvas3.width / 2;
-      var centerY3 = canvas3.height / 2;
-      var radius3 = 70;
-
-      context3.beginPath();
-      context3.arc(centerX3, centerY3, radius3, 0, 2 * Math.PI, false);
-      context3.fillStyle = 'green';
-      context3.fill();
-      context3.lineWidth = 5;
-      context3.strokeStyle = '#003300';
-      context3.stroke();*/
-      
-      	var ctx = document.getElementById('myCanvas3').getContext("2d");
-		//ctx.lineWidth = 13; 
-		//ctx.strokeStyle = 'rgba(0,0,0,1)'; 
-		//ctx.fillStyle="rgba(0,0,0,0)" // if using this, make sure alpha < 1
-		
-		ctx.arc(100,100, 50, 0, Math.PI*2,true); // you can use any shape
-		ctx.clip();
-		
+   
+      //para poner la foto de canvas en blanco y negro
+      function grayScale(context, canvas) {
+    	var imgData = context.getImageData(0, 0, canvas.width, canvas.height);
+        var pixels  = imgData.data;
+        for (var i = 0, n = pixels.length; i < n; i += 4) {
+        var grayscale = pixels[i] * .3 + pixels[i+1] * .59 + pixels[i+2] * .11;
+        pixels[i  ] = grayscale;        // red
+        pixels[i+1] = grayscale;        // green
+        pixels[i+2] = grayscale;        // blue
+        //pixels[i+3]              is alpha
+	    }
+	    //redraw the image in black & white
+	    context.putImageData(imgData, 0, 0);
+	  }
+  
+    //myCanvas - ARTZAI (en este caso cambiamos la imagen a blanco y negro usando canvas)
+  	var canvas = document.getElementById('myCanvas');
+    var ctx = canvas.getContext("2d");
 		var img = new Image();
-		img.addEventListener('load', function(e) {
-		    ctx.drawImage(this, 0, 0, 100, 100);
-		    //ctx.fill();
-		//ctx.stroke();
-		}, true);
-		img.src="img/fondo-edita.jpg";
+		img.src = 'img/ArtzaiFotoAbout.jpg';
+		img.onload = function(){
+			ctx.drawImage(img, 0, 0, 180, 180);
+			grayScale(ctx, canvas);
+			
+		}
+		
+		
+      
+      //myCanvas2 - SHEILA
+      var canvasSheila = document.getElementById('myCanvas2');
+      var ctxSheila = canvasSheila.getContext("2d");
+		var imgSheila = new Image();
+		imgSheila.src = 'img/1d7c973.jpg';
+		imgSheila.onload = function(){
+			ctxSheila.drawImage(imgSheila, 0, 0, 180, 180);
+			grayScale(ctxSheila, canvasSheila);
+		}
+ 
+      
+      //myCanvas3 - BORJA
+      
+      	var canvasBorja = document.getElementById('myCanvas3');
+      	var ctxBorja = canvasBorja.getContext("2d");
+		var imgBorja = new Image();
+		imgBorja.src = 'img/BorjaFotoAbout2.jpg';
+		imgBorja.onload = function(){
+			ctxBorja.drawImage(imgBorja, 0, 0, 180, 180);
+			grayScale(ctxBorja, canvasBorja);
+		}
+		
     </script>
 </body>
 </html>

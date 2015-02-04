@@ -8,6 +8,8 @@ var map;
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 
+var markersArray = [];
+
 
 //En esta función se detallan las opciones del mapa
 function initialize() {
@@ -31,8 +33,27 @@ function initialize() {
 	
 	//Indico al servicio de rutas de Google que el mapa a utilizar es el recién creado
 	directionsDisplay.setMap(map);
-
 }
 
 //Le añado un event listener para que cuando cargue la página ejecute la función initialize()
 google.maps.event.addDomListener(window, 'load', initialize);
+
+function mostrarMapa() {
+	clearOverlays();
+	borrarRuta();
+	var myLatlng = new google.maps.LatLng(parseFloat(document.getElementById("coordX").innerHTML), parseFloat(document.getElementById("coordY").innerHTML));
+
+	var marker = new google.maps.Marker({  
+		position: myLatlng,
+		map: map,
+		title: document.getElementById("nombreBar").innerHTML 
+	}); 
+	markersArray.push(marker);
+}
+
+function clearOverlays() {
+  for (var i = 0; i < markersArray.length; i++ ) {
+    markersArray[i].setMap(null);
+  }
+  markersArray.length = 0;
+}

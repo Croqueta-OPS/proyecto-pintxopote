@@ -15,16 +15,16 @@ $(document).ready(function() {
                     },
                     stringLength: {
                         min: 3,
-                        max: 10,
-                        message: 'El usuario debe tener entre 3 o 8 caracteres'
+                        max: 8,
+                        message: 'El usuario debe tener entre 3 y 8 caracteres'
                     },
                     regexp: {
                         regexp: /^[a-zA-Z0-9]+$/,
-                        message: 'Usuario solo alfanuméricos'
+                        message: 'El nombre de usuario solo puede contener caracteres alfanuméricos'
                     },
                     different: {
                         field: 'password',
-                        message: 'The username and password cannot be the same as each other'
+                        message: 'El password y el nombre de usuario no pueden ser iguales'
                     }
                 }
             },

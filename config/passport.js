@@ -125,30 +125,41 @@ module.exports = function(passport) {
         
         var res;
         var formato = /^(\d{4})(\/|-)(\d{2})(\/|-)(\d{2})$/;
+        var formNombre = /^[a-zA-Z0-9]+$/;
         
-        if (req.body.username.length > 10 || req.body.username.length < 3 || !validator.validate(req.body.email) || !formato.test(req.body.birthday) || req.body.email.length > 50) {
+        if (req.body.username.length > 8 || req.body.username.length < 3 || !validator.validate(req.body.email) || !formato.test(req.body.birthday) || req.body.email.length > 50 || !formNombre.test(req.body.username) || req.body.password.length > 20 || req.body.password.length < 8 || (req.body.gender != "Hombre" && req.body.gender != "Mujer")) {
 
-				if (req.body.username.length > 10 || req.body.username.length < 3) {
-					console.log("El nombre debe tener entre 3 y 10 caracteres.");
-				}
-				/*if (req.body.password.length > 8) {
-					console.log("La contraseña es demasiado larga. (max. 140)");
-					res.redirect('/profile');
-				}*/
-				if (!validator.validate(req.body.email)) {
-					console.log("El email no es válido.");
-				}
-				if (!formato.test(req.body.birthday)) {
-					console.log("La fecha no es válida.");
-				}
-				if (req.body.email.length > 50) {
-					console.log("El email es demasiado largo. (max. 50c)");
-				}
-				
-			}	
+			if (req.body.username.length > 8 || req.body.username.length < 3) {
+				console.log("El nombre debe tener entre 3 y 8 caracteres.");
+			}
+			if (req.body.password.length > 20 || req.body.password.length < 8) {
+				console.log("La contraseña debe tener entre 8 y 20 caracteres.");
+			}
+			if (!validator.validate(req.body.email)) {
+				console.log("El email no es válido.");
+			}
+			if (!formato.test(req.body.birthday)) {
+				console.log("La fecha no es válida.");
+			}
+			if (req.body.email.length > 50) {
+				console.log("El email es demasiado largo. (max. 50c)");
+			}
+			if (!formNombre.test(req.body.username)) {
+			    console.log("El nombre solo puede tener caracteres alfanuméricos.");
+			}
+			if (req.body.gender != "Hombre" && req.body.gender != "Mujer") {
+			    console.log("Género erroneo.");
+			}
 			
-			else {
-    			
+		/*	User.findOne({ 'local.nomUsuario' :  req.body.username }, function(err, user) {
+			    
+			    console.log(user);
+			    
+			});*/
+			
+		}	
+			
+		else {
     
             // asynchronous
             // User.findOne wont fire unless data is sent back
@@ -163,8 +174,10 @@ module.exports = function(passport) {
                     return done(err);
                 // check to see if theres already a user with that email
                 if (user) {
+                    console.log("--- El nombre de usuario ya existe ---");
                     return done(null, false, req.flash('signupMessage', 'Ese usuario ya existe.'));
-                } else {
+                } 
+                else {
     
                     User.findOne({'local.email' : email}, function(err, user){
                         // if there are any errors, return the error
@@ -173,8 +186,10 @@ module.exports = function(passport) {
             
                         // check to see if theres already a user with that email
                         if (user) {
+                            console.log("--- El email ya existe ---");
                             return done(null, false, req.flash('signupMessage', 'Ese email ya existe.'));
-                        }else{
+                        }
+                        else{
                             // if there is no user with that email
                             // create the user
                             var newUser = new User();
@@ -196,6 +211,9 @@ module.exports = function(passport) {
                                     throw err;
                                 return done (null, newUser);
                             });
+                            
+                            console.log("--- El usuario ha sido creado ---")
+                            
                         }
                     });
         

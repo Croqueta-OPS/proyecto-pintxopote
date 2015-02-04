@@ -182,6 +182,11 @@ a{
     margin-left: 1%;
 }
 
+#pintxoImg{
+     width: 230px;
+     height: 153px;
+}
+
 .formulario-editar{
     max-width: 500px;
     padding: 10px 20px;

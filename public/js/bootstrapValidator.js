@@ -3730,6 +3730,8 @@ if (typeof jQuery === 'undefined') {
             if (sum !== k) {
                 return false;
             }
+            
+            
 
             // Validate political region
             // rr is the political region of birth, which can be in ranges:

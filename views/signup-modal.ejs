@@ -6,6 +6,9 @@
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<h4>Registrate</h4>
+						<% if (message2.length > 0) { %>
+							<div class="alert alert-danger" id="modal4"><%= message2 %></div>
+						<% } %>
 					</div>
 					<div class="modal-body">
 					

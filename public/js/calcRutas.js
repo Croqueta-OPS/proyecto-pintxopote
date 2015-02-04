@@ -5,7 +5,10 @@
 $(document).ready(function() {
     
     //Al hacer clic sobre uno de los botones de rutas
-    $('#btn1, #btn2, #btn3').click(function() { 
+    $('#btn1, #btn2, #btn3, #btn4, #btn5, #btn6').click(function() {
+        
+        clearOverlays();
+        directionsDisplay.setMap(map);
        
         //Creamos una variable ruta, que indica cual es la ruta que vamos a imprimir
         var ruta;
@@ -153,4 +156,11 @@ $(document).ready(function() {
     
     });
     
+    
+    
+    
 });
+
+function borrarRuta() {
+    directionsDisplay.setMap(null);
+}

@@ -12,6 +12,8 @@
 	<script src="js/mostrarForm.js" type="text/javascript"></script>
 	<script src="js/borrarPintxo.js" type="text/javascript"></script>
 	<script src="js/formulario-editar.js" type="text/javascript"></script>
+	<script src="js/cambiarImagenPintxo.js" type="text/javascript"></script>
+	
 
 </head>
 <body>
@@ -23,26 +25,36 @@
 		<h3>1. Añade un nuevo pintxo</h3>
 		<!--<div class="btn-aniadir"><a id="mostrarForm" href="#" onclick="mostrarFormulario()">Añadir Pintxo</a></div>-->
 		<div class="form-style-5">
-			<form action="/edita-pintxos" method="post">
+			<!--<form action="/anade-pintxos" method="post">-->
+			<form>
 				<legend><span class="number">i</span> Introduce los datos</legend>
-			    <label>Nombre:</label> <input type="text" name="nombre"><br>
-	            <label>Descripción:</label> <input type="text" name="descripcion">
-			   	<button type="submit"> Añadir </button>
+				
+				<!-- Para añadir foto del pintxo -->
+				<label>Imagen:</label> <input type="file" id="imageLoader"><br>
+				<img id="pintxoImg" width="230" height="153"></img>
+			    <label>Nombre:</label> <input type="text" id="nombre"><br>
+	            <label>Descripción:</label> <input type="text" id="descripcion">
+			   	<button type="submit" id="botonAniadir" onClick="history.go(0)"> Añadir </button>
 			</form>
 		</div>
-		<h3>2. Edita o elimina un pintxos</h3>
-		<div class="contenido"><!-- Mostrar una lista de pintxos -->
+		<h3>2. Edita o elimina un pintxo</h3>
+		<div class="contenido" id="editarborrar"><!-- Mostrar una lista de pintxos -->
             <ul>
                 <% for(var i = 0; i<pintxos.length; i++){ %>
                     <li>
-                        <%= pintxos[i].nombre %>
-                        <a class="btnBorrar" id = <%= pintxos[i].id %> href=""><img src="../img/delete.png"></a>
-                    	<a class="btnEditar" id = <%= pintxos[i].id %> href="#"><img src="../img/edit.png"></a>
+                    	<%= pintxos[i].nombre %>
+                        <br>
+                        <%= pintxos[i].descripcion %>
+                        <br>
+                    	<img id="pintxoImg" src="<%= pintxos[i].img %>"></img><br>	
+                        
+                        <a class="btnBorrar" onclick="alert("El pintxo se ha actualizado correctamente");" id = <%= pintxos[i].id %> href="#editarborrar"><img src="../img/delete.png"></a>
+                    	<a class="btnEditar" id = <%= pintxos[i].id %> href="#editar"><img src="../img/edit.png"></a>
                     </li>
                 <% } %>
             </ul>
     	</div>
-    	<div class="formulario-editar"></div>
+    	<div class="formulario-editar" id="editar"></div>
 
 	</div>
 </body>

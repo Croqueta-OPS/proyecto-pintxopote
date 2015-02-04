@@ -18,12 +18,15 @@ $(document).ready(function() {
         	//Por cada elemento del json recibido
 			data.forEach(function(element, index, array) {
 				if(element._id == id) {
-				    formulario = "<form action='/actualiza-pintxos' method='post'>";
-				    formulario += "<label>ID:</label> <input type='text' name='_id' value='"+element._id+"' readonly><br>";
-                    formulario += "<label>Nombre:</label><br><input type='text' name='nombre' value='"+element.nombre+"'><br>";
-                    formulario += "<label>Descripción:</label> <input type='text' name='descripcion' value='"+element.descripcion+"'><br>";
+				    formulario = "<script src='js/cambiarImagenPintxoEditar.js' type='text/javascript'></script>";
+				    formulario += "<form>";
+				    formulario += "<label>ID:</label> <input type='text' id='idP' name='_id' value='"+element._id+"' readonly><br>";
+				    formulario += "<label>Imagen:</label> <img id='pintxoImgEditar' height='153' width='230' src='"+element.img+"'></img><br>";
+				    formulario += "<input type='file' id='imageLoaderEditar' name='imagen'>";
+                    formulario += "<label>Nombre:</label><br><input type='text' id='nombreP' name='nombre' value='"+element.nombre+"'><br>";
+                    formulario += "<label>Descripción:</label> <input type='text' id='descripcionP' name='descripcion' value='"+element.descripcion+"'><br>";
                     //formulario += "<label>Descripción:<br></label><textarea rows='4' cols='50'>"+element.descripcion+"</textarea><br>";
-                    formulario += "<button type='submit'> Actualizar </button></form>"; 
+                    formulario += "<button id='botonActualizar'> Actualizar </button></form>"; 
                     
 				}
 			});

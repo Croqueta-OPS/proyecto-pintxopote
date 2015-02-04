@@ -1,160 +1,160 @@
 <!-- views/profile.ejs -->
 <!doctype html>
 <html>
-			<head>
-			<title>The Pintxopo</title>
-				<meta charset="utf-8"/>
-				<!-- Bootstrap CSS -->
-				<link rel="stylesheet" href="css/bootstrap.css"/>
-			
-				<!-- BootstrapValidator CSS -->
-				<link rel="stylesheet" href="css/bootstrapValidator.min.css"/>
-					
-				<!-- CSS -->
-				<link rel="stylesheet" type="text/css" href="css/profile.css" ><!--Estilos principales-->
-			      
-				<!-- Fuentes externas -->
-			 <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
-			
-				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
-			
-				<!--Estilos bootstrap-->
-				<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
-				<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
-			
-				<!-- BootstrapValidator JS -->
-				<script type="text/javascript" src="js/bootstrapValidator.min.js"></script>
-				<script type="text/javascript" src="js/validadorEditarUser.js"></script>
-				
-				<script type="text/javascript" src="js/cambiarAvatar.js"></script>
-				<!--<script type="text/javascript" src="js/insertarImg.js"></script>-->
-				<!--<script src="js/editarUsuario.js" type="text/javascript"></script>-->
-			
-				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-			
-			</head>
-			<body>
-			<div class="container">
-				<div class="logo">
-					<a class="homeButton" href="/"><img src="img/logo_trazado_recortado.png" /></a>
-				</div>
-				<div class="header">
-					<hr><br>
-					<!--INICIO del contenedor flexible-->
-					<div class="flex-container">
-									<div class="flex-item" id="datos">
-										
-													<div id="nom-usuario">
-																	<h1><%= user.local.nomUsuario%></h1>
-													</div>
-													
-													<div id="avatar">
-													
-																	<form action="/actualiza-usuarios" id="cambiarFoto" method="post">
-																					<p id="avatarString"><%= user.local.avatar %></p>
-																					<img id="avatarImg"></img>
-																					<input type="file" id="imageLoader" name="imageLoader"/><br/>
-																	</form>
-			
-																	<button id="falseinput"><img id="btnEditarAvatar" src="img/open-iconic/svg/pencil.svg"></button>
-																	
-																		<script>
-																		$(document).ready( function() {
-																		  $('#falseinput').click(function(){
-																		    $("#imageLoader").click();
-																		  });
-																		});
-																		</script>
-														
-																	<!--<button type="submit" class="btn btn-success" id="btnGuardarAvatar">Guardar avatar actual</button>-->
-																	
-													</div>
-													
-													<div id="datos-usuario">
-																	<p id="email">Email: <%= user.local.email %></p>
-													
-																<p>Sexo: <%= user.local.sexo %></p>
-													
-													<p>Fecha de nacimiento: <%= user.local.fechaNac %></p>
-													</div>
-									</div>
-									
-       		<div class="flex-item">
-       						<div class="valoracion"><h1>2</h1><p>Pintxos<br>valorados</p></div>
-       		</div>
-       		
-       		<div class="flex-item">
-       						<div class="valoracion"><h1>5</h1><p>Bares<br>valorados</p></div>	
-       		</div>
-       		
-       		<div class="flex-item">
-       						<div class="valoracion"><h1>3</h1><p>Rutas<br>creadas</p></div>	
-       		</div>
-       		
-     	</div>
-			       	<!--FIN del contenedor flexible-->
-			     <hr>
-			       
-										<!-- Inicio de la ventana modal ////////////////////-->
-			       	<div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-													<div class="modal-dialog">
-														<div class="modal-content">
-																<div class="modal-header">
-																	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-																	<h4>Edita tu perfil</h4></div>
-																	<div class="modal-body">
-			
-																	<div class="container-form">
-																		
-																			<!-- Inicio del formulario ////////////////////-->
-																			<form action="/actualiza-usuarios" id="registrationForm" method="post" class="form-horizontal">
-			
-										                 <div class="form-group">
-										                     <label class="control-label">Nombre de usuario</label>
-										                     <input type="text" class="form-control" name="username" value="<%= user.local.nomUsuario%>"/>
-										                     <input id="idUsuario" type="text" class="form-control" name="idUsuario" value="<%= user._id%>"/>
-										                 </div>
-										
-										                 <div class="form-group">
-										                     <label class="control-label">Email</label>
-										                     <input type="text" class="form-control" name="email" value="<%= user.local.email %>"/>
-										                 </div>
-			
-										                 <div class="form-group">
-										                     <label class="control-label">Fecha de nac.</label>
-										                     <input type="text" class="form-control" name="birthday" placeholder="YYYY/MM/DD" value="<%= user.local.fechaNac %>"/>
-										                 </div>
-										                 <button type="submit" class="btn btn-success" id="btnActualizar" >Guardar</button>
-																	         </form>
-																	      </div>
-														    </div>
-															<!-- FIN del formulario ////////////////////-->
-															<div class="modal-footer">
-																			<a class="btn btn-default" data-dismiss="modal">	Cerrar</a>
-															</div>
-															
-															</div>
-														</div>
+<head>
+<title>The Pintxopo</title>
+	<meta charset="utf-8"/>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="css/bootstrap.css"/>
+
+	<!-- BootstrapValidator CSS -->
+	<link rel="stylesheet" href="css/bootstrapValidator.min.css"/>
+		
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="css/profile.css" ><!--Estilos principales-->
+      
+	<!-- Fuentes externas -->
+ <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+
+	<!--Estilos bootstrap-->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+
+	<!-- BootstrapValidator JS -->
+	<script type="text/javascript" src="js/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="js/validadorEditarUser.js"></script>
+	
+	<script type="text/javascript" src="js/cambiarAvatar.js"></script>
+	<!--<script type="text/javascript" src="js/insertarImg.js"></script>-->
+	<!--<script src="js/editarUsuario.js" type="text/javascript"></script>-->
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+	<div class="logo">
+		<a class="homeButton" href="/"><img src="img/logo_trazado_recortado.png" /></a>
+	</div>
+	<div class="header">
+		<hr><br>
+		<!--INICIO del contenedor flexible-->
+		<div class="flex-container">
+						<div class="flex-item" id="datos">
+							
+										<div id="nom-usuario">
+														<h1><%= user.local.nomUsuario%></h1>
 										</div>
-									<!-- FIN de la ventana modal ////////////////////-->
-			
-				 </div>
-			
-				 			<!-- BOTONES EDITAR Y DESCONECTAR ////////////////////-->
-			
-					   <div id="editar">
-					    	<a class="btnEditar" href="#contact" data-toggle="modal">
-												<img src="img/open-iconic/svg/pencil.svg" alt="Edita tu perfil">
-												<!--<img src="../img/edit.png"><br>Edita tu perfil</a>-->
-					    	<a class="btnEditar" href="/logout">
-											<img src="img/open-iconic/svg/account-logout.svg">
-										</a>
-										<a class="btnEditar" href="/">
-									<img src="img/open-iconic/svg/home.svg">
-										</a>
-					   </div>
-								<!-- FIN DE BOTONES EDITAR Y DESCONECTAR ////////////////////-->
-				</div>
-			</div>
-			</body>
+										
+										<div id="avatar">
+										
+														<form action="/actualiza-usuarios" id="cambiarFoto" method="post">
+																		<p id="avatarString"><%= user.local.avatar %></p>
+																		<img id="avatarImg"></img>
+																		<input type="file" id="imageLoader" name="imageLoader"/><br/>
+														</form>
+
+														<button id="falseinput"><img id="btnEditarAvatar" src="img/open-iconic/svg/pencil.svg"></button>
+														
+															<script>
+															$(document).ready( function() {
+															  $('#falseinput').click(function(){
+															    $("#imageLoader").click();
+															  });
+															});
+															</script>
+											
+														
+														
+										</div>
+										
+										<div id="datos-usuario">
+														<p id="email">Email: <%= user.local.email %></p>
+										
+													<p>Sexo: <%= user.local.sexo %></p>
+										
+										<p>Fecha de nacimiento: <%= user.local.fechaNac %></p>
+										</div>
+						</div>
+						
+   <div class="flex-item">
+   				<div class="valoracion"><h1>2</h1><p>Pintxos<br>valorados</p></div>
+   </div>
+   
+   <div class="flex-item">
+   				<div class="valoracion"><h1>5</h1><p>Bares<br>valorados</p></div>	
+   </div>
+   
+   <div class="flex-item">
+   				<div class="valoracion"><h1>3</h1><p>Rutas<br>creadas</p></div>	
+   </div>
+   
+</div>
+       	<!--FIN del contenedor flexible-->
+     <hr>
+       
+							<!-- Inicio de la ventana modal ////////////////////-->
+       	<div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+														<h4>Edita tu perfil</h4></div>
+														<div class="modal-body">
+
+														<div class="container-form">
+															
+																<!-- Inicio del formulario ////////////////////-->
+																<form action="/actualiza-usuarios" id="registrationForm" method="post" class="form-horizontal">
+
+							                 <div class="form-group">
+							                     <label class="control-label">Nombre de usuario</label>
+							                     <input type="text" class="form-control" name="username" value="<%= user.local.nomUsuario%>"/>
+							                     <input id="idUsuario" type="text" class="form-control" name="idUsuario" value="<%= user._id%>"/>
+							                 </div>
+							
+							                 <div class="form-group">
+							                     <label class="control-label">Email</label>
+							                     <input type="text" class="form-control" name="email" value="<%= user.local.email %>"/>
+							                 </div>
+
+							                 <div class="form-group">
+							                     <label class="control-label">Fecha de nac.</label>
+							                     <input type="text" class="form-control" name="birthday" placeholder="YYYY/MM/DD" value="<%= user.local.fechaNac %>"/>
+							                 </div>
+							                 <button type="submit" class="btn btn-success" id="btnActualizar" >Guardar</button>
+														         </form>
+														      </div>
+											    </div>
+												<!-- FIN del formulario ////////////////////-->
+												<div class="modal-footer">
+																<a class="btn btn-default" data-dismiss="modal">	Cerrar</a>
+												</div>
+												
+												</div>
+											</div>
+							</div>
+						<!-- FIN de la ventana modal ////////////////////-->
+
+	 </div>
+
+	 			<!-- BOTONES EDITAR Y DESCONECTAR ////////////////////-->
+
+		   <div id="editar">
+		    	<a class="btnEditar" href="#contact" data-toggle="modal">
+									<img src="img/open-iconic/svg/pencil.svg" alt="Edita tu perfil">
+									<!--<img src="../img/edit.png"><br>Edita tu perfil</a>-->
+		    	<a class="btnEditar" href="/logout">
+								<img src="img/open-iconic/svg/account-logout.svg">
+							</a>
+							<a class="btnEditar" href="/">
+						<img src="img/open-iconic/svg/home.svg">
+							</a>
+		   </div>
+					<!-- FIN DE BOTONES EDITAR Y DESCONECTAR ////////////////////-->
+	</div>
+</div>
+</body>
 </html>

@@ -15,16 +15,18 @@ $(document).ready(function() {
 
 			//Creamos una variable String para meter instrucciones html, que será la que pasaremos despues al html
 			//Primero creamos un <div> en el html, le ponemos un título y subtítulo, y abrimos otro <div> dentro para meter los pintxos
-			var bares = "<div class='principal'><div class='visor'><img src=img/"+data[0].img+".png alt='' name='fotoVisor'/><div id='navBares'><a href=''><img src='img/open-iconic/svg/plus.svg' id='infoIcon'/></a><a href=''><img src='img/open-iconic/svg/map-marker.svg' id='mapaIcon'/></a></div></div></div>";
+			var bares = "<div class='principal'><div class='visor'><img src=img/"+data[0].img+"_principal.jpg alt='' name='fotoVisor'/><div id='navBares'><a href=''><img src='img/open-iconic/svg/plus.svg' id='infoIcon'/></a><a id='mostrarMapa' href='#rutas' class='ancla'><img src='img/open-iconic/svg/map-marker.svg' id='mapaIcon'/></a></div></div></div>";
 
-            bares += "<div class='barTitle'><h1>Bares... ¡Qué lugares!</h1><h2>Encuentra los mejores sitios</h2></div><div class='imgBares'><p id='barPrincipal'></p>";
+            bares += "<div class='titulo'><h1>Bares... ¡Qué lugares!</h1><h2>Encuentra los mejores sitios</h2></div><div class='imgBares'><p id='barPrincipal'>"+data[0]._id+"</p><p id='coordX'>"+data[0].coordX+"</p><p id='coordY'>"+data[0].coordY+"</p><p id='nombreBar'>"+data[0].nombre+"</p>";
 			//Por cada elemento del json recibido
 			data.forEach(function(element, index, array) {			
 				//A la variable String le sumamos la imágen, nombre y descripción del elemento pintxo
-				bares += '<div id="'+element.nombre+'"><img id="btnCambiar'+index+'" src="img/foto'+(index+1)+'.png"></img></div>';					
-                bares += '<script>  document.getElementById("btnCambiar'+index+'").onclick = function() {   document.images["fotoVisor"].src="img/foto'+(index+1)+'.png";      document.getElementById("barPrincipal").innerHTML = "'+element._id+'";     }</script>';
+				bares += '<div id="'+element.nombre+'"><img id="btnCambiar'+index+'" src="img/'+element.img+'_mini.jpg"></img></div>';					
+                bares += '<script> document.getElementById("btnCambiar'+index+'").onclick = function() {   document.images["fotoVisor"].src="img/'+element.img+'_principal.jpg";      document.getElementById("barPrincipal").innerHTML = "'+element._id+'";  document.getElementById("coordX").innerHTML = "'+element.coordX+'"; document.getElementById("coordY").innerHTML = "'+element.coordY+'"; document.getElementById("nombreBar").innerHTML = "'+element.nombre+'"; }</script>';
+				
+				
 			});		
-			
+			bares += '<script> document.getElementById("mostrarMapa").addEventListener("click", mostrarMapa, false);</script>';
 			//Cerramos los <div> del html
 			bares += "</div>";
 			

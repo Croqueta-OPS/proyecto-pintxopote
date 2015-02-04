@@ -12,12 +12,15 @@ module.exports = function(app, passport) {
 	
 	app.get('/', function(req, res) {
 		
-		if(req.isAuthenticated()){
+		
+		if(req.isAuthenticated() && typeof req.user.local !== "undefined"){
 		
 			res.render('index.ejs', { 
 				nombre: req.user.local.nomUsuario, 
 				clase : 'visible', 
-				clase2: 'escondido'
+				clase2: 'escondido',
+				message : 'a',
+				message2 : 'a'
 			});
 
 		}else{
@@ -25,7 +28,9 @@ module.exports = function(app, passport) {
 			res.render('index.ejs', { 
 				nombre : '', 
 				clase  : 'escondido', 
-				clase2 : 'visible'
+				clase2 : 'visible',
+				message : req.flash('loginMessage'),
+				message2 : req.flash('signupMessage')
 			}); // Carga el index.ejs
 			
 		}
@@ -59,12 +64,12 @@ module.exports = function(app, passport) {
 	// LOGIN ===============================
 	// =====================================
 	// Muestra el formulario del login
-	app.get('/login', function(req, res) {
+	/*app.get('/login', function(req, res) {
 
 		// carga la página de inicio de sesión y muestra un mensaje en caso de error al registrarse
 		res.render('login.ejs', { message: req.flash('loginMessage')});
 		
-	});
+	});*/
 
 	// =====================================
 	// SIGNUP ==============================
@@ -75,12 +80,17 @@ module.exports = function(app, passport) {
 		res.render('signup.ejs', { message: req.flash('signupMessage')});
 	});
 	
-	// Muestra el formulario del login
+	// Muestra el formulario del login de la parte de administracion
 	app.get('/admin', function(req, res) {
 
 		// carga la página de inicio de sesión y muestra un mensaje en caso de error al registrarse
 		res.render('admin.ejs', { message: req.flash('loginMessage')});
 		
+	});
+	
+	//Parte de administracion de pintxos
+	app.get('/administracion', isLoggedIn, function(req, res) {
+		res.render('administracion.ejs');
 	});
 	
 	
@@ -96,10 +106,6 @@ module.exports = function(app, passport) {
 			user : req.user // get the user out of session and pass to template
 		});
 
-	});
-	
-	app.get('/administracion', isLoggedIn, function(req, res) {
-		res.render('administracion.ejs');
 	});
 	
 	app.get('/edita-pintxos', isLoggedIn, function(req, res){
@@ -123,8 +129,8 @@ module.exports = function(app, passport) {
 	});
 	
 	//Añadir un pintxo a la colección de pintxos
-	app.post('/edita-pintxos',  isLoggedIn, function(req, res) {
-
+	app.post('/edita-pintxos', isLoggedIn, function(req, res) {
+		
 		if (req.body.nombre.length > 20 || req.body.descripcion.length > 140) {
 
 			if (req.body.nombre.length > 20) {
@@ -138,13 +144,13 @@ module.exports = function(app, passport) {
 			
 		}
 		else {	
-
+			
 			//Creamos una variable para crear un objeto de tipo Pintxo
 			var pintxo = new Pintxo ({
 	
 				nombre: req.body.nombre,
 				descripcion: req.body.descripcion,
-				img: "default"//hasta que aprendamos a subir archivos se mantiene imagen por defecto
+				img: req.body.img
 	
 			});
 	
@@ -170,16 +176,20 @@ module.exports = function(app, passport) {
 		
 	});
 	
-		//Añadir un pintxo a la colección de pintxos
+	app.post('/emiteVoto', function (req, res) {
+	    console.log(req.body.id);
+	});
+	
+	//Añadir un pintxo a la colección de pintxos
 	app.post('/actualiza-pintxos',  isLoggedIn, function(req, res) {
 		
-		if (req.body.nombre.length > 20 || req.body.descripcion.length > 140) {
+		if (req.body.nombreP.length > 50 || req.body.descripcionP.length > 140) {
 
-			if (req.body.nombre.length > 20) {
+			if (req.body.nombreP.length > 50) {
 				console.log("El nombre es demasiado largo. (max. 20)");
 				res.redirect('/edita-pintxos');
 			}
-			if (req.body.descripcion.length > 140) {
+			if (req.body.descripcionP.length > 140) {
 				console.log("La descripcion es demasiado larga. (max. 140)");
 				res.redirect('/edita-pintxos');
 			}
@@ -187,7 +197,7 @@ module.exports = function(app, passport) {
 		}
 		else {	
 		
-			Pintxo.update({_id: req.body._id}, {nombre: req.body.nombre, descripcion: req.body.descripcion}, null, function (err) {
+			Pintxo.update({_id: req.body._id}, {nombre: req.body.nombreP, descripcion: req.body.descripcionP, img: req.body.imgP}, null, function (err) {
 	
 				//Si hay error
 				if (err){
@@ -195,8 +205,8 @@ module.exports = function(app, passport) {
 			    	console.log('ERROR: ' + err);
 			    }else{
 			    	//redireccionamos a la página /edita-pintxos
-			    	console.log(req.body.id);
-					res.redirect('/edita-pintxos')
+					res.redirect('/edita-pintxos');
+					
 			    }
 	
 			//Cierre del mtodo update
@@ -211,7 +221,8 @@ app.post('/actualiza-usuarios', function(req, res) {
 	
 	var existeNombre = false;
 	var existeEmail = false;
-	var formato = /^(\d{4})(\/|-)(\d{2})(\/|-)(\d{2})$/;
+	var formato = /^(?:[0-9]{2})?[0-9]{2}\/[0-3]?[0-9]\/[0-3]?[0-9]$/;
+	
 	User.findById(req.user._id, function(err, user){
 		
 		if (!user) { 
@@ -322,6 +333,38 @@ app.post('/actualiza-usuarios', function(req, res) {
 		
 		});
 	});
+	
+		app.post('/anade-pintxos', isLoggedIn, function(req, res) {
+			
+			console.log(req.body.nombre);
+			//Creamos una variable para crear un objeto de tipo Pintxo
+			var pintxo = new Pintxo ({
+	
+				nombre: req.body.nombre,
+				descripcion: req.body.descripcion,
+				img: req.body.img
+	
+			});
+	
+	
+			//Para guardar dicha instancia en la base de datos
+			pintxo.save(function (err, pintxo) {
+	
+			  	//Si existe un error
+				if(err){
+					
+					//Muestra por consola el error
+			    	console.log('ERROR: ' + err);
+			    	
+				}
+				else{
+					//Muestra el mensaje por consola
+	  				console.log(pintxo.nombre + ' ha sido guardado.');
+					res.redirect('/edita-pintxos');
+				}
+			});
+	});
+		
 		
 
 	
@@ -337,7 +380,6 @@ app.post('/actualiza-usuarios', function(req, res) {
 		    	
 			}
 			else{
-				//Muestra el mensaje por consola
   				res.redirect('/edita-pintxos');
 			}
  
@@ -353,17 +395,17 @@ app.post('/actualiza-usuarios', function(req, res) {
 		res.redirect('/');
 	});
 
-	// procesamos el formulario de registro
+	// procesamos el formulario de registroedita-pi
 	app.post('/signup', passport.authenticate('local-signup', {
 		successRedirect : '/profile', // redirect to the secure profile section
-		failureRedirect : '/signup', // redirect back to the signup page if there is an error
+		failureRedirect : '/', // redirect back to the signup page if there is an error
 		failureFlash : true // allow flash messages
 	}));
 
 	// procesamos el formulario login
 	app.post('/login', passport.authenticate('local-login', {
-		successRedirect : '/profile', // redirect to the secure profile section
-		failureRedirect : '/login', // redirect back to the signup page if there is an error
+		successRedirect : '/profile',// redirect to the secure profile section
+		failureRedirect : '/', // redirect back to the signup page if there is an error
 		failureFlash : true // allow flash messages
 	}));
 	

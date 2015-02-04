@@ -12,7 +12,8 @@ $(document).ready(function() {
 			data.forEach(function(element, index, array) {				
 				
 				pintxos += "<article><img src='img/"+element.img+".jpg'></img><h3>"+element.nombre+"</h3><p>"+element.descripcion+"</p></article>";					
-
+				
+				
 			});		
 			
 			pintxos += "</div></div>";

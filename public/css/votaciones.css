@@ -1,0 +1,45 @@
+.rate_widget {
+    margin: 0 auto;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center; /* align vertical */
+    overflow:   visible;
+    padding:    10px;
+    width:      80%;
+    position: relative; 
+    bottom: 0;
+}
+.ratings_stars {
+    background: url('../img/open-iconic/svg/star.svg') no-repeat;
+    float:      left;
+    height:     20px;
+    width:      20px;
+    opacity: 0.5;
+    background-size: cover;
+}
+.ratings_vote {
+    background: url('../img/open-iconic/svg/star.svg') no-repeat;
+    float:      left;
+    height:     20px;
+    width:      20px;
+    opacity: 1.0;
+    background-size: cover;
+}
+.ratings_over {
+    background: url('../img/open-iconic/svg/star.svg') no-repeat;
+    float:      left;
+    height:     20px;
+    width:      20px;
+    opacity: 1.0;
+    background-size: cover;
+}
+
+.total_votes {
+    background: #eaeaea;
+    top: 58px;
+    left: 0;
+    padding: 5px;
+    position:   absolute;  
+} 

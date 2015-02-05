@@ -18,7 +18,7 @@ $(function() {
                 $('html,body').animate({
                 
                     //Hará un scroll hasta la posición del ancla, -90 píxeles para salvar la altura de la barra de menú
-                    scrollTop: target.offset().top - 125
+                    scrollTop: target.offset().top - 95
             
                 //Y tardará 0.5 segundos en hacerlo, para darle el efecto de movimiento en vez de aparecer en el destino de golpe
                 }, 500);

@@ -110,8 +110,8 @@ input[type=checkbox]:checked ~ #menu{
 
 .entrada {
 	width: 100%;
-	height: 100%;
-	border: 2px solid blue;
+	height: auto;
+	margin-bottom: 15%;
 	/*display: flex;
 	flex-wrap: wrap;
 	align-items: center; *//* align vertical */
@@ -345,25 +345,25 @@ input[type=checkbox]:checked ~ #menu{
 }
 
 .titulo{
-	
 	height: auto;
-
 }
-.titulo h1{
-	padding: 1% 0 0 0;
+.titulo > h1{
 	font-family: 'Old Standard TT', serif;
 	color: #303030;
 	text-align: center;
 	font-size: 250%;
 	font-weight: 400;
+	margin:0;
+	padding: 0;
 }
 .titulo h2{ 
-	padding: 0 0 1% 0;
 	font-family: 'Tangerine', cursive;
 	color: #303030;
 	text-align: center;
 	font-size: 200%;
 	font-weight: 400;
+	margin:0;
+	padding: 0;
 }
 
 
@@ -405,7 +405,6 @@ input[type=checkbox]:checked ~ #menu{
 
 
 @media (max-width: 600px){
-	
 	#visibleLogo{
 		display:none;
 	}
@@ -463,6 +462,7 @@ input[type=checkbox]:checked ~ #menu{
 	.flex-container {
 		width: 80%;
 		margin: 0 auto;
+		margin-top: 5%;
 		padding: 1%;
 		display: flex;
 		flex-direction: row;
@@ -480,6 +480,23 @@ input[type=checkbox]:checked ~ #menu{
 	  	width: 100%;
 	  	height: auto;
 	  	margin: 0 auto;
+	}
+	
+	#twitterstream{
+		
+		border: solid 1px black;
+		width: 50%;
+		
+	}
+	
+	#calendarioiframe > iframe{
+		
+	/*		border-width:0;*/
+		width: 70%; 
+		height: 100%;
+		border: 1px solid blue;
+		
+		
 	}
 
 }

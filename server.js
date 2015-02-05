@@ -20,6 +20,9 @@ var session      = require('express-session');
 
 var configDB = require('./config/database.js');//con esta línea cargamos la url de la base de datos a la variable configDB
 
+var favicon = require('serve-favicon');
+
+
 // Conexión con BBDD ===============================================================
 mongoose.connect(configDB.url, function(err, res){
 	if(!err){
@@ -32,6 +35,8 @@ mongoose.connect(configDB.url, function(err, res){
 require('./config/passport')(passport); // pass passport for configuration
 
 app.use(express.static(__dirname + '/public'));
+
+app.use(favicon(__dirname + '/public/img/favicon.ico'));
 
 // Configuración de la aplicación express
 app.use(morgan('dev')); // muestra todas los requerimientos por consola
@@ -61,15 +66,15 @@ require('./app/routes.js')(app, passport); // load our routes and pass in our ap
 
 
 //Servidor Cloud9/OpenShift/local
-//var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080 || 3000, ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080 || 3000, ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
 
-//app.listen(port, ip);
-//server.listen(port);
+app.listen(port, ip);
+//server.listen(port, ip);
 
 
 //servidor heroku
-var port = process.env.PORT || 5000; // Use the port that Heroku provides or default to 5000
-app.listen(port);
+//var port = process.env.PORT || 5000; // Use the port that Heroku provides or default to 5000
+//app.listen(port);
 
 console.log('Listening in port ' + port);
 

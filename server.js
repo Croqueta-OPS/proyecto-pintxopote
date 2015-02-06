@@ -68,8 +68,8 @@ require('./app/routes.js')(app, passport); // load our routes and pass in our ap
 //Servidor Cloud9/OpenShift/local
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080 || 3000, ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
 
-app.listen(port, ip);
-//server.listen(port, ip); /////twitter
+//app.listen(port, ip);
+server.listen(port, ip); /////twitter
 
 
 //servidor heroku
@@ -93,7 +93,7 @@ var follow = ['2872220943'];
 })
 
 io.sockets.on('connection', function (socket) {
-  console.log('Connected');
+  console.log('Sockets Connected');
 
 
  var stream = T.stream('statuses/filter', { follow : follow , track: watchList })

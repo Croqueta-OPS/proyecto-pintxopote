@@ -3043,7 +3043,7 @@ if (typeof jQuery === 'undefined') {
             // Email address regular expression
             // http://stackoverflow.com/questions/46155/validate-email-address-in-javascript
             //var emailRegExp   = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
-            var tester   = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+            var tester   = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
    
                if(value.length>254)
 		return false;

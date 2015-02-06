@@ -7,7 +7,9 @@
 		<title>The Pintxopo</title>
 
 		<meta charset="utf-8"/>
-
+		<!--Este meta se requiere para poder escalar nuestra página a diferentes tipos de resolución--> 
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		
 		<!--Estilos principales-->
 		<link rel="stylesheet" type="text/css" href="css/main.css" >
 		<link rel="stylesheet" type="text/css" href="css/votaciones.css" >	
@@ -62,8 +64,8 @@
 		<script type="text/javascript" src="js/validarRegistroUser.js"></script>
 		
 		
-		<link rel="stylesheet" type="text/css" href="css/component.css" />
-		<script src="js/snap.svg-min.js"></script>
+		<!-- <link rel="stylesheet" type="text/css" href="css/component.css" /> -->
+		<!-- <script src="js/snap.svg-min.js"></script> -->
 
 
 	</head>
@@ -71,21 +73,20 @@
 	<body>
 		<!--NAVEGADOR Y LOGO-->
 		<header class="mainHeader">
-			<div id="hiddenLogo"><a class="homeButton" href=""><img src="img/logo_trazado_recortado.png" /></a></div>
+			<div id="hiddenLogo"><a class="homeButton" href=""><img src="img/logo_trazado_recortado.png" /></a></div><!--Este solo se muestra en responsive-->
 
 			<!--Navegador Principal-->
 				<nav class="menuNavegador">
-					<label for="show-menu" class="show-menu">Show Menu</label>
-					<input type="checkbox" id="show-menu" role="button">
 					<ul>
 						<li id="homeButton" class="active"><a class="homeButton" href="">HOME</a></li>
 						<li><a class="ancla" href="#rutas">RUTAS</a></li>
 						<li><a class="ancla" href="#pintxos">PINTXOS</a></li>
 						<li id="visibleLogo"><a class="homeButton" href=""><img src="img/logo_trazado_recortado.png" /></a></li>
 						<li><a class="ancla" href="#bares">BARES</a></li>
-						<li><a class="ancla" href="#calendario">CALENDARIO</a></li>
+						<li><a class="ancla" href="#calendario">EVENTOS</a></li>
 						<li><a href="/about">ABOUT</a></li>
 					</ul>
+					<a href="#" id="pull">Menu</a>
 				</nav>
 			
 			
@@ -140,79 +141,28 @@
 			</div>	
 		</div>
 			
+			<!-- Todos los contenedores de cada boton RUTAS, EVENTOS, etc.-->
 			<div class="secciones">
 				
-				<div class="contenedor" id="rutas">
-				
+				<!-- Contenedores especificos de cada sección RUTAS, EVENTOS, etc-->
+				<div class="contenedor flex-container" id="rutas">
+					
 					<div class="titulo">
 						<h1>Rutas</h1>
 						<h2>Ofrecemos las mejores rutas por cada barrio</h2>
 					</div>
 					
-					<div class="contenedor-rutas">
-						<section id="grid" class="grid clearfix">
-							<a href="#ruta" class="ancla" id="btn1" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-								<figure>
-									<img src="img/navRutas1.jpg" />
-									<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-									<figcaption>
-										<h2>Croqueta</h2>
-										<p>Un clásico</p>
-									</figcaption>
-								</figure>
-							</a>
-							<a href="#ruta" class="ancla" id="btn2" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-								<figure>
-									<img src="img/navRutas2.jpg" />
-									<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-									<figcaption>
-										<h2>Sushi</h2>
-										<p>Lo exótico</p>
-									</figcaption>
-								</figure>
-							</a>
-							<a href="#ruta" class="ancla" id="btn3" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-								<figure>
-									<img src="img/navRutas3.jpg" />
-									<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-									<figcaption>
-										<h2>Bolas</h2>
-										<p>Carne & marisco</p>
-									</figcaption>
-								</figure>
-							</a>
-							<a href="#ruta" class="ancla" id="btn4" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-								<figure>
-									<img src="img/navRutas4.jpg" />
-									<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-									<figcaption>
-										<h2>Chatka</h2>
-										<p>Delicatessen</p>
-									</figcaption>
-								</figure>
-							</a>
-							<a href="#ruta" class="ancla" id="btn5" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-								<figure>
-									<img src="img/navRutas5.jpg" />
-									<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-									<figcaption>
-										<h2>Paella</h2>
-										<p>Un plato típico</p>
-									</figcaption>
-								</figure>
-							</a>
-							<a href="#ruta" class="ancla" id="btn6" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-								<figure>
-									<img src="img/navRutas6.jpg" />
-									<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-									<figcaption>
-										<h2>Especialidades</h2>
-										<p>Descubre</p>
-									</figcaption>
-								</figure>
-							</a>
-							
-						</section>			
+					<div class="contenedor-rutas "> 
+						
+						<div>
+							<a>Croqueta</a>
+							<a>Sushi</a>
+							<a>Bola</a>
+							<a>Chatka</a>
+							<a>Paella</a>
+							<a>Especialidades</a>
+						</div>	
+						
 						<div id="googleMap"></div>
 					
 					</div>
@@ -293,34 +243,7 @@
 		<% include login-modal %>
 		<% include signup-modal %>
 
-		<script>
-				(function() {
 		
-					function init() {
-						var speed = 250,
-							easing = mina.easeinout;
-	
-						[].slice.call ( document.querySelectorAll( '#grid > a' ) ).forEach( function( el ) {
-							var s = Snap( el.querySelector( 'svg' ) ), path = s.select( 'path' ),
-								pathConfig = {
-									from : path.attr( 'd' ),
-									to : el.getAttribute( 'data-path-hover' )
-								};
-	
-							el.addEventListener( 'mouseenter', function() {
-								path.animate( { 'path' : pathConfig.to }, speed, easing );
-							} );
-	
-							el.addEventListener( 'mouseleave', function() {
-								path.animate( { 'path' : pathConfig.from }, speed, easing );
-							} );
-						} );
-					}
-	
-					init();
-	
-				})();
-			</script>
 	</body>
 
 </html>

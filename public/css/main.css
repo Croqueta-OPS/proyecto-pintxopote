@@ -20,30 +20,34 @@ body {
 	width: 100%;
 	position: fixed;
 	height: auto;
-	padding: 1%;
 	top: 0;
-	background-color: #FFF;
 	box-shadow: 1px 1px 6px 0px rgba(50, 50, 50, 0.75);
-	z-index: 1003;
 }
 
 /*************NAVEGADOR*********************/
 /*Strip the ul of padding and list styling*/
 
 .menuNavegador {
-	margin: 0 auto;
-	width: 100%;
+	width: 100%;/**/
+	height: auto; 
 	z-index: 1002;
-	position: relative;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	font-size: 90%;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 700;
+	position: fixed;
+	background-color: #FFF;
+	box-shadow: 1px 1px 6px 0px rgba(50, 50, 50, 0.75);
 }
 
 .menuNavegador ul {
-	list-style-type:none;
 	width: 80%;
 	text-align: center;
 	margin:0 auto;
-	padding: 0px;
-	display:table;
+	padding: 0;
+	border: 1px solid blue;
+	/*display:table;*/
 }
 
 .menuNavegador ul img{
@@ -52,18 +56,17 @@ body {
 }
 
 .menuNavegador li{
+	border: 1px solid red;
 	display:inline-block;
 	margin:0 auto;
-	padding-right: 2%;
-	padding-left: 2%;
+	padding-right: 4%;
+	padding-left: 4%;
 }
 
 .menuNavegador a {
 	display:block;
 	text-decoration: none;
-	font-size: 90%;
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 700; 
+
 	text-align: center;
 }
 
@@ -83,27 +86,6 @@ body {
 	display:none;
 	margin: 0 auto;
 	text-align: center;
-}
-
-/*Style 'show menu' label button and hide it by default*/
-.show-menu {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	text-decoration: none;
-	color: #fff;
-	background: #333;
-	text-align: center;
-	padding: 10px 0;
-	display: none;
-}
-
-/*Hide checkbox*/
-input[type=checkbox]{
-    display: none;
-}
-
-/*Show menu when invisible checkbox is checked*/
-input[type=checkbox]:checked ~ #menu{
-    display: block;
 }
 
 /*************************/
@@ -246,12 +228,15 @@ input[type=checkbox]:checked ~ #menu{
 }
 
 #calendario {
-    background-color: transparent;
+    
     width: 100%;
+    border: 1px solid pink;
 }
 
-#calendario div {
-	background-color: #FFF;
+#calendario>div {
+	
+	width: 100%;
+	border: 1px solid blue;
 }
 
 .pintxo article {
@@ -379,11 +364,12 @@ input[type=checkbox]:checked ~ #menu{
 
 #googleMap {
 	height: 95%;
-    width: 65%;
-    min-width: 300px;
+    width: 90%;
+    /*min-width: 300px;*/
     padding: 0;
     opacity: 1;
     position: static;
+    border: solid 1px blue;
 }
 
 #btn1{
@@ -404,7 +390,7 @@ input[type=checkbox]:checked ~ #menu{
 }
 
 
-@media (max-width: 600px){
+@media (max-width: 480px){
 	#visibleLogo{
 		display:none;
 	}
@@ -491,7 +477,7 @@ input[type=checkbox]:checked ~ #menu{
 	
 	#calendarioiframe > iframe{
 		
-	/*		border-width:0;*/
+	/*	border-width:0;*/
 		width: 70%; 
 		height: 100%;
 		border: 1px solid blue;

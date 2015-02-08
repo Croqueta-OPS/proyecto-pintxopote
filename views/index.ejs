@@ -15,7 +15,7 @@
 		<link rel="stylesheet" type="text/css" href="css/votaciones.css" >	
 
 		<link href='https://fonts.googleapis.com/css?family=Lora|PT+Sans+Narrow|Old+Standard+TT:400italic,400|Tangerine|Open+Sans+Condensed:300|Courgette' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 		
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="css/bootstrap.css"/>
@@ -64,6 +64,10 @@
 		<script type="text/javascript" src="js/validarRegistroUser.js"></script>
 		
 		
+		<script type="text/javascript" src="js/responsiveMenu.js"></script>
+		<script type="text/javascript" src="js/prueba.js"></script>
+
+		
 		<!-- <link rel="stylesheet" type="text/css" href="css/component.css" /> -->
 		<!-- <script src="js/snap.svg-min.js"></script> -->
 
@@ -76,8 +80,8 @@
 			<div id="hiddenLogo"><a class="homeButton" href=""><img src="img/logo_trazado_recortado.png" /></a></div><!--Este solo se muestra en responsive-->
 
 			<!--Navegador Principal-->
-				<nav class="menuNavegador">
-					<ul>
+				<nav class="menuNavegador" id="clearfix">
+					<ul id="clearfix">
 						<li id="homeButton" class="active"><a class="homeButton" href="">HOME</a></li>
 						<li><a class="ancla" href="#rutas">RUTAS</a></li>
 						<li><a class="ancla" href="#pintxos">PINTXOS</a></li>
@@ -145,22 +149,106 @@
 			<div class="secciones">
 				
 				<!-- Contenedores especificos de cada sección RUTAS, EVENTOS, etc-->
-				<div class="contenedor flex-container" id="rutas">
+				<div class="contenedor" id="rutas">
 					
 					<div class="titulo">
 						<h1>Rutas</h1>
 						<h2>Ofrecemos las mejores rutas por cada barrio</h2>
 					</div>
 					
-					<div class="contenedor-rutas "> 
+					<div class="contenedor-rutas"> 
+					
+						<div id="menu_rutas">
+							
+							<ul>
+								
+								<!-- Para que muestre las rutas son: btn1 hasta btn6 -->
+							    <li>
+							    	<a id="btn1" href="#ruta">
+										<img class="btnRutas" src="img/pinterest.png"></img>
+										<br>
+										<p>Croqueta</p>
+									</a>
+							    </li>
+							    
+							    <li>
+							    	<a id="btn1" href="#ruta">
+										<!-- <img src="img/prawn.png" ></img> -->
+										<img src="img/pinterest.png" ></img>
+										<br>
+										<p>Croqueta</p>
+									</a>
+							    </li>
+							    
+							    <li>
+							    	<a id="btn1" href="#ruta">
+										<img src="img/pinterest.png" ></img>
+										<br>
+										<p>Croqueta</p>
+									</a>
+							    </li>
+							    
+							     <li>
+							    	<a id="btn1" href="#ruta">
+										<img src="img/pinterest.png" ></img>
+										<br>
+										<p>Croqueta</p>
+									</a>
+							    </li>
+							    
+							     <li>
+							    	<a id="btn1" href="#ruta">
+										<img src="img/pinterest.png" ></img>
+										<br>
+										<p>Croqueta</p>
+									</a>
+							    </li>
+							    
+							     <li>
+							    	<a id="btn1" href="#ruta">
+										<img src="img/pinterest.png" ></img>
+										<br>
+										<p>Croqueta</p>
+									</a>
+							    </li>
+							    
+						  	</ul>
+							
+							
+							<!--
+							
+							<a href="">
+								<img src="img/sushi.png"></img>
+								<br>
+								<p>Sushi</p>
+							</a>
+							
+							<a href="">
+								<img src="img/bacon.png"></img>
+								<br>
+								<p>Bola</p>
+							</a>
+							
+							<a href="">
+								<img src="img/sushi.png"></img>
+								<br>
+								<p>Chatka</p>
+							</a>
+							
+							<a href="">
+								<img src="img/sushi.png"></img>
+								<br>
+								<p>Paella</p>
+							</a>
+							
+							<a href="">
+								<img src="img/sushi.png"></img>
+								<br>
+								<p>Especialidades</p>
+							</a>
+							
+							-->
 						
-						<div>
-							<a>Croqueta</a>
-							<a>Sushi</a>
-							<a>Bola</a>
-							<a>Chatka</a>
-							<a>Paella</a>
-							<a>Especialidades</a>
 						</div>	
 						
 						<div id="googleMap"></div>
@@ -183,9 +271,6 @@
 						<h1>Calendario</h1>
 						<h2>Organiza tu pintxopote</h2>
 						
-						<div id="calendarioiframe">
-						<iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=400&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=pintxopo.ss%40gmail.com&amp;color=%23B1365F&amp;ctz=Europe%2FMadrid" frameborder="0" scrolling="no"></iframe>
-						</div>
 						
 						<div id="twitterstream">
 							<a class="twitter-timeline" href="https://twitter.com/ThePintxopo" data-widget-id="562877322005852161">Tweets by @ThePintxopo</a>

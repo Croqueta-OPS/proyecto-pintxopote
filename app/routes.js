@@ -49,6 +49,7 @@ module.exports = function(app, passport) {
 		
 	});
 	
+	
 	app.get('/bares', function (require, response) {
 		
 	 	Bar.find(function(err, bares) {
@@ -59,6 +60,84 @@ module.exports = function(app, passport) {
 		});
 		
 	});
+	
+	// =====================================
+	// API ===============================
+	// =====================================
+	// Aquí se gestiona la API interna
+	
+	//muestra por el pintxo por orden de registro
+	app.get('/pintxosDatos', function (require, response) {
+		//Hacemos un find en la base de datos de la collección Pintxos
+	 	Pintxo.find({}, '-_id nombre descripcion', function(err, pintxos) {
+	 		
+	 		if (err) return console.error(err);
+ 			//Obtenemos un array de pintxos (objetos json)
+  			response.send(pintxos);
+  		});
+	});
+	
+	//muestra por el pintxo por orden de registro
+	app.get('/pintxosDatos/:numero', function (require, response) {
+		//Hacemos un find en la base de datos de la collección Pintxos
+	 	Pintxo.find(function(err, pintxos) {
+	 		
+	 		if (err) return console.error(err);
+ 			//Obtenemos un array de pintxos (objetos json)
+  			response.send(pintxos[require.params.numero].nombre);
+  		});
+	});
+	
+	//muestra por el pintxo por nombre
+	app.get('/pintxosDatos/nombre/:nombre', function (require, response) {
+		//Hacemos un find en la base de datos de la collección Pintxos
+	 	Pintxo.find({'nombre': require.params.nombre}, '-_id nombre descripcion', function(err, pintxos) {
+			
+	 		if (err) return console.error(err);
+ 			//Obtenemos un array de pintxos (objetos json)
+  			response.send(pintxos);
+  			
+  		});
+	});
+	
+	
+	//muestra todos los bares
+	app.get('/baresDatos', function (require, response) {
+		//Hacemos un find en la base de datos de la collección Pintxos
+	 	Bar.find({}, '-_id nombre coordX coordY', function(err, bares) {
+	 		
+	 		if (err) return console.error(err);
+ 			//Obtenemos un array de pintxos (objetos json)
+  			response.send(bares);
+  		});
+	});
+	
+	//muestra los bares por el número seleccionado
+	app.get('/baresDatos/numero/:numero', function (require, response) {
+		//Hacemos un find en la base de datos de la collección Pintxos
+	 	Bar.find(function(err, bares) {
+	 		
+	 		if (err) return console.error(err);
+ 			//Obtenemos un array de pintxos (objetos json)
+  			response.send(bares[require.params.numero].nombre);
+  		});
+	});
+	
+	//muestra los datos por el nombre
+	app.get('/baresDatos/nombre/:nombre', function (require, response) {
+		//Hacemos un find en la base de datos de la collección Pintxos
+	 	Bar.find({'nombre': require.params.nombre}, '-_id nombre coordX coordY', function(err, bares) {
+			
+	 		if (err) return console.error(err);
+ 			//Obtenemos un array de pintxos (objetos json)
+  			response.send(bares);
+  			
+  		});
+	});
+	
+
+	
+	
 	
 	// =====================================
 	// LOGIN ===============================

@@ -206,6 +206,14 @@ body {
     height: 85%;
 }
 
+#titulo1 {
+	display: block;
+}
+
+#titulo2 {
+	display: none;
+}
+
 .principal {
 	float: left;
 	height: 100%;
@@ -227,14 +235,22 @@ body {
 	float: right;
 	height: 80%;
 	border: 1px solid green;
-	height: 70%;
+	height: 85%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center; /* align vertical */
+}
+
+.imagenesBares {
+	border: 1px solid blue;
+	margin-top: 2%;
+	width: 35%;
 }
 
 .imgBares img {
-	width: 40%;
-	max-height: 100%;
-	margin-left: 6%;
-	margin-top: 1.5%;
+	width: 100%;
 	cursor: pointer;
 }
 
@@ -502,11 +518,6 @@ body {
 		margin: 0 auto;
 		margin-top: 5%;
 		padding: 1%;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: space-around;
-		align-items: center; /* align vertical */
 	}
 	
 	.botonesRedes{
@@ -519,12 +530,7 @@ body {
 	  	height: auto;
 	  	margin: 0 auto;
 	}
-	
-	.navRedesLateral{
-		display:none;
-		border:1px solid blue;
-	}
-	
+
 	#twitterstream{
 		
 		border: solid 1px black;
@@ -542,6 +548,68 @@ body {
 		
 	}
 	
+	#bares {
+		height: auto;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		align-items: flex-start; /* align vertical */
+	}
+	
+	#titulo1 {
+		display: none;
+	}
+	
+	#titulo2 {
+		display: block;
+	}
+	
+	.principal {
+		float: left;
+		width: 90%;
+		height: auto;
+	}
+	
+	.visor {
+		float: left;
+		height: 60%;
+		width: 100%;
+		height: auto;
+	}
+	
+	.visor img {
+		width: 100%;
+		height: auto;
+	}
+	
+	.imgBares {
+		margin-top: 0.5%;
+		width: 90%;
+		float: right;
+		border: 1px solid green;
+		height: 40%;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		align-items: center; /* align vertical */
+	}
+	
+	.imagenesBares {
+		margin-top: 2%;
+		width: 45%;
+	}
+	
+	.imgBares img {
+		width: 100%;
+		cursor: pointer;
+	}
+	
+	.barTitle {
+		width: 58%;
+	}
+		
 
 }
 
@@ -577,12 +645,12 @@ body {
 	flex-direction: row; 
 	flex-wrap: wrap;
 	justify-content: space-between;
+	width: 80%;
 }
 
 #menu_rutas a > img{
 	
-	height: 25%;
-	width: 25%;
+	width: 22%;
 	/* -webkit-filter: invert(100%); */
 	background-color: #FF9933;
 	/* #ffa659 */
@@ -590,22 +658,37 @@ body {
 	
 }
 
+#btn1{
+	text-decoration: none;
+}
+
+#menu_rutas > ul > li > a > p{
+	
+	font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
+	text-decoration: none;
+	color: black;
+	font-size: large;
+}
+
 #menu_rutas ul{
 	
 	list-style: none;
 	border: solid 1px yellow;
+	width: 100%;
 	
 }
 
 #menu_rutas > ul > li {
 	
 	text-align: center;
-	width: 10%;
+	width: 15%;
 	display: inline-block;
 	border: 1px solid green;
 	/*border-radius: 50%;*/
 	
 
 }
+
+/* http://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
 	
 

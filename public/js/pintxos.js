@@ -16,27 +16,27 @@ $(document).ready(function() {
 
 			//Creamos una variable String para meter instrucciones html, que será la que pasaremos despues al html
 			//Primero creamos un <div> en el html, le ponemos un título y subtítulo, y abrimos otro <div> dentro para meter los pintxos
-			var pintxos = "<div class='titulo'><h1>Pintxos</h1><h2>Degusta la variedad</h2></div><div class='pintxo'><div class='articulos'>";
+			var pintxos = "<div class='titulo'><h1>Pintxos</h1><h2>Degusta la variedad</h2></div><div class='pintxo'>";
 
 			//Por cada elemento del json recibido
 			data.forEach(function(element, index, array) {				
 				
 				//A la variable String le sumamos la imágen, nombre y descripción del elemento pintxo
 				pintxos += "<article><img src='"+element.img+"'></img><h3>"+element.nombre+"</h3><p>"+element.descripcion+"</p>";					
-					pintxos += "<div id='"+element._id+"' class='rate_widget' onmouseover='votar();'>";
-						pintxos += "<div value='1' class='star_1 ratings_stars'></div>";
-						pintxos += "<div value='2' class='star_2 ratings_stars'></div>";
-						pintxos += "<div value='3' class='star_3 ratings_stars'></div>";
-						pintxos += "<div value='4' class='star_4 ratings_stars'></div>";
-						pintxos += "<div value='5' class='star_5 ratings_stars'></div>";
-						pintxos += "<div class='total_votes'>votos: </div>";
-						pintxos += "<div class='media_votes'>media: </div>";
+					pintxos += "<div class='rate_widget' onmouseover='votar();'>";
+						pintxos += "<div id='"+element._id+"' value='1' class='star_1 ratings_stars'></div>";
+						pintxos += "<div id='"+element._id+"' value='2' class='star_2 ratings_stars'></div>";
+						pintxos += "<div id='"+element._id+"' value='3' class='star_3 ratings_stars'></div>";
+						pintxos += "<div id='"+element._id+"' value='4' class='star_4 ratings_stars'></div>";
+						pintxos += "<div id='"+element._id+"' value='5' class='star_5 ratings_stars'></div>";
+						pintxos += "<div id='"+element._id+"' class='votos'><div class='total_votes'>votos: "+element.votos+" </div>";
+						pintxos += "<div id='"+element._id+"' class='media_votes'>media: "+element.media+" </div></div>";
 					pintxos += "</div>";
 				pintxos += "</article>";
 			});		
 			
 			//Cerramos los <div> del html
-			pintxos += "</div></div>";
+			pintxos += "</div>";
 
 			//Enviamos la variable pintxos, un String simple con instrucciones html, y le indicamos que lo cargue en el div "pintxos"
 			$("#pintxos").html(pintxos);

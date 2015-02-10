@@ -1,0 +1,107 @@
+<!-- views/login.ejs -->
+<!doctype html>
+<html>
+<head>
+	<title>The Pintxopo</title>
+	<meta charset="utf-8"/>
+	<!--Este meta se requiere para poder escalar nuestra página a diferentes tipos de resolución--> 
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="css/bootstrap.css"/>
+
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="css/api.css" ><!--Estilos principales-->
+
+	<!-- jQuery and Bootstrap JS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	
+	<!-- http://sheilapbi.github.io/api_proyectopintxopote/ -->
+	
+</head>
+<body>
+	<header>
+		<div class="cabecera"><a href="/"><img src="img/logo_trazado_recortado.png" /></a></div><div><h1>Developers guide</h1></div></div>
+	</header>
+	<main>
+		<div class="navApi">
+					<h1>Introducción</h1>
+					<h1>API Pública</h1>
+					<nav>
+						<h2>Pintxos <a href=#pintxos><img src="img/open-iconic/svg/chevron-right.svg"></img></a></h2>
+						<ul>
+							<li><strong>GET</strong> Pintxos</a></li>
+							<li><strong>GET</strong> Pintxos: nombre</li>
+							<li><strong>GET</strong> Pintxos: número</li>
+						</ul>
+						
+						<h2>Bares <a href=#bares><img src="img/open-iconic/svg/chevron-right.svg"></img></a></h2>
+						<ul>
+							<li><strong>GET</strong> Bares</li>
+							<li><strong>GET</strong> Bares: nombre</li>
+							<li><strong>GET</strong> Bares: número</li>
+						</ul>
+					</nav>
+		</div>
+		<div class="contenidoApi">
+					<div class="contenido" id="intro">
+						<h1>Introducción</h1>
+						<p>Bienvenido a la sección de desarrolladores de 'The Pintxopo'. En ésta sección encontrarás la documentación necesaria para hacer uso de la API pública de nuestra aplicación. En resumen, te mostraremos como acceder a la información de los Pintxos y los Bares y obtenerla en forma de paquetes JSON.</p>
+						<h1>Información de los recursos</h1>
+						<p>Formato de respuesta: <strong>JSON</strong></p>
+						<p>Requiere estar logeado? <strong>No</strong></p>
+						<p>Uso límitado? <strong>No</strong></p>
+					</div>
+					<div class="contenido" id="pintxos">
+						<h1 name="pintxos">Pintxos <a href=#arriba><img src="img/open-iconic/svg/chevron-top.svg" ></img></a></h1>
+						<p>Para obtener la información necesaria sobre los pintxos de la aplicación. Podrás obtner tanto la lista de pintxos, un pintxo por nombre como parámetro o el pintxo pasándole un número como parámetro que te devolverá el pintxo que corresponde en la lista.</p>
+						<h2>GET Pintxos</h2>
+						<p>Para obtener la lista de los pintxos que hay en la base de datos usaremos la siguiente URL:</p>
+						<p><strong>http://www.thepintxopo.com/pintxosDatos</strong></p>
+						<p>Esto nos devolverá un array con un JSON en el que se incluyen los nombres y las descripciones de cada pintxo.</p>
+						<p><strong>Ejemplo:</strong></p>
+						<p>[{"nombre":"Maki de atún","descripcion":"Delicioso bocado de atún envuelto en arroz sushi-meshi y alga nori."},{"nombre":"Bola de carne","descripcion":"Uno de los pintxos más habituales, un bocado de carne con un toque picante"}]</p>
+						<h2>GET Pintxos:nombre</h2>
+						<p>Para obtener un pintxo introduciendo su nombre usaremos la siguiente URL:</p>
+						<p><strong>http://www.thepintxopo.com/pintxosDatos/nombre/:nombre</strong></p>
+						<p>Siendo <strong>/:nombre</strong> un <strong>parámetro</strong> que tendremos que introducir, ej: 'Maki de atún'. Esto nos devolverá un JSON en el que se incluyen el nombre y la descripción de ese pintxo.</p>
+						<p><strong>Ejemplo:</strong></p>
+						<p>{"nombre":"Maki de atún","descripcion":"Delicioso bocado de atún envuelto en arroz sushi-meshi y alga nori."}</p>
+						<h2>GET Pintxos:número</h2>
+						<p>Para obtener un pintxo introduciendo su número de orden usaremos la siguiente URL:</p>
+						<p><strong>http://www.thepintxopo.com/pintxosDatos/:numero</strong></p>
+						<p>Siendo <strong>/:numero</strong> un <strong>parámetro</strong> que tendremos que introducir, ej: '0'. Esto nos devolverá un JSON en el que se incluye el nombre de ese pintxo.</p>
+						<p><strong>Ejemplo:</strong></p>
+						<p>Maki de atún</p>
+					</div>
+					<div class="contenido" id="bares">
+						<h1 name="bares">Bares <a href=#arriba><img src="img/open-iconic/svg/chevron-top.svg" ></img></a></h1>
+						<p>Para obtener la información necesaria sobre los bares de la aplicación. Podrás obtner tanto la lista de bares, un bar por nombre como parámetro o el bar pasándole un número como parámetro que te devolverá el bar que corresponde en la lista.</p>
+						<h2>GET Bares</h2>
+						<p>Para obtener la lista de los bares que hay en la base de datos usaremos la siguiente URL:</p>
+						<p><strong>http://www.thepintxopo.com/baresDatos</strong></p>
+						<p>Esto nos devolverá un array con un JSON en el que se incluyen el nombre y las coordenadas de cada bar.</p>
+						<p><strong>Ejemplo:</strong></p>
+						<p>[{"coordX":"43.317020","coordY":"-1.971988","nombre":"Bar Jesús"},{"coordX":"43.326289","coordY":"-1.971695","nombre":"Elosta"}]</p>
+						<h2>GET Bares:nombre</h2>
+						<p>Para obtener un bar introduciendo su nombre usaremos la siguiente URL:</p>
+						<p><strong>http://www.thepintxopo.com/pintxosDatos/nombre/:nombre</strong></p>
+						<p>Siendo <strong>/:nombre</strong> un <strong>parámetro</strong> que tendremos que introducir, ej: 'Bar Jesús'. Esto nos devolverá un JSON en el que se incluyen el nombre y las coordenadas de ese bar.</p>
+						<p><strong>Ejemplo:</strong></p>
+						<p>{"coordX":"43.317020","coordY":"-1.971988","nombre":"Bar Jesús"}</p>
+						<h2>GET Bares:número</h2>
+						<p>Para obtener un bar introduciendo su número de orden usaremos la siguiente URL:</p>
+						<p><strong>http://www.thepintxopo.com/pintxosDatos/:numero</strong></p>
+						<p>Siendo <strong>/:numero</strong> un <strong>parámetro</strong> que tendremos que introducir, ej: '0'. Esto nos devolverá un JSON en el que se incluye el nombre de ese bar.</p>
+						<p><strong>Ejemplo:</strong></p>
+						<p>Bar Jesús</p>
+					</div>
+		</div>
+	</main>
+	<% include footer %>
+
+</body>
+</html>

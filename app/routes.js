@@ -135,10 +135,6 @@ module.exports = function(app, passport) {
   		});
 	});
 	
-
-	
-	
-	
 	// =====================================
 	// LOGIN ===============================
 	// =====================================
@@ -226,11 +222,9 @@ module.exports = function(app, passport) {
 			
 			//Creamos una variable para crear un objeto de tipo Pintxo
 			var pintxo = new Pintxo ({
-	
 				nombre: req.body.nombre,
 				descripcion: req.body.descripcion,
-				img: req.body.img
-	
+				img: req.body.img,
 			});
 	
 	
@@ -257,6 +251,7 @@ module.exports = function(app, passport) {
 	
 	app.post('/emiteVoto', function (req, res) {
 	    console.log(req.body.id);
+	    console.log(req.body.value);
 	});
 	
 	//Añadir un pintxo a la colección de pintxos
@@ -421,8 +416,10 @@ app.post('/actualiza-usuarios', function(req, res) {
 	
 				nombre: req.body.nombre,
 				descripcion: req.body.descripcion,
-				img: req.body.img
-	
+				img: req.body.img,
+				media: '0',
+				votos: '0'
+				
 			});
 	
 	
@@ -501,6 +498,9 @@ app.post('/actualiza-usuarios', function(req, res) {
 		res.render('about.ejs');
 	});
 	
+	app.get('/api', function(req, res){
+		res.render('api.ejs');	
+	});
 	
 };
 

@@ -4,7 +4,9 @@ var mongoose = require('mongoose');//ya que vamos a usar mongoose, hacemos el ll
  	var pintxos = new mongoose.Schema({
 		  nombre: String,
 		  descripcion: String,
-		  img:String
+		  img:String,
+		  media:String,
+		  votos:String
 	});
 
 // con export habilitamos el poder usar la colección desde cualquier parte de la aplicación

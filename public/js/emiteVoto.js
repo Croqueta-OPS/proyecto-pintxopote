@@ -1,4 +1,4 @@
-$( "#cita" ).click(function() {
-    alert( "Handler for .click() called." );
-});
+$(document).ready(function() {	
+
     
+});

@@ -1,0 +1,135 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+h1 {
+    
+    font-family: 'Old Standard TT', serif;
+    
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.contenedor-editar{
+    font-family: 'Lora', serif;
+}
+
+.btn-desconectar {        
+    display: inline-block;
+    white-space: nowrap;
+    background-color: #ccc;
+    background-image: linear-gradient(top, #eee, #ccc);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#cccccc');
+    border: 1px solid #777;
+    padding: 0 1.5em;
+    margin: 0.5em;
+    font: bold 1em/2em Arial, Helvetica;
+    text-decoration: none;
+    color: #333;
+    text-shadow: 0 1px 0 rgba(255,255,255,.8);
+    border-radius: .2em;
+    box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+}
+
+.btn-desconectar:hover {
+    background-color: #ddd;        
+    background-image: linear-gradient(top, #fafafa, #ddd);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fafafa', EndColorStr='#dddddd');        
+}
+
+.btn-desconectar:active {
+    box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+    position: relative;
+    top: 1px;
+}
+
+.btn-desconectar:focus {
+    outline: 0;
+    background: #fafafa;
+}    
+
+.btn-desconectar:before {
+    background: #ccc;
+    background: rgba(0,0,0,.1);
+    float: left;        
+    width: 1em;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0 1em 0 -1em;
+    padding: 0 .2em;
+    box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+    border-radius: .15em 0 0 .15em;
+    pointer-events: none;        
+}
+
+.contenedor-editar{
+    text-align: center;
+    margin-top: 10%;
+}
+
+.btn-editar{
+	margin-right: 30px;
+	width: 130px;
+	height: 64px;
+	display: inline-block;
+	position: relative;
+	line-height: 64px;
+	background-color: #eaeaea;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#eaeaea));
+	background-image: -webkit-linear-gradient(top, #f6f6f6, #eaeaea);
+	background-image: -moz-linear-gradient(top, #f6f6f6, #eaeaea); 
+	background-image: -ms-linear-gradient(top, #f6f6f6, #eaeaea); 
+	background-image: -o-linear-gradient(top, #f6f6f6, #eaeaea);
+	background-image: linear-gradient(top, #f6f6f6, #eaeaea);
+	-moz-border-radius: 32px;
+	-webkit-border-radius: 32px;
+	border-radius: 32px;
+	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+}
+
+.btn-editar:active {
+	top: 1px;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#eaeaea), to(#f6f6f6));
+	background-image: -webkit-linear-gradient(top, #eaeaea, #f6f6f6);
+	background-image: -moz-linear-gradient(top, #eaeaea, #f6f6f6); 
+	background-image: -ms-linear-gradient(top, #eaeaea, #f6f6f6); 
+	background-image: -o-linear-gradient(top, #eaeaea, #f6f6f6);
+	background-image: linear-gradient(top, #eaeaea, #f6f6f6);
+}
+
+.btn-editar::before{
+	content: '';
+	position: absolute;
+	z-index: -1;
+	top: -8px;
+	right: -8px;
+	bottom: -8px;
+	left: -8px;
+	background-color: #eaeaea;
+	-moz-border-radius: 140px;
+	-webkit-border-radius: 140px;
+	border-radius: 140px;
+	opacity: 0.5;		
+}
+
+.btn-editar:active::before {
+	top: -9px;
+}
+ 
+.btn-editar:hover::before {
+	opacity: 1;
+}
+
+.btn-editar.rss:hover::before {
+	background-color: #f8ebb6;
+}

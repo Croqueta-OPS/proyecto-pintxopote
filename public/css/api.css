@@ -1,0 +1,113 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html{
+    height:100%;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color:#222;
+	font-weight: 400;
+	height:100%;
+}
+
+header{
+    position:fixed;
+    border-bottom: 1px solid #eee;
+    background-color:#f5f5f5;
+    width:100%;
+    height:auto;
+    padding:1%;
+    display: flex;
+    z-index:1000;
+}
+.cabecera{
+    margin-left: 24%;
+    margin-right:1%;
+    height: 100%;
+    width:8%;
+}
+.cabecera a{
+    width: 100%;
+    text-align:center;
+}
+.cabecera img {
+	width: 100%;
+}
+
+header h1{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color:#444;
+	font-weight: 700;
+}
+main{
+    margin: 0;
+    padding-top:4%;
+    display:flex;
+    height: auto;
+}
+nav{
+    border-left: 1px solid gray;
+    padding-left: 5%;
+}
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+}
+.navApi{
+    margin: 0;
+    padding-top:4%;
+    padding-left:25%;
+    width:40%;
+    height:auto;
+    background-color:#eee;
+}
+.navApi>h1{
+    font-size: 25px;
+    font-weight: 500;
+    color:#444;
+}
+
+.navApi h2{
+    font-size: 20px;
+    font-weight: 500;
+    color:#444;
+}
+
+.navApi a{
+    color:#222;
+    text-decoration:none;
+}
+
+.contenidoApi{
+    width:60%;
+    height:100%;
+    padding:4%;
+}
+.contenido h1{
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    color:#444;
+	font-weight: 300;
+}
+
+.contenido p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color:#444;
+	font-weight: 300;
+	padding-right: 30%;
+}
+.contenido h2{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color:#444;
+	font-weight: 100;
+}

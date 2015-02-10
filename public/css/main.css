@@ -8,12 +8,13 @@ html {
 }
 
 body {
+	width:100%;
 	background-image: url('/img/beer2.gif'); 
 	background-size: cover;
 	background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
-    height: 100%;
+    height:100%;
 }
 
 .mainHeader {
@@ -111,7 +112,7 @@ body {
 .entrada {
 	width: 100%;
 	height: auto;
-	margin-bottom: 5%;
+	margin-bottom: 3%;
 	/*display: flex;
 	flex-wrap: wrap;
 	align-items: center; *//* align vertical */
@@ -120,7 +121,7 @@ body {
 .bienvenida {
 	width: 60%;
 	height: 40%;
-	margin: 15% 20% 12% 20%;
+	margin: 17% 20% 12% 20%;
 	color: #FFF;
 	text-align: center;
 	font-size: 200%;
@@ -199,19 +200,17 @@ body {
 }
 /************************************************/
 
+#pintxos{
+	border:1px solid blue;
+	min-height: 85%;
+	height: auto;
+}
+
 
 #bares {
     background-color: #FFF;
     width: 100%;
     height: 85%;
-}
-
-#titulo1 {
-	display: block;
-}
-
-#titulo2 {
-	display: none;
 }
 
 .principal {
@@ -274,19 +273,33 @@ body {
 	border: 1px solid blue;
 }
 
+.pintxo{
+	margin-top: 3%;
+	display:flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: flex-start; /* align vertical */
+}
+
 .pintxo article {
-	margin: 3% 0 4% 3.8%;
-	display: inline-block;
-	width: 20%;
-	height: 350px;
+	border: 1px solid gray;
+	padding:0.5%;
+	width: 21%;
+	min-height:100%;
+	height: auto;
 	text-align: center;
 	box-shadow: 1px 1px 6px 0px rgba(50, 50, 50, 0.75);
-	overflow: hidden;
+	min-width: 150px;
+	margin-left:1%;
+	margin-right:1%;
+	margin-bottom:3%;
 }
 
 .pintxo article img {
 	width: 100%;
-	max-height: 160px;
+	max-height: 250px;
+	min-height:250px;
 }
 
 .pintxo h3 {
@@ -297,11 +310,40 @@ body {
 
 .pintxo p {
 	padding: 2%;	
-	font-size: 90%;
+	font-size: 1.1em;
 	font-family: 'Courgette', cursive;
 	color: #797070;
 }
 
+#footer{
+	position:relative;
+	height:20%;
+	background-color:#0f151a;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	left:0;
+}
+
+@media (max-width: 480px){
+	
+	.pintxo article{
+		height: 10%;
+	}
+	
+	.pintxo article p{
+		display: none;
+	}
+
+	.total_votes{
+		display: none;
+	}
+	
+	.media_votes{
+		display: none;
+	}
+	
+}
 
 #usuario{
 	font-size: 95%;
@@ -334,6 +376,7 @@ body {
 #btnUsuario{
 	position: absolute;
 	margin: 1.5% 0 0 1.5%;
+	z-index: 1550;
 }
 
 #navBares {
@@ -350,10 +393,16 @@ body {
 }
 
 .secciones{
+	position:relative;
+	min-height:100%;
 	width: 90%;
 	margin:0 auto;
 	height:100%;
-	border: 1px solid green;
+}
+
+.secciones:after{
+	content:"";
+	display:block;
 }
 
 .contenedor{
@@ -387,20 +436,12 @@ body {
 }
 
 #googleMap {
-	height: 70%;
-    width: 80%;
+	height: 60%;
+    width: 97%;
     /*min-width: 300px;*/
     padding: 0;
     opacity: 1;
     position: static;
-    border: solid 1px blue;
-}
-
-#btn1{
-	margin-left: -10%;
-}
-#btn6{
-	margin-right: -10%;
 }
 
 .navRutas{
@@ -415,38 +456,37 @@ body {
 
 
 @media screen and (max-width: 600px) { 
-#visibleLogo{
-	display:none;
-}
-#hiddenLogo{
-	display:block;
-	padding: 2%;
-}
-#hiddenLogo img{
-	width: 45%;
-	height: auto;
-}
-.menuNavegador {   
-    height: auto;  
-}  
-.menuNavegador ul {  
-    width: 100%;  
-    display: block;  
-    height: auto;  
-}  
-.menuNavegador li {  
-    width: 50%;  
-    float: left;  
-    position: relative;  
-}  
-.menuNavegador li a {  
-    border-bottom: 1px solid #576979;  
-}  
-.menuNavegador a {  
-    text-align: left;  
-    width: 100%;  
-    text-indent: 25px;  
-}  
+	#visibleLogo{
+		display:none;
+	}
+	#hiddenLogo{
+		display:block;
+		padding: 2%;
+	}
+	#hiddenLogo img{
+		width: 45%;
+		height: auto;
+	}
+	.menuNavegador {   
+	    height: auto;  
+	}  
+	.menuNavegador ul {  
+	    width: 100%;  
+	    display: block;  
+	    height: auto;  
+	}  
+	.menuNavegador li {  
+	    width: 50%;  
+	    float: left;  
+	    position: relative;  
+	}  
+	.menuNavegador li a {  
+	    border-bottom: 1px solid #576979;  
+	}  
+	.menuNavegador a {  
+	    text-align: left;  
+	    width: 100%;  
+	}  
 }  
 
 
@@ -549,7 +589,6 @@ body {
 	}
 	
 	#bares {
-		height: auto;
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
@@ -557,38 +596,29 @@ body {
 		align-items: flex-start; /* align vertical */
 	}
 	
-	#titulo1 {
-		display: none;
-	}
-	
-	#titulo2 {
-		display: block;
-	}
-	
 	.principal {
 		float: left;
-		width: 90%;
-		height: auto;
+		height: 100%;
+		width: 100%;
 	}
 	
 	.visor {
 		float: left;
-		height: 60%;
+		height: 100%;
 		width: 100%;
-		height: auto;
 	}
 	
 	.visor img {
 		width: 100%;
-		height: auto;
 	}
 	
 	.imgBares {
 		margin-top: 0.5%;
-		width: 90%;
+		width: 55%;
 		float: right;
+		height: 80%;
 		border: 1px solid green;
-		height: 40%;
+		height: 85%;
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
@@ -597,8 +627,9 @@ body {
 	}
 	
 	.imagenesBares {
+		border: 1px solid blue;
 		margin-top: 2%;
-		width: 45%;
+		width: 35%;
 	}
 	
 	.imgBares img {
@@ -608,6 +639,7 @@ body {
 	
 	.barTitle {
 		width: 58%;
+		float: right;
 	}
 		
 
@@ -627,34 +659,38 @@ body {
 }
 
 /* imagen rutas */
-.btnRutas{
 	
 	/* iconos de: http://www.iconsbyhour.co.uk/1pm.html*/
-	
-	height: 5%;
-	width: 5%;
-	/* border: solid 1px blue;*/
-}
 
 #menu_rutas{
 	
 	text-align: center;
-	margin-top: 2%;
 	border: solid 1px purple;
 	display: flex;
 	flex-direction: row; 
 	flex-wrap: wrap;
 	justify-content: space-between;
-	width: 80%;
+	width: 100%;
+	height: 35%;
 }
 
-#menu_rutas a > img{
+#menu_rutas a > div > img{
 	
-	width: 22%;
+	
+	width: 70%;
+	/*border: solid 1px red;*/
+	margin-top: 16%;
+}
+
+.circulo_btn{
+	
+	width: 50px;
+	height: 50px;
 	/* -webkit-filter: invert(100%); */
 	background-color: #FF9933;
 	/* #ffa659 */
 	border-radius: 50%;
+	margin: auto;
 	
 }
 
@@ -666,7 +702,7 @@ body {
 	
 	font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
 	text-decoration: none;
-	color: black;
+	color: #303030;
 	font-size: large;
 }
 
@@ -675,20 +711,115 @@ body {
 	list-style: none;
 	border: solid 1px yellow;
 	width: 100%;
+	height: 100%;
 	
 }
 
 #menu_rutas > ul > li {
 	
 	text-align: center;
-	width: 15%;
+	width: 12%;
+	height: 25%;
+	min-width: 90px;
 	display: inline-block;
 	border: 1px solid green;
 	/*border-radius: 50%;*/
+	height: 100%;
 	
 
 }
 
+#menu_rutas > ul > li > a {
+	margin-left: -10%;
+}
+
+/* Media de RUTAS */
+@media (max-width: 750px){
+	
+	
+}
+
+@media (max-width: 480px){
+	
+	#menu_rutas{
+		
+		height: 40%;
+	}
+		
+	#menu_rutas > ul > li > a > p{
+		
+		display: none;
+	}
+	
+	#menu_rutas > ul{
+		
+		height: 50%;
+	}
+	
+	#menu_rutas > ul > li > a {
+		margin-left: -7%;
+	}
+	
+	#menu_rutas > ul > li {
+		margin-top: 0%;
+	}
+	
+	#cerveza{
+		display: none;
+	}
+	
+	
+}
+
+@media (max-width: 320) and (min-width: 480){
+	
+	#googleMap {
+		
+		height: 50%;
+	    width: 90%;
+	}
+		
+	.circulo_btn {
+		
+		width: 30px;
+		height: 30px;
+		margin: 5%;
+		
+	}
+	
+	#menu_rutas > ul > li > a > div {
+		
+		margin: 5%;
+		
+	}
+	
+	
+	#menu_rutas > ul > li {
+		margin-top: -3%;
+	}
+	
+	li#cerveza{
+		display: none;
+	}
+
+
+}
+
+/* Fin RUTAS */
+
 /* http://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
 	
+@media (max-width: 1370px){
+
+
+	.bienvenida {
+		width: 60%;
+		margin: 0 auto;
+		margin-top: 12%;
+		margin-bottom: 7%;
+		border:1px solid blue;
+	}
+	
+	
+}
 

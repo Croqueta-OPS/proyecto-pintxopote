@@ -29,8 +29,8 @@ $(document).ready(function() {
 						pintxos += "<div id='"+element._id+"' value='3' class='star_3 ratings_stars'></div>";
 						pintxos += "<div id='"+element._id+"' value='4' class='star_4 ratings_stars'></div>";
 						pintxos += "<div id='"+element._id+"' value='5' class='star_5 ratings_stars'></div>";
-						pintxos += "<div id='"+element._id+"' class='votos'><div class='total_votes'>votos: "+element.votos+" </div>";
-						pintxos += "<div id='"+element._id+"' class='media_votes'>media: "+element.media+" </div></div>";
+						pintxos += "<div id='"+element._id+"' class='votos'><div class='total_votes' value='"+element.votos+"'>votos: "+element.votos+" </div>";
+						pintxos += "<div id='"+element._id+"' class='media_votes' value='"+element.media+"'>media: "+element.media+" </div></div>";
 					pintxos += "</div>";
 				pintxos += "</article>";
 			});		

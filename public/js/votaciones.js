@@ -1,4 +1,33 @@
 function votar(){
+        $( ".ratings_stars" ).click(function() {
+            
+        var ident = $(this).attr("id");
+        var puntos = $(this).attr("value");
+        
+        var cantPuntos = $(this).siblings(".votos").children("div.total_puntos").attr("value");
+        var votos = $(this).siblings(".votos").children("div.total_votes").attr("value");
+        var media = $(this).siblings(".votos").children("div.media_votes").attr("value");
+        
+        alert(ident+" valoracion:"+puntos+" votos:"+votos+" media:"+media);
+        
+        puntos = parseInt(puntos);
+        votos = parseInt(votos);
+        nuevosPuntos = parseInt(nuevosPuntos);
+        
+        var nuevosPuntos = cantPuntos + puntos;
+        var nuevosVotos = votos++;
+        var nuevaMedia = nuevosPuntos/nuevosVotos;
+        
+        alert("nuevos votos:"+nuevosVotos);
+         
+            $.post( "/emiteVoto", {
+                id: ident,
+                value: nuevosVotos,
+                
+            });
+        
+        });
+    
       $('.ratings_stars').hover(
         // Handles the mouseover
         function() {
@@ -11,28 +40,4 @@ function votar(){
             /*set_votes($(this).parent());*/
         }
     );
-    
-    $( ".ratings_stars" ).click(function() {
-            
-        var ident = $(this).attr("id");
-        var valor = $(this).attr("value");
-          
-          alert(ident+" "+valor);
-         
-        $.post( "/emiteVoto", {
-            id: ident,
-            value: valor
-        });
-        
-     /*$.ajax({ 
-           url: '/emiteVoto',
-           type: 'POST',
-           cache: false, 
-           data: { id: ident, value: valor }, 
-           success: function(data){
-              alert('Success!')}, error: function(jqXHR, textStatus, err){
-               alert(ident+" "+valor)}
-        });*/
-      
-    });
 };

@@ -9,7 +9,7 @@ $(window).bind("scroll", function() {
         $(".navRedesLateral").fadeOut();
     }else{
            //Si nos encontramos almenos 500 píxeles por debajo de la posición inicial 
-        if ($(this).scrollTop() > 500) {
+        if ($(this).scrollTop() > document.getElementById("navRedes1").offsetTop - 50) {
             //Pedimos que nos muestre el <div> con clase "navRedesLateral"
             $(".navRedesLateral").fadeIn();
     

@@ -252,6 +252,9 @@ module.exports = function(app, passport) {
 	app.post('/emiteVoto', function (req, res) {
 	    console.log(req.body.id);
 	    console.log(req.body.value);
+	    var valor = parseInt(req.body.value);
+	    valor = valor+2;
+	    console.log(valor);
 	});
 	
 	//Añadir un pintxo a la colección de pintxos

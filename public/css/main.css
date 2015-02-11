@@ -219,13 +219,24 @@ body {
 	width: 41.5%;
 }
 
+#titulo1 {
+	display: block;
+}
+
+#titulo2 {
+	display: none;
+}
+
 .visor {
 	float: left;
-	height: 100%;
+	margin-left: 4%;
+	height: 87%;
+	margin-top: 4%;
 }
 
 .visor img {
 	max-height: 100%;
+	max-width: 100%;
 }
 
 .imgBares {
@@ -233,7 +244,6 @@ body {
 	width: 55%;
 	float: right;
 	height: 80%;
-	border: 1px solid green;
 	height: 85%;
 	display: flex;
 	flex-direction: row;
@@ -243,7 +253,6 @@ body {
 }
 
 .imagenesBares {
-	border: 1px solid blue;
 	margin-top: 2%;
 	width: 35%;
 }
@@ -588,48 +597,32 @@ body {
 		
 	}
 	
-	#bares {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: space-around;
-		align-items: flex-start; /* align vertical */
-	}
-	
 	.principal {
-		float: left;
-		height: 100%;
+		height: 40%;
 		width: 100%;
 	}
 	
 	.visor {
-		float: left;
+		height: 100%;
+		width: 90%;
+		margin-left: 5%;
+	}
+	
+	.visor img {
 		height: 100%;
 		width: 100%;
 	}
 	
-	.visor img {
-		width: 100%;
-	}
-	
 	.imgBares {
-		margin-top: 0.5%;
-		width: 55%;
-		float: right;
-		height: 80%;
-		border: 1px solid green;
-		height: 85%;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: space-around;
-		align-items: center; /* align vertical */
+		width: 90%;
+		height: 30%;
+		margin-left: 5%;
+		margin-top: 8%;
+		float: left;
 	}
 	
 	.imagenesBares {
-		border: 1px solid blue;
-		margin-top: 2%;
-		width: 35%;
+		width: 40%;
 	}
 	
 	.imgBares img {
@@ -768,6 +761,13 @@ body {
 		display: none;
 	}
 	
+	#titulo1 {
+		display: none;
+	}
+	
+	#titulo2 {
+		display: block;
+	}
 	
 }
 
@@ -817,7 +817,7 @@ body {
 		margin: 0 auto;
 		margin-top: 12%;
 		margin-bottom: 7%;
-		border:1px solid blue;
+		/*border:1px solid blue;*/
 	}
 	
 	

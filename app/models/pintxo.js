@@ -6,7 +6,8 @@ var mongoose = require('mongoose');//ya que vamos a usar mongoose, hacemos el ll
 		  descripcion: String,
 		  img:String,
 		  media:String,
-		  votos:String
+		  votos:String,
+		  puntos:String
 	});
 
 // con export habilitamos el poder usar la colección desde cualquier parte de la aplicación

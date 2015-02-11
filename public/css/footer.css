@@ -1,0 +1,94 @@
+
+footer{
+
+	position: relative; /* si queremos que se quede fijo usaremos: fixed */
+	height: 12%;
+	background-color: #0f151a; /* El color del señor:  #0f151a  Mi color: rgba(224, 213, 213, 0.77)*/
+	/*margin-bottom: 0;*/
+	display: inline-flex;
+	flex-direction: row; 
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-left: -6%;
+	margin-right: -6%;
+	margin-bottom: -6%;
+	
+}
+
+#navFooter{
+	
+	width: 100%;
+	
+}
+
+#navFooter > ul{
+    
+    width: 100%;
+    text-align: center;
+    
+}
+
+#navFooter > ul > li {
+	
+	width: 8%;
+	display: inline-block;
+	text-align: center;
+	color: black;
+	flex-basis: auto;
+	padding-top: 1%;
+	padding-bottom: 0.5%;
+	
+}
+
+#navFooter > ul > li > a{
+    
+    color: white;
+    font-size: 1.1em;
+}
+
+#navFooter > ul > li > a:hover{
+    
+    color: white;
+    cursor: pointer;
+}
+
+footer div{
+    
+    width: 100%;
+    text-align: center;
+}
+
+#contacto_footer{
+    
+    width: 100%;
+    text-align: center;
+    
+}
+
+#contacto_footer img{
+	
+	margin-right: 0.5%;
+	
+}
+
+#contacto_footer > li{
+    
+    width: 10%;
+	display: inline-block;
+	text-align: center;
+	color: black;
+	flex-basis: auto;
+	
+} 
+
+#contacto_footer a{
+	
+	text-decoration: none;
+	color: rgb(255, 153, 51);
+	
+}
+
+#contacto_footer a:hover{
+	color: white;
+	cursor: pointer;
+}

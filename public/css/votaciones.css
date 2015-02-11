@@ -50,6 +50,14 @@
     left: 0;
     padding: 5px;
 }
+.total_puntos {
+    display:none;
+    width:35%;
+    background: #eaeaea;
+    top: 58px;
+    left: 0;
+    padding: 5px;
+}
 .votos{
     margin-top:5%;
     width:100%;

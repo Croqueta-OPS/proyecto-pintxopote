@@ -23,14 +23,15 @@ $(document).ready(function() {
 				
 				//A la variable String le sumamos la imágen, nombre y descripción del elemento pintxo
 				pintxos += "<article><img src='"+element.img+"'></img><h3>"+element.nombre+"</h3><p>"+element.descripcion+"</p>";					
-					pintxos += "<div class='rate_widget' onmouseover='votar();'>";
+					pintxos += "<div class='rate_widget'>";
 						pintxos += "<div id='"+element._id+"' value='1' class='star_1 ratings_stars'></div>";
 						pintxos += "<div id='"+element._id+"' value='2' class='star_2 ratings_stars'></div>";
 						pintxos += "<div id='"+element._id+"' value='3' class='star_3 ratings_stars'></div>";
 						pintxos += "<div id='"+element._id+"' value='4' class='star_4 ratings_stars'></div>";
 						pintxos += "<div id='"+element._id+"' value='5' class='star_5 ratings_stars'></div>";
-						pintxos += "<div id='"+element._id+"' class='votos'><div class='total_votes' value='"+element.votos+"'>votos: "+element.votos+" </div>";
-						pintxos += "<div id='"+element._id+"' class='media_votes' value='"+element.media+"'>media: "+element.media+" </div></div>";
+						pintxos += "<div class='votos'><div class='total_votes' value='"+element.votos+"'>votos: "+element.votos+" </div>";
+						pintxos += "<div class='total_puntos' value='"+element.puntos+"'>puntos: "+element.puntos+" </div>";
+						pintxos += "<div class='media_votes' value='"+element.media+"'>media: "+element.media+" </div></div>";
 					pintxos += "</div>";
 				pintxos += "</article>";
 			});		

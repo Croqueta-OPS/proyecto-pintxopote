@@ -249,12 +249,67 @@ module.exports = function(app, passport) {
 		
 	});
 	
-	app.post('/emiteVoto', function (req, res) {
-	    console.log(req.body.id);
-	    console.log(req.body.value);
-	    var valor = parseInt(req.body.value);
-	    valor = valor+2;
-	    console.log(valor);
+	app.post('/emiteVoto', isLoggedIn, function (req, res) {
+	    console.log('id pintxo: '+req.body.id);
+		console.log('id usuario: '+req.user._id);
+		
+	    Pintxo.update({_id: req.body.id}, {media: req.body.med, votos: req.body.votes, puntos: req.body.punt}, null, function (err) {
+	
+				//Si hay error
+				if (err){
+			      	//Muestra por consola el error
+			    	console.log('ERROR: ' + err);
+			    }else{
+			    	//redireccionamos a la página /edita-pintxos
+			    	console.log('entra');
+        			
+			    }
+
+		});//Cierre del mtodo update
+		
+		
+			/*User.update({_id: req.user._id}, {$push: {pintxosVotados: {id: req.body.id}}}, {safe: true, upsert: true}, function(err, model) {
+	
+				//Si hay error
+				if (err){
+			      	//Muestra por consola el error
+			    	console.log('ERROR: ' + err);
+			    }else{
+			    	//redireccionamos a la página /edita-pintxos
+		    			console.log('Agregado');
+		        	    console.log('id pintxo2: '+req.body.id);
+						console.log('id usuario2: '+req.user._id);
+					
+			    }
+	
+			//Cierre del mtodo update
+			});*/		
+		User.findById(req.user._id, function(err, user) {
+		       if(err){
+			       console.log(err);
+		       }else{
+		       		
+		       		user.local.pintxosVotados.push(req.body.id);
+		       		
+		       		user.save (function (err, pintxo) {
+	
+					  	//Si existe un error
+						if(err){
+							
+							//Muestra por consola el error
+					    	console.log('ERROR: ' + err);
+					    	
+						}
+						else{
+								console.log('Agregado');
+			        	    console.log('id pintxo2: '+req.body.id);
+							console.log('id usuario2: '+req.user._id);
+						}
+					});
+		    	}
+		    }
+		);
+	    
 	});
 	
 	//Añadir un pintxo a la colección de pintxos
@@ -421,7 +476,8 @@ app.post('/actualiza-usuarios', function(req, res) {
 				descripcion: req.body.descripcion,
 				img: req.body.img,
 				media: '0',
-				votos: '0'
+				votos: '0',
+				puntos:'0'
 				
 			});
 	

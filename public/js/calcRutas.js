@@ -82,8 +82,10 @@ $(document).ready(function() {
                         //Creamos una variable start, con las coordenadas del primer bar de nuestra ruta
                         var start =  new google.maps.LatLng(arrayRuta[0].coordX, arrayRuta[0].coordY);
                         
+                        
                         //Creamos una variable end, con las coordenadas del último bar de nuestra ruta
                         var end =  new google.maps.LatLng(arrayRuta[arrayRuta.length - 1].coordX, arrayRuta[arrayRuta.length - 1].coordY);
+                        map.setCenter(end);
                         
                         //Creamos un array vacío de waypoints
                         var waypoints = [];
@@ -164,3 +166,15 @@ $(document).ready(function() {
 function borrarRuta() {
     directionsDisplay.setMap(null);
 }
+
+window.onresize = function(event) {
+    
+    if ($(window).width() > 500) {
+        map.setCenter(new google.maps.LatLng(43.321056, -2.020667));
+        map.setZoom(14);
+    }
+    else {
+        map.setCenter(new google.maps.LatLng(43.315467, -1.940544));
+        map.setZoom(5);
+    }
+};

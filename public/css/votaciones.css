@@ -68,3 +68,28 @@
 	align-items: center; /* align vertical */
 
 }
+
+@media (max-width: 480px){
+
+    .total_votes{
+        width:45%;
+        padding:0;
+        background:none;
+    }
+    
+    .media_votes{
+        width:45%;
+        padding:0;
+        background:none;
+    }
+    
+    .rate_widget{
+        padding:3%;
+        width: 100%;
+    }
+    
+    .votos{
+        width:100%;
+    }
+    
+}

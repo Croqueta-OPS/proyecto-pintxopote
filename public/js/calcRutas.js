@@ -5,7 +5,7 @@
 $(document).ready(function() {
     
     //Al hacer clic sobre uno de los botones de rutas
-    $('#btn1, #btn2, #btn3, #btn4, #btn5, #btn6').click(function() {
+    $('#btn1, #btn2, #btn3, #btn4, #btn5, #btn6, #btn7').click(function() {
         
         clearOverlays();
         directionsDisplay.setMap(map);
@@ -14,10 +14,10 @@ $(document).ready(function() {
         var ruta;
         
         //Damos valor a la ruta, dependiendo de cual es el botón concreto pulsado
-        if (this.id == "btn1") {
+        if (this.id == "btn1" || this.id == "btn4" || this.id == "btn7") {
             ruta = "0";
         }
-        else if (this.id == "btn2") {
+        else if (this.id == "btn2" || this.id == "btn5") {
             ruta = "1";
         }
         else {

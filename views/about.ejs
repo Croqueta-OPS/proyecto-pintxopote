@@ -7,6 +7,7 @@
 	
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="css/bootstrap.css"/>
+	<link rel="stylesheet" href="css/footer.css"/>
 
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="css/about.css" ><!--Estilos principales-->
@@ -55,6 +56,23 @@
 		<a href="/"><img src="img/logo_trazado_recortado.png" /></a>
 	</div>
 	
+		<div class="video">
+		<div class="video_player_box">
+			<video id="my_video" width="600" height="320">
+				<source src="img/video.mp4">
+			</video>
+			<div class="video_controls_bar" id="video_controls_bar">
+				<button class="playPauseBtn" id="playPauseBtn" value='0'></button>
+				<input class="seekSlider" id="seekSlider" type="range" min="0" max="100" value="0" step="1" style="width:200px">
+				<span id="curTimeText">00:00/</span><span class="durTimeText" id="durTimeText">00:00</span>
+				<button class="muteBtn" id="muteBtn"></button>
+				<input class="volumeSlider" id="volumeSlider" type="range" min="0" max="100" value="100" step="1" style="width:120px">
+				<button class="fullScreenBtn" id="fullScreenBtn"></button>
+			</div>
+		</div>
+				
+	</div>
+	
 	<div class="container">
 	
 		<div>
@@ -79,7 +97,7 @@
 		    	<canvas class="fotosRound" id="myCanvas" width="180" height="180"></canvas>
 		    	<!--<img src="img/white-round-md.png"></img>-->
 		    	</header>
-		    	<footer><p>Web developer, Musician</p></footer>
+		    	<footer class="piefoto"><p>Web developer, Musician</p></footer>
 		    </article>
 		    <article>
 		    	<header>
@@ -87,35 +105,20 @@
 		    	<canvas class="fotosRound" id="myCanvas2" width="180" height="180"></canvas>
 		    	<!--<img src="img/white-round-md.png"></img>-->
 		    	</header>
-		    	<footer><p>Web developer, IT</p></footer>
+		    	<footer class="piefoto"><p>Web developer, IT</p></footer>
 		    </article>
 		    <article>
 		    	<header>
 		    	<h1>Borja Muñoz</h1>
 		    	<canvas class="fotosRound" id="myCanvas3" width="180" height="180"></canvas>
 		    	</header>
-		    	<footer><p>Web developer, Graphic designer</p></footer>
+		    	<footer class="piefoto"><p>Web developer, Graphic designer</p></footer>
 		    </article>
 		</section>
 	</div>
-	<div class="video">
-		<div class="video_player_box">
-			<video id="my_video" width="600" height="320">
-				<source src="img/video.mp4">
-			</video>
-			<div class="video_controls_bar" id="video_controls_bar">
-				<button class="playPauseBtn" id="playPauseBtn" value='0'></button>
-				<input class="seekSlider" id="seekSlider" type="range" min="0" max="100" value="0" step="1" style="width:200px">
-				<span id="curTimeText">00:00/</span><span class="durTimeText" id="durTimeText">00:00</span>
-				<button class="muteBtn" id="muteBtn"></button>
-				<input class="volumeSlider" id="volumeSlider" type="range" min="0" max="100" value="100" step="1" style="width:120px">
-				<button class="fullScreenBtn" id="fullScreenBtn"></button>
-			</div>
-		</div>
-				
-	</div>
+
 	<div>
-		<p>footer</p>
+		<% include footer %>
 	</div>
 </div>
     <script>

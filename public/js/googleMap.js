@@ -24,6 +24,7 @@ function initialize() {
 		scrollwheel: false,		//No le dejo controlar el zoom con el scrolling, ya que el diseño de nuestra página lo requiere para continuar con la navegación
 		mapTypeControl: false,		//Deshabilito la opción de cambiar el tipo de mapa (satélite)
 		streetViewControl: false,	//Deshabilito la opción de entrar en Street View
+		draggable: true,
 		center: new google.maps.LatLng(43.315861, -1.978558)	//LatLng es un objeto definido en la API de Google Maps, que representa un punto en el mapa cogiendo por parámetro la latidud y longitud del mismo
 																//En este caso utilizo el punto para hacerlo el centro del mapa de inicio
 	};															
@@ -49,6 +50,7 @@ function mostrarMapa() {
 		title: document.getElementById("nombreBar").innerHTML 
 	}); 
 	markersArray.push(marker);
+	map.setCenter(myLatlng);
 }
 
 function clearOverlays() {

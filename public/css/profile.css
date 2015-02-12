@@ -8,7 +8,7 @@ body{
 	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
-	padding: 1%;
+	padding: 1% 0 0 0;
 }
 
 .header{
@@ -19,6 +19,7 @@ body{
 #avatar{
 	width: 100%;
 	height: 125px;
+	margin-bottom: 10%;
 }
 
 #nom-usuario{
@@ -82,7 +83,7 @@ body{
 }
 
 .logo {
-	max-width: 15%;
+	width: 15%;
 	display: block;
 	margin: 0 auto;
 }
@@ -179,4 +180,101 @@ hr{
 
 #idUsuario {
 	display: none;
+}
+
+footer#principal{
+
+	position: fixed; /* si queremos que se quede fijo usaremos: fixed */
+	height: 15%;
+	background-color: #0f151a; /* El color del señor:  #0f151a  Mi color: rgba(224, 213, 213, 0.77)*/
+	/*margin-bottom: 0;*/
+	display: inline-flex;
+	flex-direction: row; 
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 100%;
+	margin-left: 0;
+	bottom: 0;
+}
+
+@media screen and (max-width: 480px){
+	
+	.logo {
+		width: 40%;
+		display: block;
+		margin: 0;
+		margin-left: 30%;
+	}
+	
+	.logo img {
+		width: 100%;
+	}
+	
+	#datos {
+		width: 100%;
+		margin: 0;
+		margin-top: -10%;
+	}
+
+	#nom-usuario{
+	    width: 100%;
+		margin: 0;	    
+	}
+	
+	#nom-usuario h1 {
+		margin: 0;
+		font-size: 35px;
+		color: black;
+		text-align: center;
+	}
+	
+	#avatar{
+		width: 70%;
+		margin: 0;
+		margin-top: -5%;
+		margin-left: 32%;
+
+	}
+	
+	#falseinput {
+		width: 30%;
+	}
+	
+	#btnEditarAvatar {
+		width: 40%;
+	}
+	
+	#datos-usuario {
+		width: 70%;
+		height: 20%;
+		margin: 0;
+		margin-left: 20%;
+		margin-top: 10%;
+	}
+	
+	#datos p{
+		font-family: 'Roboto Condensed', sans-serif;
+		text-align: left;
+		line-height: 20px;
+	}
+	
+	#editar{
+		margin-top: -5%;
+		width: 50%;
+	}
+	
+	.valoracion h1{
+	    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		font-size: 25px;
+		font-style: normal;
+		font-variant: normal;
+		font-weight: bold;
+		color: black;
+		text-align: center;
+	}
+	
+	.valoracion p {
+		font-size: 15px;
+	}
+	
 }

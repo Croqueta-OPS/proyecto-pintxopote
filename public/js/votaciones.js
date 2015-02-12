@@ -33,6 +33,7 @@ $(window).load(function() {
                             votes: nuevosVotos,
                             med: nuevaMedia
                         });
+                    //función que usamos para recargar la página
                     location.reload(function (){
                     $(window).load(function() {
 

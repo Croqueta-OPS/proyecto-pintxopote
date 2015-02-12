@@ -24,29 +24,16 @@ $(document).ready(function() {
 				//A la variable String le sumamos la imágen, nombre y descripción del elemento pintxo
 				pintxos += "<article><img src='"+element.img+"'></img><h3>"+element.nombre+"</h3><p>"+element.descripcion+"</p>";					
 					pintxos += "<div class='rate_widget'>";
-						pintxos += "<div id='"+element._id+"' value='1' class='star_1 ratings_stars'></div>";
-						pintxos += "<div id='"+element._id+"' value='2' class='star_2 ratings_stars'></div>";
-						pintxos += "<div id='"+element._id+"' value='3' class='star_3 ratings_stars'></div>";
-						pintxos += "<div id='"+element._id+"' value='4' class='star_4 ratings_stars'></div>";
-						pintxos += "<div id='"+element._id+"' value='5' class='star_5 ratings_stars'></div>";
+						pintxos += "<div id='"+element._id+"1' value='1' class='star_1 ratings_stars'></div>";
+						pintxos += "<div id='"+element._id+"2' value='2' class='star_2 ratings_stars'></div>";
+						pintxos += "<div id='"+element._id+"3' value='3' class='star_3 ratings_stars'></div>";
+						pintxos += "<div id='"+element._id+"4' value='4' class='star_4 ratings_stars'></div>";
+						pintxos += "<div id='"+element._id+"5' value='5' class='star_5 ratings_stars'></div>";
 						pintxos += "<div class='votos'><div class='total_votes' value='"+element.votos+"'>votos: "+element.votos+" </div>";
 						pintxos += "<div class='total_puntos' value='"+element.puntos+"'>puntos: "+element.puntos+" </div>";
 						pintxos += "<div class='media_votes' value='"+element.media+"'>media: "+element.media+" </div></div>";
 					pintxos += "</div>";
 				pintxos += "</article>";
-				
-				
-				
-				
-				/*if(element.media === 1){
-				
-					$(".star_1").addClass('ratings_over');
-				
-				}else{
-					
-					$(".star_5").prevAll().andSelf().addClass('ratings_over');
-					
-				}*/
 				
 			});		
 			
@@ -56,6 +43,13 @@ $(document).ready(function() {
 
 			//Enviamos la variable pintxos, un String simple con instrucciones html, y le indicamos que lo cargue en el div "pintxos"
 			$("#pintxos").html(pintxos);
+			
+			data.forEach(function(element, index, array) {
+			
+				$("#"+element._id+""+element.media).prevAll().andSelf().addClass('ratings_over');
+				$("#"+element._id+""+element.media).prevAll().andSelf().removeClass('ratings_vote');
+			
+			});
 			
 		}
 

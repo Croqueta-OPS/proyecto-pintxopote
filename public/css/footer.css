@@ -1,5 +1,5 @@
 
-footer{
+footer#principal{
 
 	position: relative; /* si queremos que se quede fijo usaremos: fixed */
 	height: 15%;
@@ -9,9 +9,8 @@ footer{
 	flex-direction: row; 
 	flex-wrap: wrap;
 	justify-content: space-between;
-	margin-left: -6%;
-	margin-right: -6%;
-	
+	/*width: 112%;
+	margin-left: -6%;*/
 }
 
 #navFooter{
@@ -57,10 +56,12 @@ footer{
     text-decoration: none;
 }
 
-footer div{
+footer#principal div{
     
     width: 100%;
     text-align: center;
+    color: rgb(113, 114, 115);
+    
 }
 
 #contacto_footer{
@@ -74,7 +75,7 @@ footer div{
 	
 	margin-right: 0.5%;
 	-webkit-filter: invert(100%);
-	width: 10%;
+	width: 20%;
 	
 }
 
@@ -100,6 +101,7 @@ footer div{
 }
 
 #contacto_footer a:hover{
+	
 	color: rgb(255, 153, 51);
 	cursor: pointer;
 }
@@ -107,17 +109,36 @@ footer div{
 @media (max-width: 480px){
 	
 	#contacto_footer p{
+		
 		display: none;
 	}
 	
 	#navFooter > ul > li {
+		
 		width: 13%;
 	}
 	
 	#contacto_footer img:hover{
 	
-	-webkit-filter: invert(50%);
+		-webkit-filter: invert(50%);
 	
+	}
+	
+	#navFooter > ul > li > a{
+		
+		font-size: 0.9em;
+		
+	}
+	
+	#contacto_footer img{
+		
+		width: 40%;
+	}
+	
+	#contacto_footer > li{
+		
+		width: 10%;
+		
 	}
 	
 }

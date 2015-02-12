@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="css/bootstrapValidator.min.css"/>
 		
 	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="css/footer.css" ><!--Estilo footer-->
 	<link rel="stylesheet" type="text/css" href="css/profile.css" ><!--Estilos principales-->
       
 	<!-- Fuentes externas -->
@@ -80,15 +81,44 @@
 						</div>
 						
    <div class="flex-item">
-   				<div class="valoracion"><h1>2</h1><p>Pintxos<br>valorados</p></div>
+   		<div class="valoracion"><h1><%= user.local.pintxosVotados.length %></h1><a href="#login" data-toggle="modal"><p>Pintxos<br>valorados</p></a></div>
+   </div>
+   
+   <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+				
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4>Pintxos valorados por <%= user.local.nomUsuario %></h4>
+					
+				</div>
+					
+				<div class="modal-body">
+					
+					<% for(var i = 0; i < user.local.pintxosVotados.length; i++) {%>
+					
+						<p><%= user.local.pintxosVotados[i] %></p>
+						
+					<% } %>
+					
+				</div>
+					
+					<!-- FIN del formulario ////////////////////-->
+				<div class="modal-footer">
+					<a class="btn btn-default" data-dismiss="modal">	Cerrar</a>
+				</div>
+				
+			</div>
+		</div>
+   </div>
+
+   <div class="flex-item">
+   				<div class="valoracion"><h1>X</h1><p>Bares<br>valorados</p></div>	
    </div>
    
    <div class="flex-item">
-   				<div class="valoracion"><h1>5</h1><p>Bares<br>valorados</p></div>	
-   </div>
-   
-   <div class="flex-item">
-   				<div class="valoracion"><h1>3</h1><p>Rutas<br>creadas</p></div>	
+   				<div class="valoracion"><h1>X</h1><p>Rutas<br>creadas</p></div>	
    </div>
    
 </div>
@@ -154,7 +184,11 @@
 							</a>
 		   </div>
 					<!-- FIN DE BOTONES EDITAR Y DESCONECTAR ////////////////////-->
+					
+					
 	</div>
+	
 </div>
+<% include footer %>
 </body>
 </html>

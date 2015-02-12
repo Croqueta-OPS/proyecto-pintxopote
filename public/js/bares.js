@@ -15,7 +15,7 @@ $(document).ready(function() {
 
 			//Creamos una variable String para meter instrucciones html, que será la que pasaremos despues al html
 			//Primero creamos un <div> en el html, le ponemos un título y subtítulo, y abrimos otro <div> dentro para meter los pintxos
-			var bares = "<div class='titulo'><h1 id='titulo1'>Bares... ¡Qué lugares!</h1><h1 id='titulo2'>Bares</h1><h2>Encuentra los mejores sitios</h2></div><div class='principal'><div class='visor'><img src=img/Bares/"+data[0].img+"_principal.jpg alt='' name='fotoVisor'/><div id='navBares'><a href=''><img src='img/open-iconic/svg/plus.svg' id='infoIcon'/></a><a id='mostrarMapa' href='#rutas' class='ancla'><img src='img/open-iconic/svg/map-marker.svg' id='mapaIcon'/></a></div></div></div>";
+			var bares = "<div class='titulo'><h1 id='titulo1'>Bares... ¡Qué lugares!</h1><h1 id='titulo2'>Bares</h1><h2>Encuentra los mejores sitios</h2></div><div class='principal'><div class='visor'><img src=img/Bares/"+data[0].img+"_principal.jpg alt='' name='fotoVisor'/><div id='navBares'></a><a id='mostrarMapa' href='#rutas' class='ancla'><img src='img/open-iconic/svg/map-marker.svg' id='mapaIcon'/></a></div></div></div>";
 
             bares += "<div class='imgBares'><p id='barPrincipal'>"+data[0]._id+"</p><p id='coordX'>"+data[0].coordX+"</p><p id='coordY'>"+data[0].coordY+"</p><p id='nombreBar'>"+data[0].nombre+"</p>";
 			//Por cada elemento del json recibido

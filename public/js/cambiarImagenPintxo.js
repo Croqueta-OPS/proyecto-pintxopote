@@ -21,15 +21,15 @@ $(document).ready(function() {
 			
 			img.onload = function() {
 				
-				if (this.height > 300 || this.width > 300) {
-					alert("La imagen debe ser máximo de 300px x 300px");
+				if (this.height > 1000 || this.width > 500) {
+					alert("La imagen debe ser máximo de 1000px x 500px. Mantenga el ratio, por favor.");
 				}
 				else {
 			
 					document.getElementById("pintxoImg").src = event.target.result; 
 					
 					
-}
+					}
 				}
 			
 			};
@@ -54,7 +54,7 @@ $(document).ready(function() {
             
         });
         
-        location.reload(true);
+        alert("El pintxo se ha añadido correctamente");
             
     });
 	

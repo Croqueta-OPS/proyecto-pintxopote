@@ -11,6 +11,7 @@ $(document).ready(function() {
         $.post( "/borra-pintxos", {
             id: this.id
         });
+        
             
     });
     

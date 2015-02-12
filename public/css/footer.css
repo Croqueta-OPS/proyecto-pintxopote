@@ -2,7 +2,7 @@
 footer{
 
 	position: relative; /* si queremos que se quede fijo usaremos: fixed */
-	height: 12%;
+	height: 15%;
 	background-color: #0f151a; /* El color del señor:  #0f151a  Mi color: rgba(224, 213, 213, 0.77)*/
 	/*margin-bottom: 0;*/
 	display: inline-flex;
@@ -11,13 +11,16 @@ footer{
 	justify-content: space-between;
 	margin-left: -6%;
 	margin-right: -6%;
-	margin-bottom: -6%;
 	
 }
 
 #navFooter{
 	
 	width: 100%;
+	display: inline-flex;
+	flex-direction: row; 
+	flex-wrap: nowrap;
+	justify-content: space-between;
 	
 }
 
@@ -42,14 +45,16 @@ footer{
 
 #navFooter > ul > li > a{
     
-    color: white;
+    color: rgb(255, 153, 51);
     font-size: 1.1em;
+    text-align: center;
 }
 
 #navFooter > ul > li > a:hover{
     
-    color: white;
+    color: rgb(229, 164, 99);
     cursor: pointer;
+    text-decoration: none;
 }
 
 footer div{
@@ -68,7 +73,13 @@ footer div{
 #contacto_footer img{
 	
 	margin-right: 0.5%;
+	-webkit-filter: invert(100%);
+	width: 10%;
 	
+}
+
+#contacto_footer img, #contacto_footer p{
+   display: inline;
 }
 
 #contacto_footer > li{
@@ -84,11 +95,47 @@ footer div{
 #contacto_footer a{
 	
 	text-decoration: none;
-	color: rgb(255, 153, 51);
+	color: white;
 	
 }
 
 #contacto_footer a:hover{
-	color: white;
+	color: rgb(255, 153, 51);
 	cursor: pointer;
+}
+
+@media (max-width: 480px){
+	
+	#contacto_footer p{
+		display: none;
+	}
+	
+	#navFooter > ul > li {
+		width: 13%;
+	}
+	
+	#contacto_footer img:hover{
+	
+	-webkit-filter: invert(50%);
+	
+	}
+	
+}
+
+@media (max-width: 1024px){
+	
+	#contacto_footer p{
+		display: none;
+	}
+	
+	#navFooter > ul > li {
+		width: 13%;
+	}
+	
+	#contacto_footer img:hover{
+	
+	-webkit-filter: invert(50%);
+	
+	}
+	
 }

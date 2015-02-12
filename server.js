@@ -98,28 +98,37 @@ io.sockets.on('connection', function (socket) {
 
  var stream = T.stream('statuses/filter', { follow : follow , track: watchList })
 
-  stream.on('tweet', function (tweet) {
-
-  	// Makes a link the Tweet clickable
-    var turl = tweet.text.match( /(http|https|ftp):\/\/[^\s]*/i )
-    if ( turl != null ) {
-      turl = tweet.text.replace( turl[0], '<a class="tweets" href="'+turl[0]+'" target="new">'+turl[0]+'</a>' );
-    } else {
-      turl = tweet.text;
-    }
-
-    var mediaUrl;
-    // Does the Tweet have an image attached?
-    if ( tweet.entities['media'] ) {
-      if ( tweet.entities['media'][0].type == "photo" ) {
-        mediaUrl = tweet.entities['media'][0].media_url;
-      } else {
-        mediaUrl = null;
+  stream.on('tweet', function (tweet, err) {
+  
+      if(err){
+        
+        console.log("sockets ha fallado");
+        
+      }else{
+        
+        // Makes a link the Tweet clickable
+        var turl = tweet.text.match( /(http|https|ftp):\/\/[^\s]*/i )
+        if ( turl != null ) {
+          turl = tweet.text.replace( turl[0], '<a class="tweets" href="'+turl[0]+'" target="new">'+turl[0]+'</a>' );
+        } else {
+          turl = tweet.text;
+        }
+    
+        var mediaUrl;
+        // Does the Tweet have an image attached?
+        if ( tweet.entities['media'] ) {
+          if ( tweet.entities['media'][0].type == "photo" ) {
+            mediaUrl = tweet.entities['media'][0].media_url;
+          } else {
+            mediaUrl = null;
+          }
+        }
+    
+        // Send the Tweet to the browser
+        io.sockets.emit('stream',turl, tweet.user.screen_name, tweet.user.profile_image_url, mediaUrl);
+            
       }
-    }
-
-    // Send the Tweet to the browser
-    io.sockets.emit('stream',turl, tweet.user.screen_name, tweet.user.profile_image_url, mediaUrl);
+  	
   
 
   });

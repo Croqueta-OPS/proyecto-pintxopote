@@ -15,6 +15,7 @@ body {
     background-attachment: fixed;
     background-position: center center;
     height:100%;
+    overflow-x: hidden;
 }
 
 .mainHeader {
@@ -292,12 +293,56 @@ body {
 	width:30%;
 }
 
-.noticias{
+.agenda{
 	height:90%;
 	width:30%;
-	border: 1px solid blue;
 }
 
+.post{
+	width:100%;
+	margin-bottom:2%;
+	display:flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: flex-start; /* align vertical */
+}
+.fecha{
+	padding:1%;
+	width:15%;
+	background-color:gray;
+}
+.fecha h1, .fecha h2{
+	font-family:helvetica;
+	font-weight:bold;
+	font-size:1em;
+	color:white;
+}
+.evento{
+	border: 1px solid gray;
+	padding:5%;
+	width:85%;
+}
+.evento h1{
+	font-family:helvetica;
+	font-weight:bold;
+	font-size:1em;
+}
+.evento h2{
+	font-family:helvetica;
+	font-size:1em;
+}
+.titulito{
+	width:100%;
+}
+.titulito h1{
+	font-family:helvetica;
+	font-weight:bold;
+	font-size:1em;
+}
+.titulito img{
+	width:3%;
+}
 
 .tituloArticulo{
 	font-family: 'Old Standard TT', serif;
@@ -325,13 +370,14 @@ body {
 	max-width:100%; 
 	max-height:100%;
 }
-.entrada footer{
+.entrada #footNoticia{
+	margin:0 auto;
+	width:100%;
 	padding:2%;
 	background-color:#eee;
 	border:none;
 }
 .twitter{
-	text-align:center;
 	height:90%;
 	width:30%;
 }
@@ -695,7 +741,6 @@ body {
 	flex-wrap: wrap;
 	justify-content: space-around;
 	align-items: center; /* align vertical */
-	border: solid 1px orange;
 }
 
 /* imagen rutas */
@@ -705,7 +750,6 @@ body {
 #menu_rutas{
 	
 	text-align: center;
-	border: solid 1px purple;
 	display: flex;
 	flex-direction: row; 
 	flex-wrap: wrap;
@@ -722,6 +766,11 @@ body {
 	margin-top: 16%;
 }
 
+#menu_rutas > ul > li > a > p:hover{
+	
+	-webkit-transform:scale(1.3, 1.3);
+}
+
 .circulo_btn{
 	
 	width: 50px;
@@ -734,8 +783,22 @@ body {
 	
 }
 
-#btn1{
+.btnRuta:visited, .btnRuta:focus{
+	
 	text-decoration: none;
+}
+
+.btnRuta:hover{
+	
+	text-decoration: none;
+}
+
+
+.btnRuta:active{
+	
+	text-decoration: none;
+	color: crimson;
+	
 }
 
 #menu_rutas > ul > li > a > p{
@@ -749,7 +812,6 @@ body {
 #menu_rutas ul{
 	
 	list-style: none;
-	border: solid 1px yellow;
 	width: 100%;
 	height: 100%;
 	
@@ -762,7 +824,6 @@ body {
 	height: 25%;
 	min-width: 90px;
 	display: inline-block;
-	border: 1px solid green;
 	/*border-radius: 50%;*/
 	height: 100%;
 	
@@ -774,7 +835,13 @@ body {
 }
 
 /* Media de RUTAS */
-@media (max-width: 750px){
+@media (max-width: 1920px){
+	
+	
+	#menu_rutas{
+		
+		margin-top: 5%;
+	}
 	
 	
 }
@@ -788,8 +855,9 @@ body {
 		
 	#menu_rutas > ul > li > a > p{
 		
-		display: none;
+		font-size: small;
 	}
+
 	
 	#menu_rutas > ul{
 		

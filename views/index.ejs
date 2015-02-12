@@ -164,7 +164,7 @@
 					
 								<!-- Para que muestre las rutas son: btn1 hasta btn6 -->
 							    <li>
-							    	<a id="btn1" href="#ruta">
+							    	<a id="btn1" class="btnRuta" href="#ruta">
 										<div class="circulo_btn">
 											<img src="img/vegetable4.png"></img>
 										</div>
@@ -174,7 +174,7 @@
 							    </li>
 							    
 							    <li>
-							    	<a id="btn1" href="#ruta">
+							    	<a id="btn2" class="btnRuta" href="#ruta">
 										<!-- <img src="img/prawn.png" ></img> -->
 										<div class="circulo_btn">
 											<img src="img/fruit35.png"></img>
@@ -185,7 +185,7 @@
 							    </li>
 							    
 							    <li>
-							    	<a id="btn1" href="#ruta">
+							    	<a id="btn3" class="btnRuta" href="#ruta">
 										<div class="circulo_btn">
 											<img src="img/sea17.png"></img>
 										</div>
@@ -195,7 +195,7 @@
 							    </li>
 							    
 							     <li>
-							    	<a id="btn1" href="#ruta">
+							    	<a id="btn4" class="btnRuta" href="#ruta">
 										<div class="circulo_btn">
 											<img src="img/barbecue2.png"></img>
 										</div>
@@ -205,7 +205,7 @@
 							    </li>
 							    
 							     <li>
-							    	<a id="btn1" href="#ruta">
+							    	<a id="btn5" class="btnRuta" href="#ruta">
 										<div class="circulo_btn">
 											<img src="img/vegetable6.png"></img>
 										</div>
@@ -215,7 +215,7 @@
 							    </li>
 							    
 							     <li>
-							    	<a id="btn1" href="#ruta">
+							    	<a id="btn6" class="btnRuta" href="#ruta">
 										<div class="circulo_btn">
 											<img src="img/wine1.png"></img>
 										</div>
@@ -225,7 +225,7 @@
 							    </li>
 							    
 							    <li id="cerveza">
-							    	<a id="btn1" href="#ruta">
+							    	<a id="btn1" class="btnRuta" href="#ruta">
 										<div class="circulo_btn">
 											<img src="img/drink2.png"></img>
 										</div>
@@ -265,6 +265,7 @@
 					
 					<div class="contenidoCalendario">
 						<section class="eventos">
+							<div class="titulito"><h1>Noticias <img src="img/open-iconic/svg/globe.svg"></img></h1></div>
 							<article class="entrada">
 							  <header>
 							    <h1 class="tituloArticulo">Cata de pintxos en San Martín</h1>
@@ -283,7 +284,7 @@
 							      <a class="entry-unrelated" href="http://www.msanmartin.es">+info: Mercado San Martín</a>
 							  </div>
 							
-							  <footer>
+							  <footer id="footNoticia">
 							    <p>
 							     <strong>Fecha:</strong>15/03/2015, <strong>Horario:</strong>18:00, <strong>Lugar:</strong>Mercado San Martin
 							    </p>
@@ -309,17 +310,20 @@
 							      <a class="entry-unrelated" href="http://www.casadellibro.com/">+info La casa del libro</a>
 							  </div>
 							
-							  <footer>
+							  <footer id="footNoticia">
 							    <p>
 							     <strong>Fecha:</strong>19/03/2015, <strong>Horario:</strong>19:00, <strong>Lugar:</strong>Elkar
 							    </p>
 							  </footer>
 							</article>
 						</section>
-						<section class="noticias"></section>
+						<section class="agenda">
+								<% include agenda %>
+						</section>
 						<section class="twitter">
-							<p>Lo que se habla de 'The pintxopo':</p>
-							<div id="twitterstream"><a class="twitter-timeline" href="https://twitter.com/ThePintxopo" data-widget-id="562877322005852161">Tweets by @ThePintxopo</a></div></section>
+							<div class="titulito"><h1>'The pintxopo' en tiempo real <img src="img/open-iconic/svg/people.svg"></h1></div>
+							<div id="twitterstream"><a class="twitter-timeline" href="https://twitter.com/ThePintxopo" data-widget-id="562877322005852161">Tweets by @ThePintxopo</a></div><div id="tweetd"></div></section>
+							
 					</div>	<!--CIERRE contenidoCALENDARIO-->
 					  
 					</div><!--CIERRE CALENDARIO-->

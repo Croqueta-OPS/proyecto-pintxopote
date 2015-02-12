@@ -34,10 +34,25 @@ $(document).ready(function() {
 						pintxos += "<div class='media_votes' value='"+element.media+"'>media: "+element.media+" </div></div>";
 					pintxos += "</div>";
 				pintxos += "</article>";
+				
+				
+				
+				
+				/*if(element.media === 1){
+				
+					$(".star_1").addClass('ratings_over');
+				
+				}else{
+					
+					$(".star_5").prevAll().andSelf().addClass('ratings_over');
+					
+				}*/
+				
 			});		
 			
 			//Cerramos los <div> del html
 			pintxos += "</div>";
+			
 
 			//Enviamos la variable pintxos, un String simple con instrucciones html, y le indicamos que lo cargue en el div "pintxos"
 			$("#pintxos").html(pintxos);

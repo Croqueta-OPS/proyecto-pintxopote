@@ -249,66 +249,85 @@ module.exports = function(app, passport) {
 		
 	});
 	
+	//Permitimos a los usuarios emitir un voto a cada pintxo, controlamos que cada pintxo solo sea votado una vez por persona y siempre y cuando sea un usuario registrado
 	app.post('/emiteVoto', isLoggedIn, function (req, res) {
 	    console.log('id pintxo: '+req.body.id);
 		console.log('id usuario: '+req.user._id);
 		
-	    Pintxo.update({_id: req.body.id}, {media: req.body.med, votos: req.body.votes, puntos: req.body.punt}, null, function (err) {
-	
-				//Si hay error
-				if (err){
-			      	//Muestra por consola el error
-			    	console.log('ERROR: ' + err);
-			    }else{
-			    	//redireccionamos a la página /edita-pintxos
-			    	console.log('entra');
-        			
-			    }
-
-		});//Cierre del mtodo update
+		var existePintxo = false;
 		
-		
-			/*User.update({_id: req.user._id}, {$push: {pintxosVotados: {id: req.body.id}}}, {safe: true, upsert: true}, function(err, model) {
-	
-				//Si hay error
-				if (err){
-			      	//Muestra por consola el error
-			    	console.log('ERROR: ' + err);
-			    }else{
-			    	//redireccionamos a la página /edita-pintxos
-		    			console.log('Agregado');
-		        	    console.log('id pintxo2: '+req.body.id);
-						console.log('id usuario2: '+req.user._id);
+		//Buscamos el usuario que ha hecho click en el pintxo en la BD
+		User.find({_id:req.user._id}, function(err, user) {
 					
-			    }
-	
-			//Cierre del mtodo update
-			});*/		
-		User.findById(req.user._id, function(err, user) {
-		       if(err){
-			       console.log(err);
-		       }else{
-		       		
-		       		user.local.pintxosVotados.push(req.body.id);
-		       		
-		       		user.save (function (err, pintxo) {
-	
-					  	//Si existe un error
-						if(err){
+					//recorremos los campos del usuario
+					user.forEach(function(element, index, array) {
+						
+						//recorremos el campo de pintxos votados que es un array 
+						element.local.pintxosVotados.forEach(function(element2, index, array) {
 							
-							//Muestra por consola el error
-					    	console.log('ERROR: ' + err);
-					    	
-						}
-						else{
-								console.log('Agregado');
-			        	    console.log('id pintxo2: '+req.body.id);
-							console.log('id usuario2: '+req.user._id);
-						}
-					});
-		    	}
-		    }
-		);
+							console.log("pintxos" + element2);
+								
+							//si el id del pintxo a votar existe en el campo pintxos votados este no se puede votar
+							if(element2 == req.body.id){
+								existePintxo = true;
+								console.log("El pintxo con id está votado: "+existePintxo);
+							}
+								
+						});
+						
+						
+						if (!existePintxo && index === array.length - 1) {
+						
+							console.log("fin de array " + "existePintxo: "+existePintxo);
+							
+							Pintxo.update({_id: req.body.id}, {media: req.body.med, votos: req.body.votes, puntos: req.body.punt}, null, function (err) {
+			
+									//Si hay error
+									if (err){
+								      	//Muestra por consola el error
+								    	console.log('ERROR: ' + err);
+								    }else{
+								    	//redireccionamos a la página /edita-pintxos
+								    	console.log('entra');
+								    	res.redirect('/');
+					        			
+								    }
+					
+							});
+							
+							
+							User.findById(req.user._id, function(err, user) {
+							       if(err){
+								       console.log(err);
+							       }else{
+							       		
+							       		user.local.pintxosVotados.push(req.body.id);
+							       		
+							       		user.save (function (err, pintxo) {
+						
+										  	//Si existe un error
+											if(err){
+												
+												//Muestra por consola el error
+										    	console.log('ERROR: ' + err);
+										    	
+											}
+											else{
+													console.log('Agregado');
+								        	    console.log('id pintxo2: '+req.body.id);
+												console.log('id usuario2: '+req.user._id);
+											}
+										});
+							    	}
+							    }
+							);
+											}
+							
+										});	
+										
+							});
+		
+	    
 	    
 	});
 	
@@ -428,10 +447,10 @@ app.post('/actualiza-usuarios', function(req, res) {
 					else {
 						//DE AQUI SE ENVIA EL ERROR SI YA EXISTE EL USUARIO
 						if (existeNom) {
-							console.log("ya existe el nombre bitch");
+							console.log("ya existe el nombre");
 						}
 						if (existeEm) {
-							console.log("ya existe el email bitch");
+							console.log("ya existe el email");
 						}
 						res.redirect("/profile")
 					}
@@ -507,7 +526,7 @@ app.post('/actualiza-usuarios', function(req, res) {
 		
 		Pintxo.findByIdAndRemove(req.body.id, function (err, users) {
  
-    			//Si existe un error
+    		//Si existe un error
 			if(err){
 				
 				//Muestra por consola el error

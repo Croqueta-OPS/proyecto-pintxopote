@@ -110,6 +110,8 @@ $(window).load(function() {
                         );
                     });
                     });*/
+                    
+                    
                 });                 
             }else{
                 $( ".ratings_stars" ).click(function() {
@@ -118,7 +120,7 @@ $(window).load(function() {
                 });
             }
     
-    
+
       $('.ratings_stars').hover(
             // Handles the mouseover
             function() {

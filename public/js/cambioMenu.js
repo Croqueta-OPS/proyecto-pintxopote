@@ -37,4 +37,14 @@ $(document).ready(function () {
         
     });
     
+   /* $(window).bind("scroll", function() {
+
+        if ($(this).scrollTop() > document.getElementById("bares").offsetTop + 500) {
+            $(".active").removeClass('active');
+            $("#anclaBares").addClass('active');
+    
+        }
+    
+    }); */
+    
 });

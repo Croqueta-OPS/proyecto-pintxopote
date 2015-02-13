@@ -1,4 +1,8 @@
 /*********** RUTAS **********/
+#rutas {
+	margin-top: 7%;
+}
+
 
 #googleMap {
 	height: 60%;
@@ -12,7 +16,7 @@
 	
 .contenedor-rutas{
 	width: 100%;
-	height: 85%;
+	height: 95%;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -32,7 +36,7 @@
 	flex-wrap: wrap;
 	justify-content: space-between;
 	width: 100%;
-	height: 35%;
+	height: 16%;
 }
 
 #menu_rutas a > div > img{
@@ -73,7 +77,6 @@
 .btnRuta:active{
 	
 	text-decoration: none;
-	color: crimson;
 	
 }
 
@@ -126,6 +129,8 @@
     #menu_rutas{
 		
 		height: 30%;
+		margin-bottom: -28%;
+		margin-top: -8%;
 	}
 		
 	#menu_rutas > ul > li > a > p{
@@ -173,6 +178,12 @@
 		width: 50px;
 		height: 50px;
 		
+	}
+	
+	#rutas {
+		
+		height: 600px;
+	
 	}
 	
     

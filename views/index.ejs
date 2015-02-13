@@ -68,6 +68,7 @@
 		
 		<script type="text/javascript" src="js/responsiveMenu.js"></script>
 		
+		<!-- Es necesario este css porque el css del about es diferente -->
 		<style type="text/css">
 			
 			footer#principal{
@@ -93,11 +94,11 @@
 				<nav class="menuNavegador" id="clearfix">
 					<ul id="clearfix">
 						<li id="homeButton" class="active"><a class="homeButton" href="">HOME</a></li>
-						<li><a class="ancla" href="#rutas">RUTAS</a></li>
-						<li><a class="ancla" href="#pintxos">PINTXOS</a></li>
+						<li id="anclaRutas"><a class="ancla" href="#rutas">RUTAS</a></li>
+						<li id="anclaPintxos"><a class="ancla" href="#pintxos">PINTXOS</a></li>
 						<li id="visibleLogo"><a class="homeButton" href=""><img src="img/logo_trazado_recortado.png" /></a></li>
-						<li><a class="ancla" href="#bares">BARES</a></li>
-						<li><a class="ancla" href="#calendario">EVENTOS</a></li>
+						<li id="anclaBares"><a class="ancla" href="#bares">BARES</a></li>
+						<li id="anclaCalendario"><a class="ancla" href="#calendario">EVENTOS</a></li>
 						<li><a href="/about">ABOUT</a></li>
 					</ul>
 					<a href="#" id="pull">Menu</a>
@@ -110,6 +111,7 @@
 		        	<!--<img id="icono-user" href="/profile" src="img/open-iconic/svg/person.svg" alt="perfil">-->
 		        	<button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"><%= nombre %>
 		        	<span class="caret"></span></button>
+		        	<p id="nomUsuario"><%= nombre %></p>
 			        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
 			          <li role="presentation"><a role="menuitem" tabindex="-1" href="/profile">Ver perfil</a></li>
 			          <li role="presentation" class="divider"></li>
@@ -130,13 +132,21 @@
 				<p id="cita">-Groucho Marx</p>
 			</div>
 			
-			<!--<div id="loginRedes">-->
 			<!--BOTON LOGIN || UNETE-->
 			<div class="<%= clase2 %>" id="btnUnete">
-				<!--<a href="/login"><img  class="imgBoton" src="img/btn-unete.png"></img></a>-->
+				
 				<a href="#login" data-toggle="modal"><img src="img/btn-unete.png"></img></a>
-				<!--<a href="#contact" data-toggle="modal"><img class="imgBoton" src="img/btn-unete.png"></img></a>-->
+				
 			</div>
+			
+			<!-- FOTO PERFIL USUARIO LOGUEADO -->
+			<div class="<%= clase %>" id="avatarUsuario">
+				
+				<a href="/profile" data-toggle="modal"><img src="<%= img %>"></img></a>
+				
+			</div>
+			<!-- fin FOTO PERFIL USUARIO LOGUEADO -->
+			
 			<div>
 				<section class="flex-container" id="navRedes1">	
 					<article class="botonesRedes">
@@ -243,11 +253,8 @@
 										<p>Beer <br> Gourmet</p>
 									</a>
 							    </li>
-							  
 							    
 						  	</ul>
-							
-							
 						
 						</div>	
 						
@@ -314,8 +321,6 @@
 							        <img src="img/sushi.jpg" alt="Portrait of Tammy Strobel" />
 							      </figure>
 							      <p>Un nuevo concepto de libros de cocina sumamente prácticos para aquellos que se sienten a gusto cocinando. Una colección para personas que ya han visto parte del mundo; las recetas son sanas y fáciles de preparar, además de internacionales. Cada volumen incluye 50 recetas clásicas con las últimas tendencias. El sushi es una ...</p>
-
-							      
 
 							      <a class="entry-unrelated" href="http://www.casadellibro.com/">+info La casa del libro</a>
 							  </div>

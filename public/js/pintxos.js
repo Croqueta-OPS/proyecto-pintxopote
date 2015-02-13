@@ -1,8 +1,12 @@
 //Script que pide elementos Pintxo al servidor (que hará una consulta a MongoLab para devolverlos) 
 //y los carga en el <div> de pintxos de forma dinámica, sin necesidad de recargar la página.
 
+var array = [];
+
 //En este caso está puesto para hacerlo nada más recargar la página, pero se puede utilizar para cargar nuevos pintxos mediante eventos de botones, por ejemplo
 $(document).ready(function() {	
+	
+	
 
 	$.ajax({
 		
@@ -13,7 +17,8 @@ $(document).ready(function() {
 		//Si la petición es correcta, se ejecutará el script de carga de datos
 		success: function(data) {
 
-
+			array = data;
+			
 			//Creamos una variable String para meter instrucciones html, que será la que pasaremos despues al html
 			//Primero creamos un <div> en el html, le ponemos un título y subtítulo, y abrimos otro <div> dentro para meter los pintxos
 			var pintxos = "<div class='titulo'><h1>Pintxos</h1><h2>Degusta la variedad</h2></div><div class='pintxo'>";
@@ -39,7 +44,6 @@ $(document).ready(function() {
 			
 			//Cerramos los <div> del html
 			pintxos += "</div>";
-			
 
 			//Enviamos la variable pintxos, un String simple con instrucciones html, y le indicamos que lo cargue en el div "pintxos"
 			$("#pintxos").html(pintxos);
@@ -55,4 +59,16 @@ $(document).ready(function() {
 
 	});
 	
+	
 });
+
+function estrellasMedia() {
+	
+	array.forEach(function(element, index, array) {
+	
+		$("#"+element._id+""+element.media).prevAll().andSelf().addClass('ratings_over');
+		$("#"+element._id+""+element.media).prevAll().andSelf().removeClass('ratings_vote');
+	
+	});
+	
+}

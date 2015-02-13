@@ -19,14 +19,13 @@ body{
 .logo {
 	margin: 0 auto;
 	max-width: 30%;
-	z-index: 999;
-	position: relative;
+	text-align:center;
 }
 
 .logo img {
-	width: 80%;
+	width: 40%;
 	display:block;
-    margin:auto;
+    margin: 0 auto;
 }
 
 /*SLIDER*/
@@ -166,7 +165,9 @@ p{
 }
 
 .fotos{
-	margin: 5% 0 0 0;
+    padding-top:3%;
+    width:60%;
+    margin:0 auto;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -218,12 +219,13 @@ article img{
 }
 .playPauseBtn{
     vertical-align: middle;
-    background-image:url(../img/play.png);
+    background-image:url(../img/open-iconic/svg/media-play.svg);
+    background-size:cover;
+    background-repeat:no-repeat;
     border:none;
-    width:32px;
-    height: 32px;
+    width:24px;
+    height: 24px;
     cursor:pointer;
-    opacity:0.5;
     margin-right:15px;
 }
 .playPauseBtn:hover{
@@ -231,10 +233,12 @@ article img{
 }
 .muteBtn{
     vertical-align: middle;
-    background-image:url(../img/mute.png);
+    background-image:url(../img/open-iconic/svg/volume-low.svg);
+    background-size:cover;
+    background-repeat:no-repeat;
     border:none;
-    width:32px;
-    height: 32px;
+    width:24px;
+    height: 24px;
     cursor:pointer;
     opacity:0.5;
     margin-right:15px;
@@ -244,10 +248,12 @@ article img{
 }
 .fullScreenBtn{
     vertical-align: middle;
-    background-image:url(../img/fullscreen.png);
+    background-image:url(../img/open-iconic/svg/fullscreen-enter.svg);
+    background-size:cover;
+    background-repeat:no-repeat;
     border:none;
-    width:32px;
-    height: 32px;
+    width:24px;
+    height: 24px;
     cursor:pointer;
     opacity:0.5;
 }
@@ -256,10 +262,10 @@ article img{
 }
 
 .video_player_box{
+    padding-top:1%;
     width: 604px;
-    background: #000;
     margin: 0 auto;
-    border: 2px solid black;
+    border: 1px solid gray;
 }
 
 .seekSlider{
@@ -292,9 +298,25 @@ input[type="range"]::-webkit-slider-thumb{
     cursor:pointer;
 }
 .video{
-    margin-top:5%;
+    margin-top:1%;
+    margin-bottom:5%;
 }
 /*FIN VIDEO*/
+
+.titulito{
+    margin-top:5%;
+	width:100%;
+	text-align: center;
+}
+.titulito h1{
+	font-family:helvetica;
+	font-weight:bold;
+	font-size:1em;
+}
+.titulito img{
+	width:1%;
+}
+
 
 .fotosRound{
     
@@ -313,3 +335,14 @@ footer#principal{
     width: 100%;
     margin-left: 0;
 }
+
+@media (max-width: 480px){
+    
+    .logo img{
+        
+        width: 120%;
+    }
+    
+}
+    
+    

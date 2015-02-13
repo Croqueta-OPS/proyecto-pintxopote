@@ -24,7 +24,7 @@ body {
 	height: auto;
 	top: 0;
 	box-shadow: 0 0 6px 0px rgba(50, 50, 50, 0.75);
-	background-color: #FFF;
+	background-image: url('/img/crossword.png');
 	z-index: 1001;
 
 }
@@ -42,7 +42,7 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
 	position: fixed;
-	background-color: #FFF;
+	background-image: url('/img/crossword.png');
 	box-shadow: 0 0 6px 0px rgba(50, 50, 50, 0.75);
 }
 
@@ -108,6 +108,10 @@ body {
 	text-align: center;
 }
 
+#nomUsuario {
+	display: none;
+}
+
 /*************************/
 
 .entrada {
@@ -122,7 +126,10 @@ body {
 .bienvenida {
 	width: 60%;
 	height: 40%;
-	margin: 17% 20% 12% 20%;
+	margin-bottom: 13%;
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-top: 13%;
 	color: #FFF;
 	text-align: center;
 	font-size: 200%;
@@ -155,6 +162,19 @@ body {
 #btnUnete img{
 	width: 25%;
 }
+
+#avatarUsuario {
+	margin: 0 auto;
+	width: 60%;
+	text-align: center;
+}
+
+#avatarUsuario img{
+	width: 15%;
+	border-radius: 50%;
+}
+
+
 
 /*************BOTONES REDES SOCIALES*************/
 .flex-container {
@@ -201,12 +221,9 @@ body {
 }
 /************************************************/
 
-#rutas {
-	margin-top: 7%;
-}
+
 
 #pintxos{
-	border:1px solid blue;
 	min-height: 85%;
 	height: auto;
 }
@@ -233,24 +250,29 @@ body {
 	display: none;
 }
 
+/*******SECCION BARES******/
+.principal{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: flex-start; /* align vertical */
+	width:100%;
+	margin-top:2%;
+	height:auto;
+}
 .visor {
-	float: left;
-	margin-left: 4%;
-	height: 87%;
-	margin-top: 4%;
+	width:37%;
 }
 
 .visor img {
-	max-height: 100%;
+	max-height: 50%;
 	max-width: 100%;
 }
 
 .imgBares {
-	margin-top: 1.5%;
-	width: 40%;
-	float: right;
-	margin-right: 10%;
-	height: 85%;
+	width: 55%;
+	height: 100%;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -259,23 +281,62 @@ body {
 }
 
 .imagenesBares {
-	margin-top: 2%;
-	width: 34%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center; /* align vertical */
+	height:auto;
+	padding: 1%;
+	width: 30%;
+	border: 1px solid gray;
+	margin-bottom:2%;
 }
-
+.nombreBar{
+	width:100%;
+}
+.nombreBar h1{
+	padding:0;
+	margin-top:0;
+	font-size: 100%;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 700;
+}
 .imgBares img {
+	border:1px solid gray;
 	width: 100%;
 	cursor: pointer;
 }
-
+.descripcionBar{
+	padding-top:3%;
+	width:100%;
+}
 .barTitle {
 	width: 58%;
 	float: right;
+}
+.direccionBar{
+	width:100%;
+	background:#eee;
+	padding:1%;
+}
+
+#navBares {
+	margin-top:2%;
+	width: 100%;
+	text-align:center;
+}
+
+#navBares img {
+	width: 20%;
+	min-width: 20px;
+	width:5%;
 }
 
 #barPrincipal, #coordX, #coordY, #nombreBar {
 	display: none;
 }
+/*******FIN BARES******/
 
 
 /******SECCION EVENTOS********/
@@ -420,7 +481,7 @@ body {
 
 .pintxo article img {
 	width: 100%;
-	min-width:100%;
+	min-width:99%;
 	/*min-height:100%;*/
 }
 
@@ -472,20 +533,7 @@ body {
 	z-index: 1550;
 }
 
-#navBares {
-	position: absolute;
-	width: 10%;
-	margin-top: -2.5%;
-	margin-left: 33%;
-	min-width: 60px;
-}
 
-#navBares img {
-	width: 25%;
-	float: right;
-	margin-right: 15%;
-	min-width: 20px;
-}
 
 .secciones{
 	position:relative;
@@ -546,7 +594,7 @@ body {
 }
 
 
-@media screen and (max-width: 600px) { 
+@media screen and (max-width: 1300px) { 
 	
 	#visibleLogo{
 		display:none;
@@ -556,7 +604,7 @@ body {
 		padding: 2%;
 	}
 	#hiddenLogo img{
-		width: 45%;
+		width: 15%;
 		height: auto;
 	}
 	.menuNavegador {   
@@ -579,6 +627,10 @@ body {
 	    text-align: left;  
 	    width: 100%;  
 	}  
+	
+	#btnUsuario {
+		margin-top: -7%;
+	}
 }  
 
 
@@ -587,18 +639,19 @@ body {
 /*****media seccion PINTXOS****************/
 	
 	.pintxo article{
-		min-width:155px;
+		min-width:140px;
 		width:45%;
 		height: 250px;
 		overflow:hidden;
-
+		
 	}
 	.pintxo article img{
+		width: 99%;
 		display:block;
-		width:auto;
 		max-height:100px;
 		position:relative;
 		/*height: 100px;*/
+		
 	}
 	.pintxo article h3{
 		min-height:60px;
@@ -608,6 +661,82 @@ body {
 	}
 	
 	/*********************************/
+	
+	/*******SECCION BARES******/
+	.visor {
+		width:85%;
+		margin-bottom:2%;
+	}
+	#navBares{
+		width:100%;
+		margin-left:0;
+		margin-top:3%;
+		margin-bottom:3%;
+		position: relative;
+	}
+	#navBares img{
+		width:5%;
+	}
+	
+	.visor img {
+		max-height: 100%;
+		max-width: 100%;
+	}
+	
+	.imgBares {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		align-items: center; /* align vertical */
+	}
+	
+	.imagenesBares {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		align-items: center; /* align vertical */
+		height:auto;
+		padding:0;
+		width: 43%;
+		margin-bottom:3%;
+		border:none;
+	}
+	
+	.nombreBar{
+		width:100%;
+	}
+	.nombreBar h1{
+		padding:3%;
+		margin-top:0;
+		font-size: 100%;
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 700;
+	}
+	.imgBares img {
+		border:1px solid gray;
+		width: 100%;
+		cursor: pointer;
+	}
+	.descripcionBar{
+		display:none;
+	}
+	.barTitle {
+		width: 58%;
+		float: right;
+	}
+	.direccionBar{
+		width:100%;
+		background:#eee;
+		padding:5%;
+	}
+	
+	#bares{
+		height:1072px;
+	}
 	
 	/******SECCION EVENTOS********/
 	
@@ -803,6 +932,17 @@ body {
 		width: 80%;
 	}
 	
+	#avatarUsuario {
+		margin: 0 auto;
+		width: 60%;
+		min-width:60%;
+		text-align: center;
+	}
+	
+	#avatarUsuario img{
+		width: 60%;
+	}
+	
 	.flex-container {
 		width: 60%;
 		margin: 0 auto;
@@ -819,47 +959,6 @@ body {
 	  	width: 100%;
 	  	height: auto;
 	  	margin: 0 auto;
-	}
-
-	
-
-	.principal {
-		height: 40%;
-		width: 100%;
-	}
-	
-	.visor {
-		width: 80%;
-		margin-left: 10%;
-	}
-	
-	.visor img {
-		height: 100%;
-		width: 100%;
-	}
-	
-	#navBares {
-		margin-top: 1%;
-		margin-left: 27%;
-	}
-	
-	.imgBares {
-		width: 90%;
-		margin-left: 5%;
-		margin-top: 6%;
-		float: left;
-		height: 40%;
-	}
-	
-	.imagenesBares {
-		width: 40%;
-		height: 30%;
-	}
-	
-	.imgBares img {
-		max-height: 100%;
-		width: 100%;
-		cursor: pointer;
 	}
 	
 	.barTitle {
@@ -888,8 +987,8 @@ body {
 		width: 60%;
 		margin: 0 auto;
 		margin-top: 12%;
-		margin-bottom: 7%;
-		/*border:1px solid blue;*/
+		margin-bottom: 2%;
+		height: 10%;
 	}
 	
 	

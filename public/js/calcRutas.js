@@ -175,6 +175,6 @@ window.onresize = function(event) {
     }
     else {
         map.setCenter(new google.maps.LatLng(43.315467, -1.940544));
-        map.setZoom(5);
+        map.setZoom(12);
     }
 };

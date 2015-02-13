@@ -35,12 +35,19 @@ function playPause(){
     if(vid.paused || vid.ended){
         
         vid.play();
-        playBtn.style.background = "url(../img/pause.png)";
+        playBtn.style.backgroundImage = "url(../img/open-iconic/svg/media-pause.svg)";
+        playBtn.style.backgroundRepeat = "no-repeat";
+        playBtn.style.backgroundSize = "cover";
+
+        //playBtn.style.backgroundImage = "url(../img/open-iconic/svg/media-pause.svg)";
         
     }else{
         
         vid.pause();
-        playBtn.style.background = "url(../img/play.png)";
+        playBtn.style.background = "url(../img/open-iconic/svg/media-play.svg)";
+        playBtn.style.backgroundRepeat = "no-repeat";
+        playBtn.style.backgroundSize = "cover";
+
         
     }
 }
@@ -82,13 +89,19 @@ function vidMute(){
     if(vid.muted){
         
         vid.muted = false;
-        muteBtn.style.background = "url(../img/mute.png)";
+        muteBtn.style.background = "url(../img/open-iconic/svg/volume-low.svg)";
+        muteBtn.style.backgroundRepeat = "no-repeat";
+        muteBtn.style.backgroundSize = "cover";
+
         volumeSlider.value = 100;
         
     }else{
         
         vid.muted = true;
-        muteBtn.style.background = "url(../img/unmute.png)";
+        muteBtn.style.background = "url(../img/open-iconic/svg/volume-high.svg)";
+        muteBtn.style.backgroundRepeat = "no-repeat";
+        muteBtn.style.backgroundSize = "cover";
+
         volumeSlider.value = 0;
 
     }

@@ -16,7 +16,8 @@ module.exports = function(app, passport) {
 		if(req.isAuthenticated() && typeof req.user.local !== "undefined"){
 		
 			res.render('index.ejs', { 
-				nombre: req.user.local.nomUsuario, 
+				nombre: req.user.local.nomUsuario,
+				img: req.user.local.avatar,
 				clase : 'visible', 
 				clase2: 'escondido',
 				message : 'a',
@@ -27,6 +28,7 @@ module.exports = function(app, passport) {
 			
 			res.render('index.ejs', { 
 				nombre : '', 
+				img: '',
 				clase  : 'escondido', 
 				clase2 : 'visible',
 				message : req.flash('loginMessage'),
@@ -44,6 +46,18 @@ module.exports = function(app, passport) {
  			if (err) return console.error(err);
  			//Obtenemos un array de pintxos (objetos json)
   			response.send(pintxos);
+  			
+		});
+		
+	});
+	
+	app.get('/usuarios', function (require, response) {
+		//Hacemos un find en la base de datos de la collección Pintxos
+	 	User.find(function(err, usuarios) {
+	 		
+ 			if (err) return console.error(err);
+ 			//Obtenemos un array de pintxos (objetos json)
+  			response.send(usuarios);
   			
 		});
 		

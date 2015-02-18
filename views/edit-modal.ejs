@@ -1,0 +1,43 @@
+<!----- VENTANA MODAL LOGIN---
+		----------------------->
+		<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4>Edita tu perfil</h4>
+						
+					</div>
+					<div class="modal-body2">
+					
+					<div class="container-form">
+					
+							<form action="/actualiza-usuarios" id="registrationForm" method="post" class="form-horizontal">
+	
+								<div class="form-group">
+									<label class="control-label">Nombre de usuario</label>
+									<input type="text" class="form-control" name="username" value="<%= user.local.nomUsuario%>"/>
+									<input id="idUsuario" type="text" class="form-control" name="idUsuario" value="<%= user._id%>"/>
+								</div>
+		
+								<div class="form-group">
+									<label class="control-label">Email</label>
+									<input type="text" class="form-control" name="email" value="<%= user.local.email %>"/>
+								</div>
+		
+								<div class="form-group">
+									<label class="control-label">Fecha de nac.</label>
+									<input type="text" class="form-control" name="birthday" placeholder="YYYY/MM/DD" value="<%= user.local.fechaNac %>"/>
+								</div>
+								<button type="submit" class="btn btn-success" id="btnActualizar" >Guardar</button>
+							</form>
+        					<div class="modal-footer">
+        						<a class="btn btn-default" data-dismiss="modal">	Cerrar</a>
+        					</div>
+        				
+				</div>
+			</div>
+		</div>
+		</div>
+		</div>
+		<!-- FIN de la ventana modal ////////////////////-->

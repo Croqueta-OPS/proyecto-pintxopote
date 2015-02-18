@@ -3,6 +3,7 @@ $(window).load(function() {
     var logueado = $('#btnUsuario').attr('class');
             
             if(logueado=='visible'){
+                
                 $( ".ratings_stars" ).click(function() {
                     
                     var ident = $(this).attr("id").substring(0, $(this).attr("id").length - 1);//guardamos el ID del pintxo en la variable
@@ -12,8 +13,6 @@ $(window).load(function() {
                     var votos = $(this).siblings(".votos").children("div.total_votes").attr("value");//guardamos el total de los votos
                     var media = $(this).siblings(".votos").children("div.media_votes").attr("value");//guardamos la media
                     
-                    
-                    /*alert(ident+" valoracion:"+puntos+" votos:"+votos+" media:"+media);*/
                     
                     puntos = parseInt(puntos);
                     votos = parseInt(votos);
@@ -91,26 +90,6 @@ $(window).load(function() {
                 		}
                         		
                 	});
-                        	
-                	// location.reload();
-                    /*//función que usamos para recargar la página
-                    location.reload(function (){
-                    $(window).load(function() {
-
-                        $('.ratings_stars').hover(
-                        // Handles the mouseover
-                        function() {
-                            $(this).prevAll().andSelf().addClass('ratings_over');
-                            $(this).nextAll().removeClass('ratings_vote'); 
-                        },
-                        // Handles the mouseout 
-                        function() {
-                            $(this).prevAll().andSelf().removeClass('ratings_over');
-                        }
-                        );
-                    });
-                    });*/
-                    
                     
                 });                 
             }else{

@@ -9,10 +9,9 @@ module.exports = function(app, passport) {
 	// INDEX ========
 	// =====================================
 	
-	
 	app.get('/', function(req, res) {
 		
-		
+		//Si el usuario está logueado y no es "undefined" entra por aquí y se activan algunas opciones en el index
 		if(req.isAuthenticated() && typeof req.user.local !== "undefined"){
 		
 			res.render('index.ejs', { 
@@ -23,7 +22,7 @@ module.exports = function(app, passport) {
 				message : 'a',
 				message2 : 'a'
 			});
-
+		//Si no está logueado pasamos otro tipo de variable
 		}else{
 			
 			res.render('index.ejs', { 
@@ -40,7 +39,7 @@ module.exports = function(app, passport) {
 	});
 
 	app.get('/pintxos', function (require, response) {
-		//Hacemos un find en la base de datos de la collección Pintxos
+		//Hacemos un find en la base de datos de la colección Pintxos
 	 	Pintxo.find(function(err, pintxos) {
 	 		
  			if (err) return console.error(err);

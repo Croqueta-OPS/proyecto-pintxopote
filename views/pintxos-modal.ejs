@@ -1,0 +1,31 @@
+<!----- VENTANA MODAL LOGIN---
+		----------------------->
+		<div class="modal fade" id="pintxos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+				
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4>Pintxos valorados por <%= user.local.nomUsuario %></h4>
+					
+				</div>
+					
+				<div class="modal-body">
+					
+					<% for(var i = 0; i < user.local.pintxosVotados.length; i++) {%>
+					
+						<p class="idPintxo"><%= user.local.pintxosVotados[i] %></p>
+						
+					<% } %>
+					
+				</div>
+					
+					<!-- FIN del formulario ////////////////////-->
+				<div class="modal-footer">
+					<a class="btn btn-default" data-dismiss="modal">	Cerrar</a>
+				</div>
+				
+			</div>
+		</div>
+   </div>
+		<!-- FIN de la ventana modal ////////////////////-->

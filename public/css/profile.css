@@ -107,6 +107,9 @@ hr{
     height: 250px;
 }
 
+.modal-body2{
+	padding: 40px;
+}
 
 .valoracion h1{
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;

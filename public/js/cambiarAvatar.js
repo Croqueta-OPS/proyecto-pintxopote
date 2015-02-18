@@ -3,8 +3,10 @@ $(document).ready(function() {
 	var imageLoader = document.getElementById('imageLoader');
 	imageLoader.addEventListener('change', handleImage, false);
 	
+	//cogemos el churro de base64 del html
 	var imgUrl = document.getElementById("avatarString").innerHTML;
 	
+	//asignamos como src de la imagen el churro
 	document.getElementById("avatarImg").src = imgUrl;
 	
 	function handleImage(e) {

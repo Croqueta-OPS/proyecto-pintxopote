@@ -35,19 +35,6 @@ $(document).ready(function() {
         		
         		//Le damos un pequeño timeOut, que solo es necesario si queremos cargar una ruta directamente al cargar la página
         	    setTimeout(function() {
-        
-                                            		/*data.forEach(function(element, index, array) {
-                                            			
-        //Este pedazo de código es para               	myLatlng = new google.maps.LatLng(element.coordX, element.coordY);
-        //poner puntos en el mapa sin rutas                                 			
-                                            			var marker = new google.maps.Marker({
-        //Lo guardamos por si hace falta        			position: myLatlng,
-        //algún día                             			map : map,
-                                            				title: element.nombre
-                                            			});
-                                            
-                                            		});*/
-            		
             		
             		//Creamos un array vacío
             		var arrayRuta = [];

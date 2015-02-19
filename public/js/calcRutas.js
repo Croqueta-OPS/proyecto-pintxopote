@@ -11,18 +11,7 @@ $(document).ready(function() {
         directionsDisplay.setMap(map);
        
         //Creamos una variable ruta, que indica cual es la ruta que vamos a imprimir
-        var ruta;
-        
-        //Damos valor a la ruta, dependiendo de cual es el botón concreto pulsado
-        if (this.id == "btn1" || this.id == "btn4" || this.id == "btn7") {
-            ruta = "0";
-        }
-        else if (this.id == "btn2" || this.id == "btn5") {
-            ruta = "1";
-        }
-        else {
-            ruta = "3";
-        }
+        var ruta = parseInt(this.id.substring(3, 4)) - 1;
     
         $.ajax({
         
@@ -54,11 +43,6 @@ $(document).ready(function() {
             		        }
             		    
             		    });
-            		    
-            		    //De momento, la ruta 3 es la que contiene todos los bares, aunque en la BBDD ninguno esté en la 3
-            		    if (ruta == "3") {
-            		        arrayRuta.push(element);
-            		    }
             		    
             		});
             		

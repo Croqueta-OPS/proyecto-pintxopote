@@ -23,7 +23,7 @@ var configDB = require('./config/database.js');//con esta línea cargamos la url
 
 var favicon = require('serve-favicon');
 
-
+console.log(configDB.url);
 // Conexión con BBDD ===============================================================
 mongoose.connect(configDB.url, function(err, res){
 	if(!err){

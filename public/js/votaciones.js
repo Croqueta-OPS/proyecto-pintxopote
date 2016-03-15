@@ -94,8 +94,12 @@ $(window).load(function() {
                 });                 
             }else{
                 $( ".ratings_stars" ).click(function() {
-
+                    
+                    /* PONER AQUI QUE SALGA EL FORMULARIO DE REGISTRO */
                     alert('¡No puedes votar si no estás registrado!');
+                    
+                    
+                    
                 });
             }
     
